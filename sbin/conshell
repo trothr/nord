@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+#
+#	  Date: 2004-Mar-29 (Mon)
+#
+#
+
+CON=console
+
+#set > /tmp/conshell.set
+if [ ! -z "$1" ] ; then CON="$1" ; fi
+if [ "$CON" = `basename $CON` ] ; then CON=/dev/$CON ; fi
+PS1='\$ ' ; export PS1
+VERSION_DELIMITER=';' ; export VERSION_DELIMITER
+exec sh -i 0<$CON 1>$CON 2>$CON
+
+
+
+

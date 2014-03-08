@@ -1,0 +1,47 @@
+#!/bin/sh
+#
+#
+#         Date: 2009-Dec-26 (Sat, in the Piney Woods)
+#
+#
+
+#
+# bring up the loop-back interface
+#echo "+ ifconfig lo 127.0.0.1"
+ifconfig lo 127.0.0.1
+
+modprobe ipv6
+
+modprobe lcs # for S390
+cd /sys/bus/ccwgroup/drivers/lcs
+echo 0.0.0440,0.0.0441 > group
+cd 0.0.0440
+echo 1 > online
+
+ifconfig eth0 192.168.29.64
+
+route add -net 192.168.29.0 gw 192.168.29.35 netmask 255.255.255.0
+
+#cd /
+
+#/usr/sbin/sshd &
+
+#modprobe nfs
+#mount -r 192.168.29.35:/export/arc /arc &
+##mount -r 192.168.29.35:/export/home /home &
+
+exit
+exit
+exit
+
+insmod /lib/modules/2.6.16.60-0.25-default/kernel/drivers/s390/net/fsm.ko
+insmod /lib/modules/2.6.16.60-0.25-default/kernel/drivers/s390/cio/ccwgroup.ko
+insmod /lib/modules/2.6.16.60-0.25-default/kernel/drivers/s390/net/cu3088.ko
+
+insmod /lib/modules/2.6.16.60-0.25-default/kernel/drivers/s390/net/ctcmpc.ko
+insmod /lib/modules/2.6.16.60-0.25-default/kernel/drivers/s390/net/ctc.ko
+
+
+
+
+

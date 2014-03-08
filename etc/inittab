@@ -1,0 +1,52 @@
+#
+#
+#         Name: /etc/inittab (master INIT table)
+#
+#
+
+# default runlevel to enter
+init:1:initdefault:
+
+# run once at boot time
+boot:I:bootwait:sh -c ' . /etc/boot.rc '
+
+# when we get a shutdown indication from the HW or the "monitor"
+#cad::ctrlaltdel:/sbin/shutdown -r now
+cad::ctrlaltdel:/sbin/shutdown -h now
+
+# runlevel 0 is halt
+# runlevel S is single-user
+# runlevel 1 is multi-user without network (maybe)
+# runlevel 2 is multi-user with network (perhaps)
+# runlevel 3 is multi-user with network and xdm (in some distros)
+# runlevel 4 is usually reserved for the customer (usually)
+# runlevel 5 is multi-user with network and xdm (in other distros)
+# runlevel 6 is reboot
+
+run0:0:wait:/etc/rc 0
+runS:S:wait:/etc/rc S
+run1:1:wait:/etc/rc 1
+run2:2:wait:/etc/rc 2
+run3:3:wait:/etc/rc 3
+run4:4:wait:/etc/rc 4
+run5:5:wait:/etc/rc 5
+run6:6:wait:/etc/rc 6
+
+cons:12:respawn:/sbin/conshell
+
+T1:345:respawn:agetty tty1 38400
+T2:345:respawn:agetty tty2 38400
+T3:345:respawn:agetty tty3 38400
+T4:345:respawn:agetty tty4 38400
+T5:345:respawn:agetty tty5 38400
+T6:345:respawn:agetty tty6 38400
+T7:345:respawn:agetty tty7 38400
+T8:345:respawn:agetty tty8 38400
+T9:345:respawn:agetty tty9 38400
+TA:345:respawn:agetty tty10 38400
+TB:345:respawn:agetty tty11 38400
+TC:345:respawn:agetty tty12 38400
+
+
+
+

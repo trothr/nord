@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+#         Date: 2005-May-05 (Thu)
+#
+
+echo " *** "
+echo "RC $*"
+echo " *** "
+
+# make a note of this activity, if possible
+if [ -f /var/log/rc.log ] ; then
+  date +"%Y-%m-%d %H:%M:%S rc $*" >> /var/log/rc.log ; fi
+
+# handle exit from the run level we are leaving
+L=`runlevel | awk '{print $1}'`
+for K in /etc/init.d/rc$L.d/K* ; do
+  if [ -x "$K" ] ; then "$K" stop ; fi
+done
+
+# handle entry to this new run level
+for S in /etc/init.d/rc$1.d/S* ; do
+  if [ -x "$S" ] ; then "$S" start ; fi
+done
+
+exit 0
+
+
+
+

@@ -1,0 +1,19 @@
+#!/bin/sh
+# (sourced)
+
+PATH=/usr/bin:/bin
+if [ -d /usr/local/bin ] ; then PATH=/usr/local/bin:$PATH ; fi
+
+if [ -d /usr/X11/bin ] ; then PATH=$PATH:/usr/X11/bin ; elif \
+   [ -d /usr/X11R6/bin ] ; then PATH=$PATH:/usr/X11R6/bin ; fi
+
+if [ "$UID" = 0 ] ; then
+  PATH=/usr/sbin:/sbin:$PATH
+  if [ -d /usr/local/sbin ] ; then PATH=/usr/local/sbin:$PATH ; fi
+fi
+
+export PATH
+
+HISTCONTROL=ignoredups ; export HISTCONTROL
+
+

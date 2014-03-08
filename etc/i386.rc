@@ -1,0 +1,27 @@
+#!/bin/sh
+# (sourced)
+
+BOOTDEV=/dev/hcd
+ETCDEV=/dev/fd0
+CONSOLES=/dev/tty1,/dev/tty2,/dev/tty3,/dev/tty4,/dev/tty5,/dev/tty6,/dev/tty7,/dev/tty8,/dev/tty9,/dev/tty10,/dev/tty11,/dev/tty12
+HOSTNAME=nordi386
+
+function _vmid ()
+{
+  return 0
+}
+
+function _lparname ()
+{
+  return 0
+}
+
+function _serialno ()
+{
+  return 0
+}
+
+
+
+
+

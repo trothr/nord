@@ -1,0 +1,14 @@
+root:*:0:root
+bin:*:1:bin,daemon
+daemon:*:2:daemon
+sys:*:3:
+tty:*:5:
+disk:*:6:
+sshd:*:22:sshd
+mail:*:25:mail
+postfix:*:26:postfix
+postdrop:*:27:postdrop
+nogroup:*:65534:nobody
+listserv:*:225:listserv
+users:x:1000:
++:::

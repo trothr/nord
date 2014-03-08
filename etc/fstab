@@ -1,0 +1,15 @@
+#
+#
+#         Name: /etc/fstab (Linux filesystems table)
+#
+#
+
+#
+proc            /proc           proc        defaults            0 0
+sysfs           /sys            sysfs       noauto              0 0
+tmpfs           /tmp            tmpfs       defaults            0 0
+udev            /dev            tmpfs       noauto              0 0
+devpts          /dev/pts        devpts      mode=0620,gid=5     0 0
+#
+
+

@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# source this file for rootstrapping variables
+
+UNAMES=`uname -s`
+UNAMEM=`uname -m | sed 's#i.86#i386#'`
+SYSTEM="$UNAMES-$UNAMEM"
+
+#export UNAMES UNAMEM SYSTEM
+
+NFSPREFIX="main:/export/opt"
+NFSPREFIX="192.168.29.11:/export/opt"
+
+KERNEL_HEADERS_VERSION=linux-2.6.22
+
+

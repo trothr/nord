@@ -1,0 +1,33 @@
+#!/bin/sh
+# (sourced)
+
+BOOTDEV=/dev/dasda
+ETCDEV=/dev/dasdd
+CONSOLES=/dev/console
+HOSTNAME=nords390
+
+function _vmid ()
+{
+  if [ ! -r /proc/sysinfo ] ; then return 0 ; fi
+  grep '^VM00 Name\: ' /proc/sysinfo | awk '{print tolower($3)}'
+  return 0
+}
+
+function _lparname ()
+{
+  if [ ! -r /proc/sysinfo ] ; then return 0 ; fi
+  grep '^LPAR Name\: ' /proc/sysinfo | awk '{print tolower($3)}'
+  return 0
+}
+
+function _serialno ()
+{
+  if [ ! -r /proc/sysinfo ] ; then return 0 ; fi
+  grep '^Sequence Code\: ' /proc/sysinfo | awk '{print tolower($3)}'
+  return 0
+}
+
+
+
+
+

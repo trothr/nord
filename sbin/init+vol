@@ -1,0 +1,134 @@
+#!/bin/sh
+#
+#
+#         Date: 2010-Jul-27 (Mon, for NORD Linux) right before 28/28/28
+#		The purpose of this script is to handle
+#               various important special situations which arise
+#		before 'init' can safely handle them.  In particular,
+#		mounting of a separate /etc apart from the root FS
+#		or mounting of a "guest vol" with a system "base vol".
+#		Switching these after normal 'init' gets control
+#		is much more complicated than to intercept here.
+#
+#
+
+#
+# default can be overridden when the "run root" gets mounted
+#BASEDIRS="lib lib64 bin sbin usr"
+BASEDIRS="lib lib64 bin sbin usr boot"
+
+#
+# why default command search path still lacks "sbin"
+# after all these years is a mystery to me ... just fix it ...
+PATH=/usr/sbin:/sbin:/usr/bin:/bin ; export PATH
+
+Z="INIT+VOL"
+
+#
+# assume a usable root is mounted ... some utilities needed now:
+#	mount, umount, xargs, grep, tail, awk, cat, uname
+#
+
+#
+# we will need /proc
+umount /proc 1> /dev/null 2> /dev/null
+mount -t proc proc /proc 1> /dev/null 2> /dev/null
+
+#
+# so check that it is mounted
+if [ ! -r /proc/cmdline ] ; then
+  echo "$Z: '/proc/cmdline' missing or not readable"
+  exec /sbin/init $* ; fi
+
+#
+# first try to mount a writeable /etc ... very carefully
+_ETCFS=`cat /proc/cmdline | xargs -n 1 | grep '^etc=' \
+                        | tail -1 | awk -F'=' '{print $2}'`
+if [ ! -z "$_ETCFS" ] ; then
+  echo "$Z: using private /etc from '$_ETCFS'"
+  modprobe ext3
+  echo "+ fsck -y $_ETCFS"
+          fsck -y $_ETCFS
+  echo "+ mount -n $_ETCFS /etc"
+          mount -n $_ETCFS /etc ; RC=$?
+  echo "$Z: now exitting to standard INIT"
+  if [ $RC -eq 0 ] ; then exec /sbin/init $* ; fi
+fi
+
+#
+# extract the "run root" or "guest vol" from the boot parms
+_RUNFS=`cat /proc/cmdline | xargs -n 1 | grep '^runroot=' \
+                        | tail -1 | awk -F'=' '{print $2}'`
+if [ -z "$_RUNFS" ] ; then
+_RUNFS=`cat /proc/cmdline | xargs -n 1 | grep '^rwroot=' \
+				  | awk -F'=' '{print $2}'`
+fi
+
+if [ -z "$_RUNFS" ] ; then
+  echo "$Z: no guest vol indicated - exiting to normal 'init'"
+  cd / ; exec /sbin/init $*
+fi
+echo "$Z: using guest vol '$_RUNFS'"
+
+#
+# we presume that the booted root has an "mnt" mount point directory
+echo "+ mount -r $_RUNFS /mnt"
+        mount -r $_RUNFS /mnt ; RC=$?
+if [ $RC -ne 0 ] ; then
+  echo "$Z: 'mount' failed"
+  exec /sbin/init $* ; fi
+
+#
+# two cases left and both use a system "base vol" ... tag that vol
+UNAMES=`uname -s`
+UNAMEM=`uname -m | sed 's#^i.86$#i386#'`
+SYSTEM=$UNAMES-$UNAMEM
+
+#
+# check that /mnt/$SYSTEM is available as a mount point for the pivot
+if [ ! -d /mnt/$SYSTEM ] ; then
+  echo "$Z: '$SYSTEM' mount point not available on '$_RUNFS'"
+  exec /sbin/init $* ; fi
+
+#
+# get a list of directories which were mounted by the INITRD
+ROOTDIRS=`grep -v ' / ' /proc/mounts \
+  | awk '{print $2}' | grep -v '/mnt' | sed 's#^/##'`
+
+#
+# conditionally source a "guestvol" config file
+if [ -r /mnt/etc/sysconfig/guestvol ] ; then
+  . /mnt/etc/sysconfig/guestvol ; fi
+
+#
+# if a link then skip or if directory then bind
+for D in $BASEDIRS $ROOTDIRS ; do
+  if [ ! -d /$D ] ; then continue ; fi
+  if [ -h /mnt/$D ] ; then continue ; fi
+  echo "+ mount -o bind /$D /mnt/$D"
+          mount -o bind /$D /mnt/$D
+done
+
+#
+# now pivot the run-time root into position
+echo "+ pivot_root /mnt /mnt/$SYSTEM"
+        pivot_root /mnt /mnt/$SYSTEM ; RC=$?
+if [ $RC -ne 0 ] ; then
+  echo "$Z: 'pivot_root' failed"
+  exec /sbin/init $* ; fi
+
+#
+# clean-up filesystems hanging off old root which got moved
+for D in $ROOTDIRS ; do
+  echo "+ umount /$SYSTEM/$D"
+          umount /$SYSTEM/$D
+done
+
+#
+# if all else fails then run normal 'init' ...
+echo "$Z: now exitting to standard INIT"
+cd / ; exec /sbin/init $*
+
+
+
+

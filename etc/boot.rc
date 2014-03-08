@@ -1,0 +1,97 @@
+#!/bin/sh
+#
+#
+#         Date: 2004-Feb-14 (Sat, Valentine's Day)
+#               2009-Dec-26 (Sat, in the Piney Woods)
+#               2010-Jan-18 (Mon, for Project Omaha)
+#
+#
+
+#
+# why default command search path still lacks "sbin"
+# after all these years is a mystery to me ... so just fix it here ...
+PATH=/usr/sbin:/sbin:/usr/bin:/bin ; export PATH
+
+#
+# mount some crucial things
+mount -t proc proc /proc
+mount -t sysfs sys /sys
+#mount -t tmpfs tmpfs /tmp
+#mount -t devpts devpts /dev/pts
+
+#
+# source platform-specific stuff
+ARCH=`uname -m | sed 's#^i.86$#i386#'`
+if [ -r /etc/$ARCH.rc ] ; then . /etc/$ARCH.rc ; fi
+
+case $ARCH in
+  s390*)
+    stty -echo # for s390
+    ;;
+esac
+
+#
+# begin UDEV (or a crude facsimile of it)
+/etc/nordudev.sh
+mount -t devpts devpts /dev/pts
+
+#
+# search for s390 boot device from what the kernel knows
+if [ -r /sys/firmware/ipl/device ] ; then
+  _BD=`cat /sys/firmware/ipl/device`
+  echo "BOOTDEV=$_BD"
+  if [ -d /sys/bus/*/devices/$_BD ] ; then
+    BOOTDEV=`echo /sys/bus/*/devices/$_BD/block* | awk -F: '{print "/dev/" $2}'`
+  fi
+fi
+# some time soon, do the same for the i386 kernel
+echo "BOOTDEV=$BOOTDEV"
+
+_BD=`cat /proc/cmdline | xargs -n 1 | grep '^boot=' \
+                        | tail -1 | awk -F'=' '{print $2}'`
+if [ ! -z "$_BD" ] ; then BOOTDEV=$_BD ; fi
+echo "BOOTDEV=$BOOTDEV"
+
+#
+# mount the boot disk so we have matching kernel modules
+LINUXREL=`uname -r`
+#if [ ! -d /boot/modules/$LINUXREL -a ! -z "$BOOTDEV" ] ; then
+#  echo "+ mount -n -r $BOOTDEV /boot"
+#          mount -n -r $BOOTDEV /boot
+#fi
+
+#
+# check filesystems
+echo "+ fsck -y -A"
+        fsck -A -y
+mount -o remount,rw /
+
+#
+# fixup /etc/mtab here
+ROOT=`cat /proc/cmdline | xargs -n 1 | grep '=' \
+  | grep '^root=' | sed 's#^root=##'`
+if [ -h /etc/mtab ] ; then rm /etc/mtab ; fi
+grep -v '^rootfs / ' /proc/mounts \
+  | sed "s#^/dev/root #$ROOT #" > /etc/mtab
+
+#
+# now mount all standard filesystems (but avoid NFS)
+mount /boot 1> /dev/null 2> /dev/null
+modprobe ext3
+mount -a
+
+#
+# set the hostname
+hostname csclinux
+if [ -r /etc/HOSTNAME ] ; then _HOSTNAME=`head -1 /etc/HOSTNAME` ; fi
+if [ ! -z "$_HOSTNAME" ] ; then HOSTNAME=$_HOSTNAME ; fi
+if [ ! -z "$HOSTNAME" ] ; then hostname $HOSTNAME ; fi
+
+#
+# conditionally source local resource configuration file
+if [ -r /etc/local.rc ] ; then sh -c ' . /etc/local.rc ' ; fi
+
+
+
+
+
