@@ -1,0 +1,67 @@
+#!/bin/sh
+#
+#
+#         Name: /etc/init.d/named (shell INIT script)
+#	  Date: 2004-Mar-26 (Fri)
+#		2010-Sep-19 (Sun)
+#
+#
+
+### BEGIN INIT INFO
+# Provides:             named
+# Required-Start:       network
+# Required-Stop:
+# Default-Start:          1 2 3 4 5
+# Default-Stop:         0           6
+# Short-Description:    start and stop the DNS server
+# Description:          start and stop the DNS server
+### END INIT INFO
+
+D=/tmp ; cd /tmp
+if [ -d /var/named ] ; then D=/var/named ; cd /var/named ; fi
+
+echo "$0 $*" > /dev/console
+
+case "$1" in
+
+  start|restart)
+    $0 stop
+    if [ -d /usr/opt/bind/bin ] ; then PATH=/usr/opt/bind/bin:$PATH ; fi
+    if [ -d /usr/opt/bind/sbin ] ; then PATH=/usr/opt/bind/sbin:$PATH ; fi
+    named -c /etc/named.conf -g & # -u named -g named
+    ;;
+
+  stop)
+    if [ -s /var/run/named.pid ] ; then
+      cat /var/run/named.pid | xargs -n 1 kill ; fi
+    ;;
+
+  start_msg)
+    echo "DNS server starting"
+    ;;
+
+  stop_msg)
+    echo "DNS server stopping"
+    ;;
+
+  restart|reload|force_reload)
+    $0 stop
+    $0 start
+    exit
+    ;;
+
+  stat*)
+    # nothing to do
+    exit
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}" 1>&2
+    exit 3
+    ;;
+
+esac
+
+
+
+
