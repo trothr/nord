@@ -16,6 +16,8 @@ mkdir -p "$SYSTEM"
 
 cd "$SYSTEM"
 
+echo "strap0.sh: creating FHS hierarchy for '$SYSTEM' ..."
+
 mkdir -m 1777 -p tmp
 mkdir -m 555 -p proc sys mnt
 mkdir -m 755 -p home local arc

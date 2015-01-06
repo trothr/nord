@@ -8,6 +8,8 @@ HOSTNAME=nordi386
 
 function _vmid ()
 {
+  if [ ! -r /sys/hypervisor/uuid ] ; then return 0 ; fi
+  cat /sys/hypervisor/uuid
   return 0
 }
 

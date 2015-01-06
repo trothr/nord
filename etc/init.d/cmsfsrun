@@ -9,6 +9,7 @@
 #
 # the name of the file on the CMS 191 disk which we are after
 FILE=profile.sh
+# can be changed in /etc/sysconfig/cmsfsrun
 
 ### BEGIN INIT INFO
 # Provides:             cmsfsrun
@@ -27,7 +28,7 @@ if [ -z "$CHCCWDEV" ] ; then exit ; fi
 
 #
 # the following case block renders this a viable INIT script
-# (except that we really should follow LSB about the comments)
+# (except that we really should follow LSB better w/r/t the comments)
 # (which we hope to do ... soon ... real soon)
 
 echo "$0 $*" > /dev/console

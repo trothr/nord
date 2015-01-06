@@ -1,21 +1,22 @@
-#!/bin/sh 
-# 
-# 
-#		restart the (WWW) httpd server 
-#	  Date: 1997-Jul-20 
-#	  Date: 1999-Aug-14 (Sat) 
-#		2000-Jan-06 
-#	  Date: 2000-Feb-18 (Fri) and prior 
-#		2005-Apr-02 (Sat, JP II died) 
-# 
-# 
+#!/bin/sh
+#
+#
+#		restart the (WWW) httpd server
+#	  Date: 1997-Jul-20
+#	  Date: 1999-Aug-14 (Sat)
+#		2000-Jan-06
+#	  Date: 2000-Feb-18 (Fri) and prior
+#		2005-Apr-02 (Sat, JP II died)
+#	  Date: 2014-Jan-14 (Tue) for NORD, MAROSDL to MARDEVL
+#
+#
 
 echo "$0 $*" > /dev/console
 
-# 
-# augment the command search path: 
-PATH=/usr/opt/apache/bin:/opt/apache/bin:$PATH 
-export PATH 
+#
+# augment the command search path:
+PATH=/usr/opt/apache/bin:/opt/apache/bin:$PATH
+export PATH
 if [ -z "$LD_LIBRARY_PATH" ] ; then
   LD_LIBRARY_PATH=/usr/opt/apache/lib:/opt/apache/lib
 else
@@ -23,58 +24,58 @@ else
 fi
 export LD_LIBRARY_PATH
 
-# 
-# work from a "safe" directory ... 
-cd /tmp ; D=/tmp 
-C=/opt/apache/conf/httpd.conf 
-if [ -d /etc/httpd ] ; then 
-  D=/etc/httpd 
-  C=/etc/httpd/httpd.conf 
-fi 
-if [ -d /var/httpd ] ; then 
-  D=/var/httpd 
-  cd /var/httpd 
-  C=/var/httpd/httpd.conf 
-fi 
+#
+# work from a "safe" directory ...
+cd /tmp ; D=/tmp
+C=/opt/apache/conf/httpd.conf
+if [ -d /etc/httpd ] ; then
+  D=/etc/httpd
+  C=/etc/httpd/httpd.conf
+fi
+if [ -d /var/httpd ] ; then
+  D=/var/httpd
+  cd /var/httpd
+  C=/var/httpd/httpd.conf
+fi
 if [ ! -f $C -a -f /etc/httpd.conf ] ; then C=/etc/httpd.conf ; fi
 
-case "$1" in 
+case "$1" in
 
-  start|restart) 
-    $0 stop 
-    httpd -f $C -d $D 
-    ;; 
+  start|restart)
+    $0 stop
+    httpd -f $C -d $D
+    ;;
 
-  stop) 
-    # if there's a running httpd daemon, kill it: 
-    if [ -s /var/run/httpd.pid ] ; then 
-      kill `cat /var/run/httpd.pid` 2>/dev/null 
-      sleep 3 
-      trunc /var/run/httpd.pid 
-    fi 
-    if [ -s /var/httpd/httpd-pid ] ; then 
-      kill `cat /var/httpd/httpd-pid` 2>/dev/null 
-      sleep 3 
-      trunc /var/httpd/httpd-pid 
-    fi 
-    ;; 
+  stop)
+    # if there's a running httpd daemon, kill it:
+    if [ -s /var/run/httpd.pid ] ; then
+      cat /var/run/httpd.pid | xargs kill 2>/dev/null
+      sleep 3
+      cat /dev/null > /var/run/httpd.pid
+    fi
+    if [ -s /var/httpd/httpd-pid ] ; then
+      cat /var/httpd/httpd-pid | xargs kill 2>/dev/null
+      sleep 3
+      cat /dev/null > /var/httpd/httpd-pid
+    fi
+    ;;
 
-  stat*) 
-    : 
-    ;; 
+  stat*)
+    :
+    ;;
 
-  start_msg) 
-    echo "Apache web server starting" 
-    ;; 
+  start_msg)
+    echo "Apache web server starting"
+    ;;
 
-  stop_msg) 
-    echo "Apache web server stopping" 
-    ;; 
+  stop_msg)
+    echo "Apache web server stopping"
+    ;;
 
-  *) 
-    echo "Usage: $0 [start | stop]" 
-    ;; 
+  *)
+    echo "Usage: $0 [start | stop]"
+    ;;
 
-esac 
+esac
 
 

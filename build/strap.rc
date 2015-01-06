@@ -3,7 +3,7 @@
 # source this file for rootstrapping variables
 
 UNAMES=`uname -s`
-UNAMEM=`uname -m | sed 's#i.86#i386#'`
+UNAMEM=`uname -m | sed 's#i.86#i386#' | sed 's#armv..#arm#'`
 SYSTEM="$UNAMES-$UNAMEM"
 
 #export UNAMES UNAMEM SYSTEM

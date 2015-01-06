@@ -2,46 +2,40 @@
 #
 #
 #         Date: 2009-Dec-26 (Sat, in the Piney Woods)
+#      Updated: 2011-Jan-09 (Sunday, to get it working on OSDL)
+#      Updated: 2014-Dec-13 (Saturday, for NORDAUTO EXEC and friends)
+#         Note: This RC script defines two S/390 network interfaces,
+#               LCS at address 440 (commented out) and QDIO at 340.
+#               Uncomment the one your need (or change as desired).
+#               The QDIO NIC is used in a NORDAUTO context in which
+#               'ifconfig' statements will be appended automaticall.
 #
 #
 
 #
 # bring up the loop-back interface
-#echo "+ ifconfig lo 127.0.0.1"
 ifconfig lo 127.0.0.1
 
 modprobe ipv6
 
-modprobe lcs # for S390
-cd /sys/bus/ccwgroup/drivers/lcs
-echo 0.0.0440,0.0.0441 > group
-cd 0.0.0440
-echo 1 > online
+#modprobe lcs # for S390
+#sync ; sync ; sleep 1
+#echo 0.0.0440,0.0.0441 > /sys/bus/ccwgroup/drivers/lcs/group
+#sync ; sync ; sleep 1
+#echo 1 > /sys/bus/ccwgroup/drivers/lcs/0.0.0440/online
+#sync ; sync ; sleep 1
 
-ifconfig eth0 192.168.29.64
+modprobe qeth # for S390
+sync ; sync ; sleep 1
+echo 0.0.0340,0.0.0341,0.0.0342 > /sys/bus/ccwgroup/drivers/qeth/group
+sync ; sync ; sleep 1
+echo 1 > /sys/bus/ccwgroup/drivers/qeth/0.0.0340/layer2
+sync ; sync ; sleep 1
+echo 1 > /sys/bus/ccwgroup/drivers/qeth/0.0.0340/online
+sync ; sync ; sleep 1
 
-route add -net 192.168.29.0 gw 192.168.29.35 netmask 255.255.255.0
-
-#cd /
-
-#/usr/sbin/sshd &
-
-#modprobe nfs
-#mount -r 192.168.29.35:/export/arc /arc &
-##mount -r 192.168.29.35:/export/home /home &
-
-exit
-exit
-exit
-
-insmod /lib/modules/2.6.16.60-0.25-default/kernel/drivers/s390/net/fsm.ko
-insmod /lib/modules/2.6.16.60-0.25-default/kernel/drivers/s390/cio/ccwgroup.ko
-insmod /lib/modules/2.6.16.60-0.25-default/kernel/drivers/s390/net/cu3088.ko
-
-insmod /lib/modules/2.6.16.60-0.25-default/kernel/drivers/s390/net/ctcmpc.ko
-insmod /lib/modules/2.6.16.60-0.25-default/kernel/drivers/s390/net/ctc.ko
-
-
-
+#ifconfig eth0 148.100.88.27 netmask 255.255.255.0
+#route add default gw 148.100.88.1
+#ifconfig eth0 inet6 add 2620:91:0:688:1::27/64
 
 

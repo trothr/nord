@@ -45,7 +45,7 @@ ln -s asm-$UNAMEM usr/include/asm
 
 # now [re]build CD0 packages
 . ./strap.set
-echo "strap2.sh: running CSCRATCH for '$SYSTEM' ... (takes a while) ..."
+echo "strap2.sh: running CSCRATCH for '$SYSTEM' (may take a while) ..."
 for P in ` ls opt/CD0 | grep '.-.' \
     | awk -F- '{print $1}' | uniq | grep -v wget ` ; do
   chroot . sh -c " cd /var/csc ; exec make $P.ins " ; RC=$?

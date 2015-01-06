@@ -15,7 +15,8 @@
 #
 # default can be overridden when the "run root" gets mounted
 #BASEDIRS="lib lib64 bin sbin usr"
-BASEDIRS="lib lib64 bin sbin usr boot"
+#BASEDIRS="lib lib64 bin sbin usr boot"
+BASEDIRS="lib lib64 bin sbin usr boot opt"
 
 #
 # why default command search path still lacks "sbin"
@@ -41,12 +42,15 @@ if [ ! -r /proc/cmdline ] ; then
   exec /sbin/init $* ; fi
 
 #
+# load additional filesystem drivers
+modprobe ext3 1> /dev/null 2> /dev/null
+
+#
 # first try to mount a writeable /etc ... very carefully
 _ETCFS=`cat /proc/cmdline | xargs -n 1 | grep '^etc=' \
                         | tail -1 | awk -F'=' '{print $2}'`
 if [ ! -z "$_ETCFS" ] ; then
   echo "$Z: using private /etc from '$_ETCFS'"
-  modprobe ext3
   echo "+ fsck -y $_ETCFS"
           fsck -y $_ETCFS
   echo "+ mount -n $_ETCFS /etc"

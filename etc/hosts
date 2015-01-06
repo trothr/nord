@@ -1,7 +1,6 @@
 #
 #
-#
-#
+#         Name: /etc/hosts
 #
 
 # traditional IPv4 address for localhost
@@ -15,9 +14,7 @@ fe00::0         ipv6-localnet ip6-localnet
 ff00::0         ipv6-mcastprefix ip6-mcastprefix
 ff02::1         ipv6-allnodes ip6-allnodes
 ff02::2         ipv6-allrouters ip6-allrouters
-ff02::3         ipv6-allhosts
+ff02::3         ipv6-allhosts ip6-allhosts
 
 
-
-
-
+# End of hosts.
