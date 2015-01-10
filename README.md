@@ -1,14 +1,15 @@
-NORD: Keeping Linux Simple
+NORD
+====
 
 This is the Github repository for NORD,
 a minimalist computer operating system suitable as a base for
 server, desktop, or embedded systems.  It is built to start fast
 and run light.  It uses the Linux kernel and Linux-related packages.
 
-NORD
-=====
+Keeping Linux Simple
+====================
 
-NORD is a Linux build that tries hard to not be yet another distro.
+NORD is a Linux system that tries hard to not be yet another distro.
 It uses two different build schemes, both of which ride on top of
 the standard recipe. NORD uses source archives aquired directly from
 the individual package authors and maintainers. The result is a system
