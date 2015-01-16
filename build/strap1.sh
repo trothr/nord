@@ -10,6 +10,12 @@ echo "strap1.sh: SYSTEM=$SYSTEM"
 
 if [ ! -d opt ] ; then
   echo "missing 'opt' starter directory" 1>&2 ; exit 1 ; fi
+if [ ! -d opt/CD0 ] ; then
+  echo "missing 'opt/CD0' starter directory" 1>&2 ; exit 1 ; fi
+if [ ! -d opt/CD1 ] ; then
+  echo "missing 'opt/CD1' starter directory" 1>&2 ; exit 1 ; fi
+if [ ! -d opt/CD2 ] ; then
+  echo "missing 'opt/CD2' starter directory" 1>&2 ; exit 1 ; fi
 
 cd "$SYSTEM"
 
@@ -33,7 +39,7 @@ cat /dev/null > etc/ld.so.conf
 echo "PATH=/usr/sbin:/sbin:/usr/bin:/bin" > strap.set
 
 ### CD0 packages ###
-mkdir -p opt/CD0
+mkdir -m 555 -p opt/CD0
 umount opt/CD0 2> /dev/null
 mount -o bind ../opt/CD0 opt/CD0
 for P in ` ls ../opt/CD0 ` ; do
@@ -88,7 +94,7 @@ for P in ` ls ../opt/CD0 ` ; do
 done
 
 ### CD1 packages ###
-mkdir -p opt/CD1
+mkdir -m 555 -p opt/CD1
 umount opt/CD1 2> /dev/null
 mount -o bind ../opt/CD1 opt/CD1
 for P in ` ls ../opt/CD1 ` ; do
@@ -117,7 +123,7 @@ for P in ` ls ../opt/CD1 ` ; do
 done
 
 ### CD2 packages ###
-mkdir -p opt/CD2
+mkdir -m 555 -p opt/CD2
 umount opt/CD2 2> /dev/null
 mount -o bind ../opt/CD2 opt/CD2
 for P in ` ls ../opt/CD2 ` ; do
@@ -144,6 +150,9 @@ for P in ` ls ../opt/CD2 ` ; do
   if [ -d opt/CD2/$P/$SYSTEM/sbin ] ; then
     echo "PATH=\$PATH:/usr/opt/$PL/sbin" >> strap.set ; fi
 done
+
+mkdir -m 555 -p arc
+mount -o bind ../arc arc
 
 
 echo "export PATH" >> strap.set

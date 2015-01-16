@@ -43,8 +43,11 @@ rsync -a -u -x -H -K -O -S usr/src/linux/include/asm-$UNAMEM/. \
 rm -f usr/include/asm
 ln -s asm-$UNAMEM usr/include/asm
 
-# now [re]build CD0 packages
+# set-up the environment
 . ./strap.set
+LD_LIBRARY_PATH=/usr/opt/gcc/lib ; export LD_LIBRARY_PATH
+
+# now [re]build CD0 packages
 echo "strap2.sh: running CSCRATCH for '$SYSTEM' (may take a while) ..."
 for P in ` ls opt/CD0 | grep '.-.' \
     | awk -F- '{print $1}' | uniq | grep -v wget ` ; do
