@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+
+Z=nordinstboot.s390
+D=`dirname $0`
+
+echo "$Z: installing bootable NORD system disk for Linux/390"
+
+#
+# figure out what type of disk we're using (CKD or FBA)
+DASDTYPE=`readlink /sys/block/dasda/device/driver`
+DASDTYPE=`basename $DASDTYPE`
+exec $D/$Z.$DASDTYPE
+
+

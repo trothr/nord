@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+
+Z=nordinstboot
+D=`dirname $0`
+
+echo "$Z: installing bootable NORD system disk"
+
+#
+# figure out what hardware we're on for correct system and disk type
+HARDWARE=`uname -m`
+exec $D/$Z.$HARDWARE
+
+

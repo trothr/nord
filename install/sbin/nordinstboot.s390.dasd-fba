@@ -1,0 +1,56 @@
+#!/bin/sh
+#
+
+Z=nordinstboot.s390.dasd-fba
+
+echo "$Z: installing bootable NORD system disk, type FBA"
+
+#
+# confirm that DASDA is the 1B0 disk
+DASDA=`readlink /sys/block/dasda/device`
+DASDA=`basename $DASDA`
+if [ "$DASDA" != "0.0.01b0" ] ; then
+  echo "$Z: /dev/dasda is not at address 1B0"
+  exit 1
+fi
+
+#
+# no "low level format" required for FBA
+
+#
+# no partitioning needed for FBA bootstrap
+
+#
+# create a filesystem on that disk
+echo "+" mke2fs /dev/dasda
+         mke2fs /dev/dasda ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# mount the filesystem
+echo "+" mount /dev/dasda /Linux-s390
+         mount /dev/dasda /Linux-s390 ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# copy the operating system
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../Linux-s390/. /Linux-s390/.
+rsync -a -u -x -H -K -O -S rsync://148.100.88.27/Linux-s390/. /Linux-s390/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# install the bootstrap
+/Linux-s390/usr/bin/chroot /Linux-s390 \
+mkdir -p /boot/zipl
+/Linux-s390/usr/bin/chroot /Linux-s390 \
+zipl -t /boot/zipl -i /boot/image \
+        -P "dasd=1b0-1bf root=/dev/dasda ro init=/sbin/init+vol runroot=/dev/dasdb"
+sync ; sync
+
+#
+# unmount the newly created filesystem
+echo "+" umount /Linux-s390
+         umount /Linux-s390 ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+

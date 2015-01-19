@@ -1,0 +1,63 @@
+#!/bin/sh
+#
+
+Z=nordinstboot.s390.dasd-eckd
+
+echo "$Z: installing bootable NORD system disk, type ECKD"
+
+#
+# confirm that DASDA is the 1B0 disk
+DASDA=`readlink /sys/block/dasda/device`
+DASDA=`basename $DASDA`
+if [ "$DASDA" != "0.0.01b0" ] ; then
+  echo "$Z: /dev/dasda is not at address 1B0"
+  exit 1
+fi
+
+#
+# perform "low level format" of CKD
+echo "+" dasdfmt -l 0x01B0 -b 4096 -d cdl /dev/dasda
+         dasdfmt -l 0x01B0 -b 4096 -d cdl /dev/dasda ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# allocate one large partition
+echo "+" fdasd -a -k /dev/dasda
+         fdasd -a -k /dev/dasda ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+
+#
+# create a filesystem in that partition
+echo "+" mke2fs /dev/dasda1
+         mke2fs /dev/dasda1 ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# mount the filesystem
+echo "+" mount /dev/dasda1 /Linux-s390
+         mount /dev/dasda1 /Linux-s390 ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# copy the operating system
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../Linux-s390/. /Linux-s390/.
+rsync -a -u -x -H -K -O -S rsync://148.100.88.27/Linux-s390/. /Linux-s390/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# install the bootstrap
+/Linux-s390/usr/bin/chroot /Linux-s390 \
+mkdir -p /boot/zipl
+/Linux-s390/usr/bin/chroot /Linux-s390 \
+zipl -t /boot/zipl -i /boot/image \
+        -P "dasd=1b0-1bf root=/dev/dasda1 ro init=/sbin/init+vol runroot=/dev/dasdb"
+sync ; sync
+
+#
+# unmount the newly created filesystem
+echo "+" umount /Linux-s390
+         umount /Linux-s390 ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+

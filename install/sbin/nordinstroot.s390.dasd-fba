@@ -1,0 +1,110 @@
+#!/bin/sh
+#
+
+Z=nordinstroot.s390.dasd-fba
+
+echo "$Z: installing NORD root disk"
+
+#
+# confirm that DASDB is the 1B1 disk
+DASDB=`readlink /sys/block/dasdb/device`
+DASDB=`basename $DASDB`
+if [ "$DASDB" != "0.0.01b1" ] ; then
+  echo "$Z: /dev/dasdb is not at address 1B1"
+  exit 1
+fi
+
+#
+# no "low level format" required for FBA
+
+#
+# create a filesystem on the disk
+echo "+" mke2fs -j /dev/dasdb
+         mke2fs -j /dev/dasdb ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+# 
+# get EXT3 support for next step
+modprobe jbd
+modprobe ext3 ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# mount the filesystem
+echo "+" mount /dev/dasdb /mnt
+         mount /dev/dasdb /mnt ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# create directories ...
+mkdir -m 555 -p mnt/Linux-s390 mnt/bin mnt/lib mnt/sbin mnt/usr \
+	mnt/boot mnt/opt mnt/proc mnt/sys mnt/cdrom mnt/misc mnt/mnt
+mkdir -m 755 -p mnt/dev mnt/etc mnt/home mnt/local mnt/var mnt/arc
+mkdir -m 700 -p mnt/root
+mkdir -m 1777 -p mnt/tmp
+
+#
+# copy standard /var content ...
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../Linux-s390/var/. mnt/var/.
+rsync -a -u -x -H -K -O -S rsync://148.100.88.27/Linux-s390/var/. mnt/var/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# copy standard /local content ...
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../Linux-s390/local/. mnt/local/.
+rsync -a -u -x -H -K -O -S rsync://148.100.88.27/Linux-s390/local/. mnt/local/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# copy reference /arc layout ...
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../Linux-s390/arc/. mnt/arc/.
+rsync -a -u -x -H -K -O -S rsync://148.100.88.27/Linux-s390/arc/. mnt/arc/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# copy skeleton devices directory
+echo "+" rsync -a -u -x -H -K -O -S /dev/. mnt/dev/.
+         rsync -a -u -x -H -K -O -S /dev/. mnt/dev/.
+
+#
+# copy standard /etc content ...
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../Linux-s390/etc/. mnt/etc/.
+rsync -a -u -x -H -K -O -S rsync://148.100.88.27/Linux-s390/etc/. mnt/etc/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+
+##### perform local customizations #####
+
+#
+# set default hostname to match what installation shell has
+hostname > mnt/etc/HOSTNAME
+
+#
+# extract installation settings from boot parm string
+cat /proc/cmdline | xargs -n 1 | grep '^NORD' > /tmp/nordinst.set
+. /tmp/nordinst.set
+
+#
+# set some network startup values
+if [ ! -z "$NORD_IPV4AD" ] ; then 
+	echo "ifconfig eth0 $NORD_IPV4AD" >> mnt/etc/network.rc
+  fi
+if [ ! -z "$NORD_IPV4GW" ] ; then 
+	echo "route add default gw $NORD_IPV4GW" >> mnt/etc/network.rc
+  fi
+if [ ! -z "$NORD_IPV6AD" ] ; then 
+	echo "ifconfig eth0 inet6 add $NORD_IPV6AD" >> mnt/etc/network.rc
+  fi
+
+sync ; sync
+
+
+#
+# unmount the newly created filesystem
+echo "+" umount /mnt
+         umount /mnt ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+sync ; sync
+
+
