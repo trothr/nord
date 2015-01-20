@@ -1,0 +1,58 @@
+#!/bin/sh
+#
+#
+#         Name: /etc/init.d/network (shell INIT script)
+#
+#
+
+### BEGIN INIT INFO
+# Provides:             network
+# Required-Start:
+# Required-Stop:
+# Default-Start:          1 2 3 4 5
+# Default-Stop:         0           6
+# Short-Description:    start networking
+# Description:
+### END INIT INFO
+
+echo "$0 $*" > /dev/console
+
+case $1 in
+
+  start)
+    # conditionally run a custom network script
+    if [ -r /etc/network.rc ] ; then
+      exec sh -c ' . /etc/network.rc ' ; fi
+    # else fall through
+    ;;
+
+  stop)
+    ls /sys/class/net \
+      | awk '{print "ifconfig" , $0 , "down"}' | sh -x
+    exit
+    ;;
+
+  restart|reload|force_reload)
+    $0 stop
+    $0 start
+    exit
+    ;;
+
+  status)
+    # nothing to do
+    exit
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}" 1>&2
+    exit 3
+    ;;
+
+esac
+
+exit
+
+
+
+
+

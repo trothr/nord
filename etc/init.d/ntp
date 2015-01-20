@@ -1,0 +1,74 @@
+#!/bin/sh
+#
+#
+#         Name: /etc/init.d/ntp (shell INIT script)
+#	  Date: 2005-Aug-31 (Wed)
+#               2010-Aug-08 (Sun)
+#
+#
+
+### BEGIN INIT INFO
+# Provides:             ntp
+# Required-Start:       network
+# Required-Stop:
+# Default-Start:          1 2 3 4 5
+# Default-Stop:         0           6
+# Short-Description:    set time via NTP and start NTPD
+# Description:
+### END INIT INFO
+
+echo "$0 $*" > /dev/console
+
+case $1 in
+
+  start)
+    if [ ! -r /etc/ntp.conf ] ; then exit 28 ; fi
+    if [ ! -d /var/ntp ] ; then exit 28 ; fi
+    cd /var/ntp
+    grep '^server' /etc/ntp.conf | awk '{print $2}' \
+      | grep -v '^127\.127\.' \
+      | awk '{print "ntpdate" , $0 , "; sleep 1"}' \
+      | sh -x 2>&1 | tee ntpdate.log
+    ntpd &
+    ;;
+
+  stop)
+    if [ -s /var/run/ntpd.pid ] ; then
+      cat /var/run/ntpd.pid | xargs kill 2> /dev/null ; fi
+    if [ -s /var/run/xntpd.pid ] ; then
+      cat /var/run/xntpd.pid | xargs kill 2> /dev/null ; fi
+    sleep 2
+    if [ -s /var/run/ntpd.pid ] ; then
+      cat /var/run/ntpd.pid | xargs kill -9 2> /dev/null ; fi
+    if [ -s /var/run/xntpd.pid ] ; then
+      cat /var/run/xntpd.pid | xargs kill -9 2> /dev/null ; fi
+    sleep 2
+    if [ -s /var/run/ntpd.pid ] ; then
+      cat /dev/null > /var/run/ntpd.pid ; fi
+    if [ -s /var/run/xntpd.pid ] ; then
+      cat /dev/null > /var/run/xntpd.pid ; fi
+    ;;
+
+  start_msg)
+    exit 0
+    ;;
+
+  stop_msg)
+    exit 0
+    ;;
+
+  restart)
+    $0 stop ; exec $0 start
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}" 1>&2
+    exit 3
+    ;;
+
+esac
+
+
+
+
+

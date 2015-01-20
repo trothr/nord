@@ -1,0 +1,100 @@
+#!/bin/sh
+#
+#
+#         Name: /etc/init.d/sshd (shell INIT script)
+#
+#
+
+### BEGIN INIT INFO
+# Provides:             sshd
+# Required-Start:       network
+# Required-Stop:
+# Default-Start:          1 2 3 4 5
+# Default-Stop:         0           6
+# Short-Description:    start Secure Shell service
+# Description:
+### END INIT INFO
+
+echo "$0 $*" > /dev/console
+
+case $1 in
+
+  start)
+
+                              ETCSSH=/etc
+    if [ -d /etc/ssh ] ; then ETCSSH=/etc/ssh ; fi
+    # conditionally generate host keys
+    if  [  ! -f $ETCSSH/ssh_host_dsa_key \
+        -o ! -f $ETCSSH/ssh_host_dsa_key.pub ] ; then
+      ssh-keygen -t dsa -b 1024 -f $ETCSSH/ssh_host_dsa_key -N ''
+    fi
+    if  [  ! -f $ETCSSH/ssh_host_rsa_key \
+        -o ! -f $ETCSSH/ssh_host_rsa_key.pub ] ; then
+      ssh-keygen -t rsa -b 1024 -f $ETCSSH/ssh_host_rsa_key -N ''
+    fi
+
+    # switch the start logic for other platforms
+    case `uname -s` in
+      CYGWIN*)
+        cygrunsrv --start sshd
+        ;;
+      *)
+        /usr/sbin/sshd
+        ;;
+    esac
+
+    exit
+    ;;
+
+  stop)
+
+    # start via 'cygrunsrv' if on CYGWIN or directly otherwise
+    case `uname -s` in
+      CYGWIN*)
+        cygrunsrv --stop sshd
+        ;;
+      *)
+        if [ -s /var/run/sshd.pid ] ; then
+          cat /var/run/sshd.pid | xargs kill ; fi
+        ;;
+    esac
+
+    exit
+    ;;
+
+  restart|reload|force_reload)
+    $0 stop
+    $0 start
+    exit
+    ;;
+
+  status)
+    # query via 'cygrunsrv' if on CYGWIN or standard Unix otherwise
+    case `uname -s` in
+      CYGWIN*)
+        cygrunsrv --query sshd | grep 'Running' > /dev/null ; RC=$?
+        if [ $RC -eq 0 ] ; then exit 0 # program is running
+                           else exit 3 # program is not running
+        fi
+        ;;
+      *)
+        exit 4 # program or service status is unknown
+        ;;
+    esac
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}" 1>&2
+    exit 3
+    ;;
+
+esac
+
+# we really should never get here
+
+exit
+
+
+
+
+

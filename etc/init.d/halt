@@ -1,0 +1,57 @@
+#!/bin/sh
+#
+#
+#         Name: /etc/init.d/halt (shell INIT script)
+#
+#
+
+### BEGIN INIT INFO
+# Provides:             halt
+# Required-Start:
+# Required-Stop:
+# Default-Start:        0
+# Default-Stop:
+# Short-Description:    halt the system
+# Description:
+### END INIT INFO
+
+echo "$0 $*" > /dev/console
+
+case $1 in
+
+  start)
+    :
+    ;;
+
+  stop)
+    :
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}" 1>&2
+    exit 3
+    ;;
+
+esac
+
+#
+# remount all local filesystems read-only
+grep '^/dev/' /etc/mtab | awk '{print "umount" , $2}' | tac
+grep '^/dev/' /etc/mtab | tac \
+  | awk '{print "mount -o remount,ro" , $2 , "; sleep 1"}' \
+  | sh
+grep '^/dev/' /proc/mounts | tac \
+  | awk '{print "mount -o remount,ro" , $2 , "; sleep 1"}' \
+  | sh 1> /dev/null 2> /dev/null
+#cat /proc/mounts
+tac /proc/mounts \
+  | awk '{print "umount" , $2 , "& sleep 1"}' \
+  | sh 1> /dev/null 2> /dev/null
+exec /sbin/halt -f
+
+
+
+
+
+
+
