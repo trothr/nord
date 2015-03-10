@@ -50,6 +50,14 @@ xmasgift.txt:
 	wget -O xmasgift.txt \
  https://docs.google.com/a/casita.net/document/d/10zc4Z8VrwTBEcQK1L1G9n2J6jMakUEQs_uUNB9G11U8/export?format=txt
 
+#NORD Source Trust
+srctrust.rtf:
+	wget -O srctrust.rtf \
+ https://docs.google.com/document/d/11AaYxnPO0Ej8Gd_HtW4Ru320rsPEcKfex2oDoRCcFkA/export?format=rtf
+srctrust.txt:
+	wget -O srctrust.txt \
+ https://docs.google.com/document/d/11AaYxnPO0Ej8Gd_HtW4Ru320rsPEcKfex2oDoRCcFkA/export?format=txt
+
 #NORD Linux -or- NORD Scratch Linux
 #https://docs.google.com/a/casita.net/document/d/1QQyCdRe4oHvxFv_23u1DX1rO7EVzhreB6zC3OoCPycM
 
