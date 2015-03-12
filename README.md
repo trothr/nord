@@ -46,8 +46,8 @@ The following work now:
 * s390
 * i386
 * ppc, excepting bootstrap
-* arm, excepting bootstrap and runtime
-* sparc, excepting bootstrap and runtime
+* arm, excepting bootstrap, borrows host runtime
+* sparc, excepting bootstrap
 
 Platforms listed here as "excepting bootstrap" run in 'chroot'.
 Those which are "excepting runtime" borrow the runtime of the host.
