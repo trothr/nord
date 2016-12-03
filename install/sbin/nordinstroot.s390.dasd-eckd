@@ -74,6 +74,7 @@ echo "+" rsync -a -u -x -H -K -O -S /dev/. mnt/dev/.
 echo "+" rsync -a -u -x -H -K -O -S rsync://.../Linux-s390/etc/. mnt/etc/.
 rsync -a -u -x -H -K -O -S rsync://148.100.88.27/Linux-s390/etc/. mnt/etc/. ; RC=$?
 if [ $RC -ne 0 ] ; then exit $RC ; fi
+chmod 440 mnt/etc/sudoers
 
 
 ##### perform local customizations #####

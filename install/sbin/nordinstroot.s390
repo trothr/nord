@@ -8,7 +8,7 @@ echo "$Z: creating NORD root disk for Linux/390"
 
 #
 # figure out what type of disk we're using (CKD or FBA)
-DASDTYPE=`readlink /sys/block/dasda/device/driver`
+DASDTYPE=`readlink /sys/block/dasdb/device/driver`
 DASDTYPE=`basename $DASDTYPE`
 exec $D/$Z.$DASDTYPE
 

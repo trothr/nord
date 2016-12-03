@@ -1,14 +1,46 @@
 #!/bin/sh
 #
+#         Name: nordinstroot (shell script)
+#               This script attempts to format and populate
+#               a volume to be used by NORD as the root filesystem
+#               in a shared system disk configuration.
+#
 
 Z=nordinstroot
 D=`dirname $0`
 
-echo "$Z: installing NORD root disk"
+# for some platforms there may be a default root disk
+TARGET="$1"
+if [ -z "$TARGET" ] ; then TARGET=$NORD_ROOTDISK ; fi
 
-#
-# figure out what hardware we're on for correct system and disk type
-HARDWARE=`uname -m`
-exec $D/$Z.$HARDWARE
+# if there is a platform-specific hand-off then drive it now
+UNAMEM=`uname -m | sed 's#^i.86$#i386#' | sed 's#^armv.l$#arm#'`
+case $UNAMEM in
+  s390*)
+    echo "$Z: creating NORD root disk for '$UNAMEM'"
+    exec $D/$Z.$UNAMEM $TARGET
+    ;;
+esac
+
+# for other platforms the root disk must be given as an argument
+if [ -z "$TARGET" ] ; then
+  echo "$Z: you need to indicate which disk, partition, or volume to use" 1>&2
+  exit 1 ; fi
+
+# confirm we actually have a block device to use
+DISKBASE=`basename $TARGET`
+if [ "$DISKBASE" = "$TARGET" ] ; then TARGET=/dev/$TARGET ; fi
+if [ ! -b "$TARGET" ] ; then
+  echo "$Z: '$TARGET' is not a block device" 1>&2
+  exit 1 ; fi
+
+# figure out the system handle for to find the right repo directory
+UNAMES=`uname -s`
+SYSTEM="$UNAMES-$UNAMEM"
+
+echo "$Z: creating NORD root disk from local media"
+
+# now hand-off to "any FBA disk from local media" script
+exec $D/nordinstroot.anylocal $TARGET $SYSTEM
 
 

@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+#         Name: nordinstpost
+#               NORD post-installation readiness processing
+#
+
+Z=`basename $0`
+
+#
+# produce a local build of needed supporting packages
+cd /local/opt ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# step through packages in specific order so as to satisfy pre-reqs
+for D in openssl* openssh* libgcrypt* gnupg* ; do
+  if [ ! -d $D ] ; then continue ; fi
+
+  echo "$Z: attempting download of $D"
+  su nord -c " cd $D ; exec make source " ; RC=$?
+  if [ $RC -ne 0 ] ; then continue ; fi
+
+  echo "$Z: configuring $D for relocation"
+  su nord -c " cd $D ; exec make config " ; RC=$?
+  if [ $RC -ne 0 ] ; then continue ; fi
+
+  echo "$Z: building $D for relocation"
+  su nord -c " cd $D ; exec make " ; RC=$?
+  if [ $RC -ne 0 ] ; then continue ; fi
+
+  echo "$Z: installing $D for relocation"
+  su nord -c " cd $D ; exec make install " ; RC=$?
+  if [ $RC -ne 0 ] ; then continue ; fi
+
+  echo "$Z: cleaning up after $D build"
+  su nord -c " cd $D ; exec make distclean " ; RC=$?
+  if [ $RC -ne 0 ] ; then continue ; fi
+
+  echo "$Z: installing $D from relocated residence"
+  su nord -c " cd $D ; exec ./setup " ; RC=$?
+  if [ $RC -ne 0 ] ; then continue ; fi
+
+  # yeah, that last 'if' was redundant
+done
+
+

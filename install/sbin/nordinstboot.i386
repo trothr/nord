@@ -1,0 +1,70 @@
+#!/bin/sh
+#
+
+Z=nordinstboot.i386
+D=`dirname $0`
+
+echo "$Z: installing bootable NORD system disk for Linux on X86"
+
+#
+# figure out what type of disk we're using (IDE, SCSI, VIRTIO)
+for DISKPATH in /sys/block/*/device/driver ; do
+  DISKTYPE=`readlink $DISKPATH`
+  DISKTYPE=`basename $DISKTYPE`
+echo "DISKTYPE=$DISKTYPE"
+  # explicitly skip SR (SCSI R/O) disks
+  if [ "$DISKTYPE" = "sr" ] ; then continue ; fi
+  # explicitly skip IDE CDROM (R/O) disks
+  if [ "$DISKTYPE" = "ide-cdrom" ] ; then continue ; fi
+  # explicitly handle custom disk types
+  if [ "$DISKTYPE" = "custom" ] ; then exec $D/$Z.$DISKTYPE ; fi
+#  if [ "$DISKTYPE" = "sd" ] ; then break ; fi
+#  if [ "$DISKTYPE" = "ide-disk" ] ; then break ; fi
+done
+#echo "DISKTYPE=$DISKTYPE"
+
+
+######## first disk found ########
+BOOTDISK=`grep 'a$' /proc/partitions | head -n 1 | awk '{print $4}'`
+ROOTDISK=`grep 'b$' /proc/partitions | head -n 1 | awk '{print $4}'`
+
+
+#
+# no "low level format" required for most contemporary storage types
+
+#
+# no partitioning needed for most contemporary filesystems
+
+#
+# create a filesystem on that disk
+echo "+" mke2fs /dev/$BOOTDISK
+         mke2fs /dev/$BOOTDISK ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# mount the filesystem
+echo "+" mount /dev/$BOOTDISK /Linux-i386
+         mount /dev/$BOOTDISK /Linux-i386 ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# copy the operating system
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../Linux-i386/. /Linux-i386/.
+rsync -a -u -x -H -K -O -S rsync://148.100.88.27/Linux-i386/. /Linux-i386/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# install the bootstrap
+/Linux-i386/usr/bin/chroot /Linux-i386 \
+	lilo -C /boot/lilo-$DISKTYPE.conf
+		/boot/lilo-ide-disk.conf
+sync ; sync
+
+#
+# unmount the newly created filesystem
+echo "+" umount /Linux-i386
+         umount /Linux-i386 ; RC=$?
+sync ; sync
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+

@@ -15,6 +15,7 @@ fi
 export PATH
 
 HISTCONTROL=ignoredups ; export HISTCONTROL
-HISTTIMEFORMAT=' '
+#HISTCONTROL=ignoreboth ; export HISTCONTROL
+HISTTIMEFORMAT=' ' ; export HISTTIMEFORMAT
 
 

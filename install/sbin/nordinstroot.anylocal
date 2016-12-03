@@ -1,0 +1,117 @@
+#!/bin/sh
+#
+#         Name: nordinstroot.anylocal (shell script)
+#               This script attempts to format and populate the volume
+#               specified as "root" with content from local media (CD).
+#               It should work with any common fixed block disk.
+#
+
+Z=nordinstroot.any2
+D=`dirname $0`
+
+# check parameters
+if [ -z "$1" -o -z "$2" ] ; then
+  echo "$Z: missing command line parameters" 1>&2
+  exit 1 ; fi
+
+TARGET="$1"
+SYSTEM="$2"
+
+echo "$Z: creating NORD root disk for '$SYSTEM' on '$TARGET'"
+
+##### create a fresh filesystem on the target volume #####
+
+#
+# create a filesystem on the disk
+echo "+" mke2fs -j $TARGET
+         mke2fs -j $TARGET ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+# 
+# get EXT3 support for next step if not included in the kernel
+modprobe jbd 2> /dev/null
+modprobe ext3 2> /dev/null
+
+#
+# mount the filesystem
+echo "+" mount $TARGET /mnt
+         mount $TARGET /mnt ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# create directories ...
+mkdir -m 555 -p /mnt/$SYSTEM /mnt/bin /mnt/lib /mnt/sbin /mnt/usr \
+	/mnt/boot /mnt/opt /mnt/proc /mnt/sys /mnt/cdrom /mnt/misc /mnt/mnt
+mkdir -m 755 -p /mnt/dev /mnt/etc /mnt/home /mnt/local /mnt/var /mnt/arc
+mkdir -m 700 -p /mnt/root
+mkdir -m 1777 -p /mnt/tmp
+
+#
+# copy standard /var content ...
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../$SYSTEM/var/. /mnt/var/.
+#rsync -a -u -x -H -K -O -S rsync://192.168.29.37/$SYSTEM/var/. /mnt/var/. ; RC=$?
+rsync -a -u -x -H -K -O -S /var/. /mnt/var/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# copy standard /local content ...
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../$SYSTEM/local/. /mnt/local/.
+#rsync -a -u -x -H -K -O -S rsync://192.168.29.37/$SYSTEM/local/. /mnt/local/. ; RC=$?
+rsync -a -u -x -H -K -O -S /local/. /mnt/local/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# copy reference /arc layout ...
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../$SYSTEM/arc/. /mnt/arc/.
+#rsync -a -u -x -H -K -O -S rsync://192.168.29.37/$SYSTEM/arc/. /mnt/arc/. ; RC=$?
+rsync -a -u -x -H -K -O -S /arc/. /mnt/arc/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+#
+# copy skeleton devices directory
+echo "+" rsync -a -u -x -H -K -O -S /dev/. /mnt/dev/.
+         rsync -a -u -x -H -K -O -S /dev/. /mnt/dev/.
+
+#
+# copy standard /etc content ...
+echo "+" rsync -a -u -x -H -K -O -S rsync://.../$SYSTEM/etc/. /mnt/etc/.
+#rsync -a -u -x -H -K -O -S rsync://192.168.29.37/$SYSTEM/etc/. /mnt/etc/. ; RC=$?
+rsync -a -u -x -H -K -O -S /etc/. /mnt/etc/. ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+
+##### perform local customizations #####
+
+#
+# set default hostname to match what installation shell has
+hostname > /mnt/etc/HOSTNAME
+
+#
+# extract installation settings from boot parm string
+cat /proc/cmdline | xargs -n 1 | grep '^NORD' > /tmp/nordinst.set
+. /tmp/nordinst.set
+
+#
+# set some network startup values
+if [ ! -z "$NORD_IPV4AD" ] ; then 
+	echo "ifconfig eth0 $NORD_IPV4AD" >> /mnt/etc/network.rc
+  fi
+if [ ! -z "$NORD_IPV4GW" ] ; then 
+	echo "route add default gw $NORD_IPV4GW" >> /mnt/etc/network.rc
+  fi
+if [ ! -z "$NORD_IPV6AD" ] ; then 
+	echo "ifconfig eth0 inet6 add $NORD_IPV6AD" >> /mnt/etc/network.rc
+  fi
+
+sync ; sync
+
+
+#
+# unmount the newly created filesystem
+echo "+" umount /mnt
+         umount /mnt ; RC=$?
+if [ $RC -ne 0 ] ; then exit $RC ; fi
+
+sync ; sync
+
+

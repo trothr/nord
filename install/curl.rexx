@@ -1,20 +1,20 @@
 /*                                                                    *
- *                                                                    *
  *        Name: WGET REXX or CURL REXX                                *
  *        Date: 2006-Mar-02                                           *
  *              This program is part of the CMS Make package.         *
  *       Calls: WEBROVER REXX when it cannot handle a given URL.      *
- *                                                                    *
  *                                                                    */
 
-make_version = "2.0.22"
+Numeric Digits 20
+
+make_version = "2.0.30"
 
 /* if no other output, attach console */
 'STREAMSTATE OUTPUT'
 If rc = 4 Then rc = 0
 If rc = 8 Then rc = 0
 If rc = 12 Then 'ADDPIPE *.OUTPUT: | CONSOLE'
-If rc /= 0 Then Exit rc
+If rc ^= 0 Then Exit rc
 
 verbose = 0
 outfile = ""
@@ -64,12 +64,12 @@ If argu = "CURL" & outfile = "" Then outfile = "-"
 'CALLPIPE STATE POSIX TCPXLBIN'
 If rc = 28 Then Address "COMMAND" 'EXEC VMLINK TCPMAINT 592'
 'CALLPIPE < POSIX TCPXLBIN | STEM TCP.'
-If rc /= 0 Then Return rc ;  a2e = tcp.2 ;  e2a = tcp.3
+If rc ^= 0 Then Return rc ;  a2e = tcp.2 ;  e2a = tcp.3
 
 /* get essential config info - like the stack name */
 'CALLPIPE < TCPIP DATA | STRIP' ,
   '| NLOCATE 1.1 /;/ | STEM TCF.'
-If rc /= 0 Then Return rc
+If rc ^= 0 Then Return rc
 tcp.id = "TCPIP"
 Do i = 1 to tcf.0
   Parse Upper Var tcf.i cf c1 .
@@ -80,15 +80,15 @@ Do i = 1 to tcf.0
 End /* Do For */
 
 /* step through command line list-o-URLs */
-Do While args /= ""
+Do While args ^= ""
   Parse Var args furl args
   Parse Var furl mode '://' host '/' file
   port = ""
   user = ""
   pass = ""
-  If POS('@',host) > 0 Then Parse Var user '@' host
-  If POS(':',host) > 0 Then Parse Var host ':' port
-  If POS(':',user) > 0 Then Parse Var user ':' pass
+  If POS('@',host) > 0 Then Parse Var host user '@' host
+  If POS(':',host) > 0 Then Parse Var host host ':' port
+  If POS(':',user) > 0 Then Parse Var user user ':' pass
   Upper mode
   file = "/" || file
   If port = "" Then port = 80
@@ -114,7 +114,7 @@ Do While args /= ""
       Exit 24 ;  End
   End /* Select */
 
-  If rc /= 0 Then Exit rc
+  If rc ^= 0 Then Exit rc
 
 End
 
@@ -137,7 +137,7 @@ If Verify(host,"0123456789.") > 0 Then Do
   /* 'CALLPIPE VAR HOST | HOSTBYNAME | VAR ADDR' */
   /* a fix from phsiii */
   'CALLPIPE VAR HOST | HOSTBYNAME | SPECS w1 1 | VAR ADDR'
-  If rc /= 0 Then Return rc
+  If rc ^= 0 Then Return rc
 End /* If .. Do */
 Else addr = host
 
@@ -165,30 +165,33 @@ e2ax = "X" || C2X(e2a)
     '*.OUTPUT.HTTP: | TCPCLIENT' addr port ,
                       'LINGER 7 USERID' tcp.id 'DEBLOCK LINEND 0A' ,
                    '| *.INPUT.HTTP:'
-If rc /= 0 Then Return rc
+If rc ^= 0 Then Return rc
 
 /* send the request header then read the response header */
 'CALLPIPE (END !) STEM REQ.' ,
   '| E2A: XLATE | SPEC 1-* 1 x0D0A N' ,
   '| *.OUTPUT.HTTP:',
   '! STRLITERAL' e2ax '| E2A:'
+If rc ^= 0 Then Return rc
 
 /* consume the response header */
 'SELECT INPUT HTTP'
 size = 0
 i = 0
+lm = ""
 Do Forever
   'PEEKTO RECORD'
-  If rc /= 0 Then Leave
+  If rc ^= 0 Then Leave
   Parse Var record record '0D'x
   If record = "" Then Leave
   i = i + 1 ; h.i = Translate(record,a2e)
   Parse Upper Var h.i key val .
   If key = "CONTENT-LENGTH:" Then size = val
+  If key = "LAST-MODIFIED:" Then lm = h.i
   'READTO'
 End
 If rc = 12 Then rc = 0
-If rc /= 0 Then Do
+If rc ^= 0 Then Do
   _rc = rc
   'SELECT INPUT 0'
   Return _rc
@@ -197,17 +200,34 @@ h.0 = i
 'READTO'
 /* Say "size indicated is" size */
 
+/* check the HTTP return code */
+If h.0 > 0 Then Do
+  Parse Var h.1 . _rc rs
+  If _rc = 200 Then _rc = 0
+  If _rc ^= 0 Then Do
+    'SELECT INPUT 0'
+    Return _rc rs
+  End
+End
+
+/* write the content to file or to following stage */
 If trans Then 'CALLPIPE (END !) *.INPUT.HTTP:' ,
   '| STRIP TRAILING x0D | A2E: XLATE | CHANGE xB0 x5F' ,
   '|' pipe ,
   '! STRLITERAL' a2ex  '| A2E:'
          Else 'CALLPIPE         *.INPUT.HTTP:' ,
-  '| SPEC 1-* N x0A N' ,
+  '| BLOCK 512 LINEND 0A' ,
   '|' pipe
 _rc = rc
 'SEVER INPUT' ; 'SEVER OUTPUT'
 
+/* switch back to primary input stream */
 'SELECT INPUT 0'
+
+/* 'CALLPIPE STEM H. | > WGET HEAD A' */
+/* stamp time on file if a file was written */
+If fn ^= "-" & lm ^= "" Then lm = _lm2full(lm)
+If fn ^= "-" & lm ^= "" Then Address "COMMAND" 'DMSPLU' fn ft 'A' lm
 
 Return _rc
 
@@ -249,5 +269,76 @@ Parse Arg file . , .
 file = Reverse(file)
 Parse Var file file '/' .
 Return Reverse(file)
+
+
+/* ---------------------------------------------------------------------
+ *  Convert Last-Modified HTTP header to FULLDATE format.
+ */
+_lm2full: Procedure
+Parse Arg args
+
+/* parse standard Last-Modified and slice off date and time */
+Parse Upper Arg . "," dd mon yyyy time zone . , .
+lmdt = dd mon yyyy time
+
+/* convert to POSIX for easier arithmetic */
+Address "COMMAND" ,
+'PIPE VAR LMDT | DATECONVERT NORMAL POSIX | VAR PDATE'
+If rc ^= 0 Then Return ""
+
+/* apply time zone offset */
+zdate = C2D(pdate) + tzoffset("S")
+zdate = D2C(zdate,8)
+
+/* convert back to FULLDATE and include time */
+Address "COMMAND" ,
+'PIPE VAR ZDATE | DATECONVERT POSIX FULLDATE TIMEOUT | VAR RS'
+If rc ^= 0 Then Return ""
+
+/* slice off fractional time and return usable stamp */
+Parse Var rs rd rt .
+Parse Var rt rt "." .
+Return rd rt
+
+
+/* ------------------------------------------------------------ TZOFFSET
+ *  Compute timezone offset based on timezone string from 'CP Q TIME'.
+ *  (we probably have a CSL routine to do this ... but maybe not)
+ */
+tzoffset: Procedure
+
+Parse Upper Arg denom . ',' . , .
+Parse Upper Value Diag(08,'QUERY TIME') With . . . tz .
+
+Select /* tz */
+  When tz = "PST" Then zo = -8
+  When tz = "PDT" Then zo = -7
+  When tz = "MST" Then zo = -7
+  When tz = "MDT" Then zo = -6
+  When tz = "CST" Then zo = -6
+  When tz = "CDT" Then zo = -5
+  When tz = "EST" Then zo = -5
+  When tz = "EDT" Then zo = -4
+  When tz = "CET"  Then zo = 1
+  When tz = "CEDT" Then zo = 2
+  When tz = "CEST" Then zo = 2
+  When tz = "EET"  Then zo = 2
+  When tz = "EEDT" Then zo = 3
+  When tz = "EEST" Then zo = 3
+  When tz = "WET"  Then zo = 0
+  When tz = "WEDT" Then zo = 1
+  When tz = "WEST" Then zo = 1
+  /* FEED ME: need more timezones, duh */
+  When tz = "GMT"  Then zo = 0
+  When tz = "UTC"  Then zo = 0
+  Otherwise zo = 0
+End /* Select tz */
+
+denom = Left(denom,1)
+Select /* denom */
+  When denom = "S" Then Return zo * 60 * 60      /* offset in seconds */
+  When denom = "M" Then Return zo * 60           /* offset in minutes */
+  Otherwise Return zo
+End /* Select denom */
 
 
