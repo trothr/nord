@@ -31,7 +31,7 @@ On top of that are two build schemes.
 * CSCRATCH
 	builds the core of NORD into a bootable root filesystem
 	using an existing host platform (possibly not NORD)
-* Portable Apps (the /usr/opt scheme)
+* Chicory (the /usr/opt scheme)
 	builds non-core NORD packages as relocatable,
 	possibly shareable components (similar to IBM /usr/lpp or Sun /opt/SUNW)
 
