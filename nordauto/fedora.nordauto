@@ -1,0 +1,19 @@
+#                                                                                                                                                                                                                                                                                                                                                                                                                                                                           "width holder" because this is a really wide file #
+#         Name: FEDORA NORDAUTO
+#         Date: 2016-Jun-21 (Tue)
+#               This is the NORDAUTO file for Fedora on z/VM.
+#               Put this file on your 191 A disk before booting.
+#
+
+# where to find the kernel and INITRD ...
+NORDAUTO_KERNEL=http://mirrors.kernel.org/fedora-secondary/releases/21/Server/s390x/os/images/kernel.img
+NORDAUTO_INITRD=http://mirrors.kernel.org/fedora-secondary/releases/21/Server/s390x/os/images/initrd.img
+#
+NORDAUTO_BOOTPARMS=ro ramdisk_size=40000 vnc rd.dasd=0.0.0150 ip=148.100.88.35::148.100.88.1:255.255.255.0:ltroth3.casita.net:enccw0.0.0340:none rd.znet=qeth,0.0.0340,0.0.0341,0.0.0342,layer2=1 inst.repo=http://mirrors.kernel.org/fedora-secondary/releases/21/Server/s390x/os/ root=live:http://mirrors.kernel.org/fedora-secondary/releases/21/Server/s390x/os/images/install.img nameserver=8.8.8.8
+#
+# possible other options to try
+#rd.znet=qeth,0.0.0340,0.0.0341,0.0.0342,layer2=1,portname=FOOBAR,portno=0
+#     ro ramdisk_size=40000 cio_ignore=all,!condev
+#     ro ramdisk_size=40000 cio_ignore=all,!0.0.0009
+
+

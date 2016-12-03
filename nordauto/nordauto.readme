@@ -1,0 +1,24 @@
+Copyright © 2015, 2016, Richard M. Troth, all rights reserved. <plaintext>                                                                                                                                                                                     
+
+ NORDAUTO makes it easy to bring up Linux on z/VM.
+ Just enter the command 'nordauto' from the CMS "Ready;" prompt.
+
+ NORDAUTO is intended to reduce the number of manual steps needed
+ to boot Linux on a VM/CMS system. It should make things much easier
+ for non-VM and non-mainframe users.
+
+ By default, NORDAUTO reads a file with a filename matching the VMID
+ where you run it and a filetype of "NORDAUTO". This file is nothing
+ but a Linux boot parameters file, with the addition of URLs to the
+ kernel and initial ramdisk. You can name a different file, so you
+ can have several NORDAUTO files to choose from.
+
+ There is also a help file. Enter 'help cms nordauto' for that.
+
+ See NORDAUTO LICENSE for copyright and related information.
+
+ If you have questions about this package, send e-mail to:
+
+      Rick Troth <rmt@casita.net>
+
+

@@ -1,0 +1,48 @@
+#                                                                                                                                                                                                                  "width holder" because this is a wide file #
+#         Name: CLEFOS NORDAUTO
+#         Date: 2016-Jun-25 (Sat)
+#               This is the NORDAUTO file for ClefOS on z/VM.
+#               Put this file on your 191 A disk before booting.
+#
+
+# where to find the kernel ...
+#NORDAUTO_KERNEL=http://download.sinenomine.net/clefos/7.1.1503/images/kernel.img
+#NORDAUTO_INITRD=http://download.sinenomine.net/clefos/7.1.1503/images/initrd.img
+#NORDAUTO_KERNEL=http://download.sinenomine.net/clefos/7.2.1511/images/kernel.img
+#NORDAUTO_INITRD=http://download.sinenomine.net/clefos/7.2.1511/images/initrd.img
+#NORDAUTO_KERNEL=http://download.sinenomine.net/clefos/6.7/images/kernel.img
+#NORDAUTO_INITRD=http://download.sinenomine.net/clefos/6.7/images/initrd.img
+NORDAUTO_KERNEL=http://download.sinenomine.net/clefos/6/images/kernel.img
+NORDAUTO_INITRD=http://download.sinenomine.net/clefos/6/images/initrd.img
+
+# where to find the INITRD ...
+#root=live:http://download.sinenomine.net:/clefos/7.1.1503/images/install.img
+#root=live:http://download.sinenomine.net:/clefos/7.2.1511/images/install.img
+#root=live:http://download.sinenomine.net:/clefos/6.7/images/install.img
+root=live:http://download.sinenomine.net:/clefos/6/images/install.img
+
+# ClefOS boot params ...
+ramdisk_size=131072
+cio_ignore=all,!condev
+
+# you can optionally put most parameters into a secondary file ...
+#CMSDASD=191
+#CMSCONFFILE=CLEFOS.CONFFILE
+
+# ClefOS boot params ...
+NETTYPE=qeth
+SUBCHANNELS=0.0.0340,0.0.0341,0.0.0342
+IPADDR=148.100.88.35
+NETWORK=148.100.88.0
+NETMASK=255.255.255.0
+BROADCAST=148.100.88.255
+GATEWAY=148.100.88.1
+DNS=8.8.8.8
+SEARCHDNS=casita.net:linux-vm.org:vmworkshop.org
+HOSTNAME=ltroth3.casita.net
+LAYER2=1
+VSWITCH=1
+MTU=1492
+DASD=1B0-1B1
+
+

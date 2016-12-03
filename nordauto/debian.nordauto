@@ -1,0 +1,16 @@
+#                                                                                                                                                                                                                  "width holder" because this is a wide file #
+#         Name: DEBIAN NORDAUTO
+#         Date: 2016-Jun-21 (Tue)
+#               This is the NORDAUTO file for Debian Linux on z/VM.
+#               Put this file on your 191 A disk before booting.
+#
+
+# where to find the kernel and INITRD ...
+NORDAUTO_KERNEL=http://ftp.nl.debian.org/debian/dists/testing/main/installer-s390x/current/images/generic/kernel.debian
+NORDAUTO_INITRD=http://ftp.nl.debian.org/debian/dists/testing/main/installer-s390x/current/images/generic/initrd.debian
+#
+NORDAUTO_BOOTPARMS=ro locale=C
+#DEBIAN_FRONTEND=text
+# the Debian installer will prompt you for additional parameters
+
+

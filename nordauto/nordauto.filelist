@@ -1,0 +1,36 @@
+* Copyright © 2016, Richard M. Troth, all rights reserved.   <plaintext>
+*
+*         Name: NORDAUTO FILELIST
+*         Date: 2015-Dec and following
+*               This is the package definition for NORDAUTO,
+*               a one-shot command utility for booting Linux on z/VM.
+*
+      NORDAUTO FILELIST *  -- this file
+      NORDAUTO README   *  -- do what it says, read it
+      NORDAUTO LICENSE  *  -- simplified legal stuff
+*
+      NORDAUTO EXEC     *  -- the 'nordauto' command
+      NORDAUTO HELPCMS  *  -- brief help
+      CURL     REXX     *  -- web retrieval helper stage
+*
+* boot params files for various Linux distributions
+      UBUNTU   NORDAUTO *  -- example config for Ubuntu, requires z12
+      CLEFOS   NORDAUTO *  -- example config for ClefOS installation
+      FEDORA   NORDAUTO *  -- example config for Fedora
+      DEBIAN   NORDAUTO *  -- example config for Debian
+      LTROTH3  NORDAUTO *  -- a personal example
+* Note: kernels requiring z12 exhibit 0BADCCCC abend when IPLed on z10
+*
+* boot params files we would like to have
+*     CENTOS   NORDAUTO *  -- wanted, dead or alive
+*     REDHAT   NORDAUTO *  -- wanted, dead or alive
+*     SUSE     NORDAUTO *  -- wanted, dead or alive
+*     OPENSUSE NORDAUTO *  -- wanted, dead or alive
+*
+* supplemental files
+      CURL     EXEC     *  -- to run 'curl' from the Ready prompt
+      WGET     REXX     *  -- 'wget' workalike web retrieval stage
+      WGET     EXEC     *  -- to run 'wget' from the Ready prompt
+      NORDAUTO CMSMAKE  *  -- simple 'make' rules for [re]packaging these files
+*
+*

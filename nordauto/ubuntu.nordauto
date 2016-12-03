@@ -1,0 +1,21 @@
+#                                                                                                                                                                                                                  "width holder" because this is a wide file #
+#         Name: UBUNTU NORDAUTO
+#         Date: 2016-Jun-24 (Fri)
+#               This is the NORDAUTO file for Ubuntu on z/VM.
+#               Put this file on your 191 A disk before booting.
+#
+
+# where to find the kernel and INITRD ...
+NORDAUTO_KERNEL=http://ports.ubuntu.com/dists/xenial/main/installer-s390x/current/images/generic/kernel.ubuntu
+NORDAUTO_INITRD=http://ports.ubuntu.com/dists/xenial/main/installer-s390x/current/images/generic/initrd.ubuntu
+
+# sample boot parameters for running on z/VM
+DASD=1b0-1b1
+HOST=ubuntu390.casita.net:eth0:148.100.88.35:1500
+NETWORK=148.100.88.0:255.255.255.0:148.100.88.255:148.100.88.1
+DNS=8.8.8.8
+SEARCHDNS=casita.net
+CHANDEV=qeth0,0x340,0x341,0x342
+QETHPARM=add_parms,0x10,0x340,0x342,portname:m,secondary_router
+
+
