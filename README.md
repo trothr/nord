@@ -52,4 +52,16 @@ The following work now:
 Platforms listed here as "excepting bootstrap" run in 'chroot'.
 Those which are "excepting runtime" borrow the runtime of the host.
 
+NORDAUTO
+========
+
+When hosted on z/VM, NORD is most easily installed via NORDAUTO.
+NORDAUTO itself is just a web-oriented loader and can be used
+to bootstrap any Linux distribution.
+
+See the "nordauto" directory of this project, or download from
+http://www.casita.net/pub/nord/nordauto/nordauto.vmarc
+or
+http://www.casita.net/pub/nord/nordauto/nordauto.tar.gz
+
 
