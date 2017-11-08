@@ -1,0 +1,23 @@
+
+
+
+
+case $1 in
+
+  start)
+    syslogd &
+    sleep 1
+    klogd &
+    ;;
+
+  stop)
+    ;;
+
+  *)
+    echo "$Z: dunno how to '$1'"
+    exit 1
+    ;;
+
+esac 
+
+

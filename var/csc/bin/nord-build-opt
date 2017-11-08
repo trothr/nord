@@ -1,0 +1,122 @@
+#!/bin/sh
+#
+#         Name: nord-build-opt (shell script)
+#         Date: 2016-June
+#               use this script to build packages as "Portable Apps"
+#
+
+WD=/local/opt           # package residence parent directory
+PD=/usr/opt             # package reference directory prefix
+
+# name of this script for reporting
+Z=`basename $0`
+
+# be sure there is at least one argument
+if [ -z "$1" ] ; then
+  echo "$Z: specify something to build!" 1>&2
+  exit 1 ; fi
+
+# handle multiple arguments
+P1=$1 ; shift ; PL="$*"
+if [ ! -z "$PL" ] ; then
+  $0 $P1 ; exec $0 $PL ; fi
+
+# check the syntax
+P1N=`echo $P1 | awk -F- '{print $1}'`
+P1V=`echo $P1 | awk -F- '{print $2}'`
+if [ -z "$P1N" -o -z "$P1V" ] ; then
+  echo "$Z: syntax is '$Z package-version'" 1>&2
+  exit 1 ; fi
+
+# check that it's not already installed
+if [ -d $PD/$P1 ] ; then
+  echo "$Z: package '$P1' is already installed" 1>&2
+  exit 0 ; fi
+
+# work from the standard build directory
+cd $WD
+if [ ! -d $WD ] ; then exit 1 ; fi
+
+# create the package sub-directory
+mkdir -p $WD/$P1
+cd $WD/$P1
+if [ ! -d $WD/$P1 ] ; then exit 1 ; fi
+
+# see if the package makefile is already in place
+if [ ! -f $WD/$P1/makefile ] ; then
+  wget -O $WD/$P1/makefile http://www.casita.net/pub/$P1N/$P1.mak
+  RC=$? ; if [ $RC -ne 0 ] ; then
+    echo "$Z: acquiring makefile for '$P1' failed" 1>&2
+    rm -f $WD/$P1/makefile
+    exit $RC ; fi
+  fi
+
+# get the common 'setup' script
+if [ ! -f $WD/$P1/setup ] ; then
+  wget -O $WD/$P1/setup http://www.casita.net/pub/opt.setup.sh
+  chmod a+rx $WD/$P1/setup
+  fi
+
+# check that it's not already built
+SYSTEM=`$WD/$P1/setup --system`
+if [ -z "$SYSTEM" ] ; then
+  echo "$Z: error running '$WD/$P1/setup' script for '$P1'" 1>&2
+  exit 1 ; fi
+if [ -d $WD/$P1/$SYSTEM ] ; then
+  echo "$Z: package '$P1' is already built for '$SYSTEM'" 1>&2
+  echo "$Z: run '$WD/$P1/setup' to install it" 1>&2
+  exit 0 ; fi
+
+# create or reference the archive directory
+if [ ! -d $WD/$P1/arc -a -d /arc/$P1N ] ; then
+    ln -s /arc/$P1N $WD/$P1/arc ; fi
+if [ ! -d $WD/$P1/arc ] ; then
+    mkdir $WD/$P1/arc ; fi
+
+
+echo "$Z: building package '$P1N' version '$P1V'"
+
+
+# download the source, if needed, and extract
+if [ ! -f $WD/$P1/_src ] ; then echo "$Z: acquiring source for '$P1' ..." ; fi
+cd $WD/$P1 ; make source
+RC=$? ; if [ $RC -ne 0 ] ; then
+  echo "$Z: acquiring source for '$P1' failed" 1>&2
+  exit $RC ; fi
+
+# verify the source, assuming there is a rule for that
+if [ ! -f $WD/$P1/_src ] ; then echo "$Z: verifying source for '$P1' ..." ; fi
+cd $WD/$P1 ; make verify
+RC=$? ; if [ $RC -ne 0 ] ; then
+  echo "$Z: verifying source for '$P1' failed" 1>&2
+  exit $RC ; fi
+
+# configure for this environment
+if [ ! -f $WD/$P1/_cfg ] ; then echo "$Z: configuring '$P1' ..." ; fi
+cd $WD/$P1 ; make config
+RC=$? ; if [ $RC -ne 0 ] ; then
+  echo "$Z: configuring '$P1' failed" 1>&2
+  exit $RC ; fi
+
+# build it
+if [ ! -f $WD/$P1/_exe ] ; then echo "$Z: building '$P1' ..." ; fi
+cd $WD/$P1 ; make
+RC=$? ; if [ $RC -ne 0 ] ; then
+  echo "$Z: building '$P1' failed" 1>&2
+  exit $RC ; fi
+
+# install it
+if [ ! -f $WD/$P1/_ins ] ; then echo "$Z: installing '$P1' ..." ; fi
+cd $WD/$P1 ; make install
+RC=$? ; if [ $RC -ne 0 ] ; then
+  echo "$Z: installing '$P1' failed" 1>&2
+  exit $RC ; fi
+
+# clean-up
+cd $WD/$P1 ; make distclean
+
+echo "$Z: '$P1' done"
+
+exit
+
+

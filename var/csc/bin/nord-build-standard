@@ -1,0 +1,250 @@
+#!/bin/sh
+#
+#         Name: nord-build-standard (shell script)
+#         Date: 2016-June, 2016-Dec-21 (Wed)
+#               this script drives 'nord-build-csc' and 'nord-build-opt'
+#               selectively to [re]create standard NORD components
+#
+
+# tool chain (sans compiler and assembler)
+nord-build-csc autoconf
+nord-build-csc automake
+nord-build-csc libtool
+nord-build-csc gawk
+nord-build-csc sed
+nord-build-csc grep
+nord-build-csc m4
+nord-build-csc flex             # need source
+nord-build-csc bison
+
+# file and archive and retrieval tools
+nord-build-csc gzip
+nord-build-csc bzip2
+nord-build-csc xz
+nord-build-csc lzip
+nord-build-csc patch
+nord-build-csc tar
+nord-build-csc rsync
+nord-build-csc wget
+nord-build-csc curl
+
+# common utilities
+nord-build-csc coreutils
+nord-build-csc diffutils
+nord-build-csc sharutils
+nord-build-csc findutils
+nord-build-csc file
+nord-build-csc which
+nord-build-csc make
+nord-build-csc ed
+nord-build-csc bc
+
+# editors and file handling utilities
+nord-build-csc texinfo
+nord-build-csc nano
+nord-build-csc vim
+# THE is built with 'nord-build-opt' (see below)
+nord-build-csc less
+nord-build-csc screen           # need source
+nord-build-csc groff            # requires C++
+
+# system utilities
+nord-build-csc shadow
+nord-build-csc sudo
+nord-build-csc sysklogd
+nord-build-csc sysvinit
+nord-build-csc e2fsprogs
+nord-build-csc utillinux        # need source
+nord-build-csc modtools         # need source
+nord-build-csc procps           # may do an 'ldconfig' if built w/o "SHARED=0"
+nord-build-csc autofs           # needs /proc mounted
+
+nord-build-csc cdrtools
+
+# shells
+nord-build-csc bash
+nord-build-csc pdksh
+nord-build-csc zsh
+nord-build-csc tcsh             # need source
+nord-build-csc dash
+
+nord-build-csc pkgconfig
+
+nord-build-csc db
+nord-build-csc postfix          # requires DB
+
+nord-build-csc netcat           # need source
+nord-build-csc dhcp             # need source
+nord-build-csc xinetd           # need source
+nord-build-csc inetutils
+nord-build-csc ppp              # need source
+#nord-build-csc netsnmp         # need source, requires Perl R/W access
+#nord-build-csc nmap            # need site certificate
+
+##nord-build-csc multipathtools # library dependency?
+
+##nord-build-csc connect
+
+#nord-build-csc cvs             # better via 'nord-build-opt'
+# also should include subversion
+# also should include git
+
+# common libraries
+nord-build-csc ncurses                  # lib
+nord-build-csc readline                 # lib
+nord-build-csc gettext                  # lib
+#nord-build-csc pth                     # lib, opt
+#nord-build-csc npth                    # lib, opt
+#nord-build-csc libxml2                 # lib, opt
+nord-build-csc zlib             # performs an 'ldconfig'
+
+#nord-build-csc glibc           # this is a monster, takes forever and is seriously invasive
+
+# optional packages
+#nord-build-csc rpm
+#nord-build-csc cmsfs
+#nord-build-csc collectl
+#nord-build-csc elfutils
+
+# problem packages
+#nord-build-csc cron
+#nord-build-csc lsof
+#nord-build-csc kbd             # http://www.linuxfromscratch.org/lfs/view/7.3/chapter06/kbd.html
+#nord-build-csc lvm
+#nord-build-csc mutt            # "Could not determine where new mail is stored."
+#nord-build-csc nettools        # dependency
+#nord-build-csc uft             # dependency (TLS?)
+#nord-build-csc nfsutils        # requires libwrap
+#nord-build-csc cups            # requires espgs libjpeg libpng zlib
+
+
+# packages shunted to Chicory /usr/opt
+nord-build-opt openssl-1.0.1t
+if [ ! -d /usr/opt/openssl-1.0.1t ] ; then /local/opt/openssl-1.0.1t/setup ; fi
+
+nord-build-opt openssh-7.3p1
+if [ ! -d /usr/opt/openssh-7.3p1 ] ; then /local/opt/openssh-7.3p1/setup ; fi
+
+nord-build-opt gnupg-1.4.21
+if [ ! -d /usr/opt/gnupg-1.4.21 ] ; then /local/opt/gnupg-1.4.21/setup ; fi
+
+nord-build-opt lzo-2.09
+if [ ! -d /usr/opt/lzo-2.09 ] ; then /local/opt/lzo-2.09/setup ; fi
+
+nord-build-opt openvpn-2.3.10   # requires lzo in-place
+if [ ! -d /usr/opt/openvpn-2.3.10 ] ; then /local/opt/openvpn-2.3.10/setup ; fi
+
+nord-build-opt libevent-2.0.22  # requires OpenSSL in-place
+if [ ! -d /usr/opt/libevent-2.0.22 ] ; then /local/opt/libevent-2.0.22/setup ; fi
+
+nord-build-opt libressl-2.3.9
+nord-build-opt libressl-2.4.4
+#nord-build-opt openssl-0.9.8zh
+#nord-build-opt openssl-1.0.2j
+#nord-build-opt openssl-1.1.0c
+
+nord-build-opt libgpgerror-1.25
+if [ ! -d /usr/opt/libgpgerror-1.25 ] ; then /local/opt/libgpgerror-1.25/setup ; fi
+
+nord-build-opt libksba-1.3.5            # req LIBGPGERROR
+if [ ! -d /usr/opt/libksba-1.3.5 ] ; then /local/opt/libksba-1.3.5/setup ; fi
+
+nord-build-opt libassuan-2.4.3
+if [ ! -d /usr/opt/libassuan-2.4.3 ] ; then /local/opt/libassuan-2.4.3/setup ; fi
+
+nord-build-opt libgcrypt-1.7.3
+if [ ! -d /usr/opt/libgcrypt-1.7.3 ] ; then /local/opt/libgcrypt-1.7.3/setup ; fi
+
+nord-build-opt ntp-4.2.8p9
+if [ ! -d /usr/opt/ntp-4.2.8p9 ] ; then /local/opt/ntp-4.2.8p9/setup ; fi
+
+nord-build-opt bind-9.10.4b3
+if [ ! -d /usr/opt/bind-9.10.4b3 ] ; then /local/opt/bind-9.10.4b3/setup ; fi
+
+#nord-build-opt binutils
+#nord-build-opt gcc
+nord-build-opt cmake-3.5.1
+
+#nord-build-opt make-3.82
+#if [ ! -d /usr/opt/make-3.82 ] ; then /local/opt/make-3.82/setup ; fi
+
+
+UNAMEM=`uname -m | sed 's#^i.86$#i386#' | sed 's#^armv.l$#arm#'`
+case $UNAMEM in
+
+  i386|x86_64)
+    nord-build-opt bin86-0.16.18     # contains as86, ld86, bcc
+    if [ ! -d /usr/opt/bin86-0.16.18 ] ; then /local/opt/bin86-0.16.18/setup ; fi
+
+    nord-build-csc lilo         # req GCC-3.3.5+, req BIN86-0.16.14+
+    ;;
+
+  s390*)
+    #nord-build-csc s390tools
+    ;;
+
+  ppc*)
+    :
+    ;;
+
+  arm*)
+    :
+    ;;
+
+  sparc*)
+    :
+    ;;
+
+  mips*)
+    :
+    ;;
+
+  *)
+    :
+    ;;
+
+esac
+
+exit
+
+nord-build-opt regina
+nord-build-opt the
+nord-build-opt oorexx
+nord-build-opt perl
+nord-build-opt python
+nord-build-opt ruby
+nord-build-opt tcl
+
+nord-build-opt apache
+
+nord-build-opt gnupg-2.0.30
+nord-build-opt gnupg-2.1.16
+
+exit
+
+#keys needed:
+# 0xD5E9E43F7DF9EE8C (have it)
+# 0xadef768480316bda
+# 0xEC8FEF3A7BFB4EDA (have it) for cmake (subkey 0x34921684)
+# 0xADEF768480316BDA for mutt
+
+# opt c3270
+# opt emacs
+# opt gdbm
+# opt git
+# opt glib
+# opt gmp
+# opt gnutls
+# opt hercules
+# opt irssi
+# opt libpcap
+# opt libvirt
+# opt mpc
+# opt mpfr
+# opt musl                       # CD0
+# opt nettle
+# opt nginx
+# opt pdsh
+# opt subversion-1.9.2
+
+

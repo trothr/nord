@@ -1,0 +1,958 @@
+;
+; zone 'bitnet' 
+;
+; $ORIGIN .
+@ IN SOA bit.casita.net. root@casita.net (
+				2014052600 21600 3600 3600000 86400 )
+		IN	NS	bit.casita.net.
+;		IN	NS	linux390.marist.edu.
+;		IN	NS	ns.fsf.net.
+;				66.136.169.57
+;
+; $ORIGIN bitnet.
+;#
+;# the original MX "interbit.cren.net" is defunct
+;# using "www.internet2.edu" for MX to fudge this file
+;#
+fauvms		IN	MX	10	www.internet2.edu.
+sauqu00		IN	MX	10	www.internet2.edu.
+gsuvm1		IN	MX	10	www.internet2.edu.
+jpnuthos	IN	MX	10	www.internet2.edu.
+taunivm		IN	CNAME	vm.tau.ac.il.
+itcaspur	IN	CNAME	itcaspur.caspur.it.
+occ		IN	CNAME	vm.occ.cc.mi.us.
+vcuvm1		IN	MX	10	www.internet2.edu.
+unido		IN	MX	10	www.internet2.edu.
+uiucscsb	IN	MX	10	www.internet2.edu.
+ipisnsva	IN	MX	10	www.internet2.edu.
+uiucscsc	IN	MX	10	www.internet2.edu.
+umdacc		IN	MX	10	www.internet2.edu.
+huhepl		IN	MX	10	www.internet2.edu.
+dosuni1		IN	CNAME	dosuni1.rz.uni-osnabrueck.de.
+finhut		IN	CNAME	finhut.hut.fi.
+jpntyavm	IN	MX	10	www.internet2.edu.
+umbc1		IN	MX	10	www.internet2.edu.
+itsarea		IN	MX	10	www.internet2.edu.
+wvnmvs		IN	MX	10	www.internet2.edu.
+umbc2		IN	MX	10	www.internet2.edu.
+pumis		IN	CNAME	pumis.princeton.edu.
+wvnsc		IN	MX	10	www.internet2.edu.
+umuc		IN	CNAME	umuc.umd.edu.
+uiucscst	IN	MX	10	www.internet2.edu.
+okstate		IN	MX	10	www.internet2.edu.
+irmlnf		IN	MX	10	www.internet2.edu.
+psuvalm		IN	MX	10	www.internet2.edu.
+aearn		IN	CNAME	aearn.edvz.univie.ac.at.
+ibrdvm1		IN	CNAME	ibrdvm1.worldbank.org.
+psuvalp		IN	MX	10	www.internet2.edu.
+ymir		IN	CNAME	ymir.claremont.edu.
+ipdudmsa	IN	MX	10	www.internet2.edu.
+firien		IN	CNAME	kontu.utu.fi.
+roipb		IN	CNAME	ipb.ro.
+djukfa11	IN	CNAME	zam001.zam.kfa-juelich.de.
+ohstpw		IN	MX	10	www.internet2.edu.
+jpnouc01	IN	MX	10	www.internet2.edu.
+ohstpx		IN	MX	10	www.internet2.edu.
+ohstpy		IN	MX	10	www.internet2.edu.
+ifeuniv		IN	MX	10	www.internet2.edu.
+trytuvse	IN	MX	10	www.internet2.edu.
+tcuavms		IN	CNAME	alpha.is.tcu.edu.
+ohstpz		IN	MX	10	www.internet2.edu.
+tritu		IN	CNAME	cc.itu.edu.tr.
+jpnswu10	IN	MX	10	www.internet2.edu.
+hujivms		IN	CNAME	vms.huji.ac.il.
+irmecosa	IN	MX	10	www.internet2.edu.
+djukfa21	IN	CNAME	zam003.zam.kfa-juelich.de.
+jpnutins	IN	MX	10	www.internet2.edu.
+wvnvm		IN	CNAME	wvnvm.wvnet.edu.
+ipdunivx	IN	MX	10	www.internet2.edu.
+vuvaxcom	IN	MX	10	www.internet2.edu.
+snybkadm	IN	MX	10	www.internet2.edu.
+asuacvax	IN	CNAME	acvax.inre.asu.edu.
+ukanvm		IN	CNAME	ukanvm.cc.ukans.edu.
+nsf		IN	CNAME	nsf.gov.
+egaucacs	IN	CNAME	auc-acs.eun.eg.
+rougal		IN	CNAME	ugal.ro.
+wingra		IN	CNAME	wingra.com.
+mitwccf		IN	CNAME	wccf.mit.edu.
+dhdspri6	IN	CNAME	alpha.ntp.springer.de.
+djukfa52	IN	MX	10	www.internet2.edu.
+ruunicom	IN	MX	10	www.internet2.edu.
+localhost	IN	A	127.0.0.1
+seliuc51	IN	CNAME	viktor.lidac.liu.se.
+fauvx2		IN	MX	10	www.internet2.edu.
+wvnbscgc	IN	MX	10	www.internet2.edu.
+trfirat		IN	MX	10	www.internet2.edu.
+cfrvm		IN	CNAME	cfrvm.cfr.usf.edu.
+dfngate		IN	MX	10	www.internet2.edu.
+jpnnuhep	IN	MX	10	www.internet2.edu.
+volcani		IN	MX	10	www.internet2.edu.
+uiucmrl		IN	MX	10	www.internet2.edu.
+trearn		IN	CNAME	vm3090.ege.edu.tr.
+ibagiove	IN	MX	10	www.internet2.edu.
+psuleps		IN	CNAME	leps.phys.psu.edu.
+dudev		IN	MX	10	www.internet2.edu.
+cunyvms1	IN	CNAME	cunyvms1.gc.cuny.edu.
+albany		IN	MX	10	www.internet2.edu.
+tcucvms		IN	CNAME	gamma.is.tcu.edu.
+cusb		IN	MX	10	www.internet2.edu.
+jmaila		IN	CNAME	jmaila.joiner.com.
+jmailb		IN	CNAME	jmailb.joiner.com.
+de0hrz1a	IN	MX	10	www.internet2.edu.
+tifton		IN	CNAME	tifton.cpes.peachnet.edu.
+portland	IN	CNAME	portland.caps.maine.edu.
+etsuadmn	IN	CNAME	admin.tamu-commerce.edu.
+snycenva	IN	CNAME	sysadm.suny.edu.
+segate		IN	CNAME	segate.sunet.se.
+suearn2		IN	MX	10	www.internet2.edu.
+servax		IN	MX	10	www.internet2.edu.
+dmumpimv	IN	MX	10	www.internet2.edu.
+sunysbnp	IN	CNAME	nuclear.physics.sunysb.edu.
+dgogwdg1	IN	CNAME	ibm.gwdg.de.
+utarlvm1	IN	CNAME	utarlvm1.uta.edu.
+snycenvm	IN	MX	10	www.internet2.edu.
+dmumpint	IN	CNAME	mppmu.mpg.de.
+vulhmrba	IN	MX	10	www.internet2.edu.
+umslvma		IN	CNAME	umslvma.umsl.edu.
+saksu00		IN	MX	10	www.internet2.edu.
+bhuob00		IN	CNAME	cc.uob.bh.
+fredonia	IN	CNAME	a12t.cc.fredonia.edu.
+iupmaple	IN	CNAME	maple.grove.iup.edu.
+umslvmb		IN	MX	10	www.internet2.edu.
+dgogwdg5	IN	MX	10	www.internet2.edu.
+irishmvs	IN	CNAME	irishmvs.cc.nd.edu.
+cunyvmv2	IN	MX	10	www.internet2.edu.
+psupdp1		IN	MX	10	www.internet2.edu.
+huxtal0		IN	CNAME	xtal0.harvard.edu.
+dhhuni1		IN	CNAME	rrz.uni-hamburg.de.
+huxtal1		IN	CNAME	xtal1.harvard.edu.
+icsuniv		IN	MX	10	www.internet2.edu.
+cuvma		IN	CNAME	cuvma.columbia.edu.
+harvpcna	IN	MX	10	www.internet2.edu.
+psuvaxg		IN	MX	10	www.internet2.edu.
+cuvmb		IN	CNAME	cuvmb.columbia.edu.
+dhhuni4		IN	MX	10	www.internet2.edu.
+cuvmc		IN	CNAME	cuvmc.ais.columbia.edu.
+imibocco	IN	CNAME	uni-bocconi.it.
+rpitsmts	IN	CNAME	mts.rpi.edu.
+psuarla		IN	CNAME	arlvax.psu.edu.
+idbsu		IN	CNAME	idbsu.idbsu.edu.
+hrzags11	IN	CNAME	mokos.srce.hr.
+cugsbvax	IN	MX	10	www.internet2.edu.
+umccsl1		IN	MX	10	www.internet2.edu.
+psuvax1		IN	MX	10	www.internet2.edu.
+cuvml		IN	MX	10	www.internet2.edu.
+uvvmy		IN	MX	10	www.internet2.edu.
+udcvax		IN	MX	10	www.internet2.edu.
+psuvaxs		IN	MX	10	www.internet2.edu.
+imiclvx		IN	CNAME	icil64.cilea.it.
+dkluni01	IN	MX	10	www.internet2.edu.
+wvnbsc2		IN	MX	10	www.internet2.edu.
+uiucnpl		IN	MX	10	www.internet2.edu.
+snybccva	IN	MX	10	www.internet2.edu.
+doevm		IN	CNAME	vm1.hqadmin.doe.gov.
+brownhep	IN	MX	10	www.internet2.edu.
+waynemts	IN	MX	10	www.internet2.edu.
+aip		IN	MX	10	www.internet2.edu.
+wvnscus		IN	MX	10	www.internet2.edu.
+dgaipp1s	IN	MX	10	www.internet2.edu.
+barilan		IN	CNAME	mvsa.biu.ac.il.
+bx001		IN	MX	10	www.internet2.edu.
+psupena		IN	MX	10	www.internet2.edu.
+psupenb		IN	MX	10	www.internet2.edu.
+irearn		IN	MX	10	www.internet2.edu.
+umdd2		IN	MX	10	www.internet2.edu.
+imihsra		IN	CNAME	imihsra.hsr.it.
+umdd3		IN	MX	10	www.internet2.edu.
+frmop11		IN	CNAME	frmop11.cnusc.fr.
+ritvaxa		IN	MX	10	www.internet2.edu.
+ritvaxb		IN	MX	10	www.internet2.edu.
+harvarda	IN	MX	10	www.internet2.edu.
+ritvaxc		IN	MX	10	www.internet2.edu.
+nerbit		IN	MX	10	www.internet2.edu.
+ritvaxd		IN	MX	10	www.internet2.edu.
+wbwvm		IN	MX	10	www.internet2.edu.
+ritvaxe		IN	MX	10	www.internet2.edu.
+psuarlis	IN	CNAME	arlis.arl.psu.edu.
+ritvaxf		IN	MX	10	www.internet2.edu.
+psupower	IN	MX	10	www.internet2.edu.
+finhutc		IN	CNAME	finhutc.hut.fi.
+jpnknzw1	IN	MX	10	www.internet2.edu.
+snyfitva	IN	MX	10	www.internet2.edu.
+amh		IN	CNAME	amh.amherst.edu.
+ritvaxl		IN	MX	10	www.internet2.edu.
+wuolin		IN	CNAME	wuolin.wustl.edu.
+uucpgate	IN	MX	10	www.internet2.edu.
+wvnpsc		IN	MX	10	www.internet2.edu.
+ritvaxn		IN	MX	10	www.internet2.edu.
+hofstra		IN	MX	10	www.internet2.edu.
+ritvaxo		IN	MX	10	www.internet2.edu.
+dmumpiwh	IN	MX	10	www.internet2.edu.
+ivruniv		IN	MX	10	www.internet2.edu.
+finjyu		IN	CNAME	jylk.jyu.fi.
+awituw64	IN	MX	10	www.internet2.edu.
+desyvax		IN	CNAME	vxdesy.desy.de.
+snyfitvn	IN	MX	10	www.internet2.edu.
+tscvm		IN	CNAME	tscvm.trenton.edu.
+jpnkyoto	IN	MX	10	www.internet2.edu.
+tcugvms		IN	CNAME	lib.is.tcu.edu.
+wugold		IN	CNAME	wugold.wustl.edu.
+psuedvax	IN	CNAME	vax.ed.psu.edu.
+ucbcmsa		IN	CNAME	cmsa.berkeley.edu.
+huearn		IN	CNAME	huearn.sztaki.hu.
+cfaku2		IN	MX	10	www.internet2.edu.
+huarp1		IN	MX	10	www.internet2.edu.
+mitvma2		IN	CNAME	mitvma2.mit.edu.
+ealiun11	IN	MX	10	www.internet2.edu.
+servms		IN	MX	10	www.internet2.edu.
+tromuni		IN	MX	10	www.internet2.edu.
+towsonvx	IN	CNAME	toe.towson.edu.
+dkluni85	IN	MX	10	www.internet2.edu.
+miamiu		IN	CNAME	miamiu.muohio.edu.
+dulruu51	IN	MX	10	www.internet2.edu.
+dkluni86	IN	MX	10	www.internet2.edu.
+gallua		IN	CNAME	gallua.gallaudet.edu.
+dulruu52	IN	MX	10	www.internet2.edu.
+dulruu53	IN	MX	10	www.internet2.edu.
+upr1		IN	MX	10	www.internet2.edu.
+lafayacs	IN	CNAME	lafibm.lafayette.edu.
+tifrvax		IN	MX	10	www.internet2.edu.
+dk0umi1		IN	MX	10	www.internet2.edu.
+snybksac	IN	MX	10	www.internet2.edu.
+unmcvm		IN	MX	10	www.internet2.edu.
+dgampe5d	IN	MX	10	www.internet2.edu.
+marista		IN	CNAME	musica.marist.edu.
+uorhep		IN	MX	10	www.internet2.edu.
+maristb		IN	CNAME	musicb.marist.edu.
+dhvmhh1		IN	CNAME	vm.mhrz.mh-hannover.de.
+maristc		IN	CNAME	musicc.marist.edu.
+trerun		IN	MX	10	www.internet2.edu.
+technion	IN	CNAME	technion.technion.ac.il.
+jpnrcnp		IN	MX	10	www.internet2.edu.
+jpnac		IN	MX	10	www.internet2.edu.
+finfiles	IN	CNAME	nic.funet.fi.
+psulias		IN	CNAME	psulias.psu.edu.
+ummvsb		IN	CNAME	ummvsb.umsystem.edu.
+browncs		IN	MX	10	www.internet2.edu.
+ibamarte	IN	MX	10	www.internet2.edu.
+asu		IN	CNAME	asu.edu.
+wvnfsc2		IN	MX	10	www.internet2.edu.
+osucc		IN	CNAME	mvs.ucc.okstate.edu.
+cfa		IN	CNAME	cfa.harvard.edu.
+wvnscc		IN	MX	10	www.internet2.edu.
+ubvmsa		IN	CNAME	ubvmsa.bitnet.
+psuecla		IN	MX	10	www.internet2.edu.
+ubvmsb		IN	CNAME	ubvmsb.bitnet.
+ipduni1		IN	MX	10	www.internet2.edu.
+psueclc		IN	MX	10	www.internet2.edu.
+dm0mpf11	IN	MX	10	www.internet2.edu.
+wvnaxp		IN	MX	10	www.internet2.edu.
+ilnite		IN	MX	10	www.internet2.edu.
+bingtjw		IN	MX	10	www.internet2.edu.
+cfr		IN	CNAME	cfrmvs.cfr.usf.edu.
+huxtal		IN	MX	10	www.internet2.edu.
+trmarunv	IN	MX	10	www.internet2.edu.
+sucrys		IN	MX	10	www.internet2.edu.
+wvnbsc		IN	MX	10	www.internet2.edu.
+uiucvm42	IN	CNAME	vm42.cso.uiuc.edu.
+snyplaba	IN	MX	10	www.internet2.edu.
+nobivm		IN	CNAME	vm.bi.no.
+hnykun11	IN	CNAME	hnykun11.urc.kun.nl.
+harvard		IN	MX	10	www.internet2.edu.
+ddohrz11	IN	CNAME	zx2.hrz.uni-dortmund.de.
+psueclx		IN	CNAME	eclx.psu.edu.
+bgearn		IN	CNAME	bgearn.acad.bg.
+griffin		IN	MX	10	www.internet2.edu.
+uorvm		IN	MX	10	www.internet2.edu.
+uorgsm		IN	MX	10	www.internet2.edu.
+dad		IN	CNAME	dad.bgsu.edu.
+radar		IN	CNAME	radar.bgsu.edu.
+umcecn01	IN	MX	10	www.internet2.edu.
+rpiecsvx	IN	MX	10	www.internet2.edu.
+vtvm1		IN	CNAME	vtvm1.cc.vt.edu.
+ibguniv		IN	MX	10	www.internet2.edu.
+iupoak		IN	CNAME	oak.grove.iup.edu.
+dearnaxp	IN	MX	10	www.internet2.edu.
+bitnic		IN	CNAME	bitnic.cren.net.
+wmmvs		IN	CNAME	wmmvs.cc.wm.edu.
+unlvax1		IN	MX	10	www.internet2.edu.
+dcc		IN	MX	10	www.internet2.edu.
+scu		IN	MX	10	www.internet2.edu.
+umsvm		IN	MX	10	www.internet2.edu.
+cunyjes3	IN	MX	10	www.internet2.edu.
+cunybit		IN	MX	10	www.internet2.edu.
+emdupm11	IN	MX	10	www.internet2.edu.
+ibrcnrsm	IN	MX	10	www.internet2.edu.
+esgbox		IN	CNAME	esgbox.ub.es.
+itocsihp	IN	MX	10	www.internet2.edu.
+wvncoe		IN	MX	10	www.internet2.edu.
+dhdmpi5		IN	MX	10	www.internet2.edu.
+hnykun51	IN	CNAME	aznvx1.azn.nl.
+hugbox		IN	CNAME	hugbox.sztaki.hu.
+ser		IN	MX	10	www.internet2.edu.
+psumse		IN	MX	10	www.internet2.edu.
+hnykun52	IN	CNAME	vms.uci.kun.nl.
+jpnkekcf	IN	MX	10	www.internet2.edu.
+irmlnfa		IN	MX	10	www.internet2.edu.
+sucemi		IN	MX	10	www.internet2.edu.
+hnykun53	IN	CNAME	psych.kun.nl.
+irmlnfb		IN	MX	10	www.internet2.edu.
+cepes		IN	CNAME	cepes.ro.
+irmlnfc		IN	MX	10	www.internet2.edu.
+jpndentu	IN	MX	10	www.internet2.edu.
+samford		IN	MX	10	www.internet2.edu.
+hope		IN	CNAME	hope.cit.hope.edu.
+uprenet		IN	MX	10	www.internet2.edu.
+sakfu00		IN	MX	10	www.internet2.edu.
+psuesl1		IN	MX	10	www.internet2.edu.
+osuvm1		IN	CNAME	vm1.ucc.okstate.edu.
+ibuucsc		IN	MX	10	www.internet2.edu.
+osuvms		IN	CNAME	vms.ucc.okstate.edu.
+lagcc		IN	MX	10	www.internet2.edu.
+wvnrtc		IN	MX	10	www.internet2.edu.
+ictuniv		IN	MX	10	www.internet2.edu.
+sakacs00	IN	MX	10	www.internet2.edu.
+qucdnee		IN	CNAME	qucdnee.ee.queensu.ca.
+ukacrl		IN	CNAME	nje.rl.ac.uk.
+uorchem		IN	MX	10	www.internet2.edu.
+hugse1		IN	MX	10	www.internet2.edu.
+hugse2		IN	MX	10	www.internet2.edu.
+ubvm		IN	CNAME	ubvm.cc.buffalo.edu.
+duphy1		IN	MX	10	www.internet2.edu.
+barilvm		IN	CNAME	vm.biu.ac.il.
+icnucevm	IN	CNAME	vm.cnuce.cnr.it.
+uc780		IN	MX	10	www.internet2.edu.
+duphy4		IN	MX	10	www.internet2.edu.
+jpnkudpc	IN	MX	10	www.internet2.edu.
+jpnknsu		IN	MX	10	www.internet2.edu.
+icnucevs	IN	MX	10	www.internet2.edu.
+dbnrhrz1	IN	CNAME	uni-bonn.de.
+dbnrhrz2	IN	CNAME	mvsxa.rhrz.uni-bonn.de.
+asuacad		IN	CNAME	asuvm.inre.asu.edu.
+plpuam11	IN	CNAME	plpuam11.amu.edu.pl.
+bcit		IN	CNAME	bcit.bc.ca.
+uregina1	IN	CNAME	max.cc.uregina.ca.
+jpnsnu10	IN	MX	10	www.internet2.edu.
+icnucevx	IN	MX	10	www.internet2.edu.
+harvsc3		IN	MX	10	www.internet2.edu.
+ureginav	IN	CNAME	meena.cc.uregina.ca.
+harvsc5		IN	MX	10	www.internet2.edu.
+vnetgate	IN	MX	10	www.internet2.edu.
+jpnyitp		IN	MX	10	www.internet2.edu.
+utmartnv	IN	MX	10	www.internet2.edu.
+lcvax		IN	MX	10	www.internet2.edu.
+uiuchepa	IN	CNAME	uihepa.hep.uiuc.edu.
+sekthe		IN	CNAME	e.kth.se.
+ddathd21	IN	MX	10	www.internet2.edu.
+unlvm		IN	CNAME	unlvm.unl.edu.
+uiuchepb	IN	MX	10	www.internet2.edu.
+isearn		IN	CNAME	rhi.hi.is.
+humber		IN	CNAME	admin.humberc.on.ca.
+wulibs		IN	CNAME	wulibs.wustl.edu.
+kb001		IN	MX	10	www.internet2.edu.
+wvnroute	IN	MX	10	www.internet2.edu.
+uiuchepg	IN	MX	10	www.internet2.edu.
+plpuam51	IN	CNAME	thor.amu.edu.pl.
+utep		IN	MX	10	www.internet2.edu.
+fccj		IN	MX	10	www.internet2.edu.
+alijku04	IN	CNAME	alijku04.edvz.uni-linz.ac.at.
+uiucscs		IN	MX	10	www.internet2.edu.
+alijku06	IN	CNAME	alijku06.edvz.uni-linz.ac.at.
+umkcvax1	IN	CNAME	vax1.umkc.edu.
+umkcvax2	IN	CNAME	vax2.cstp.umkc.edu.
+umkcvax3	IN	CNAME	vax3.cuep.umkc.edu.
+iboenea		IN	MX	10	www.internet2.edu.
+unmvma		IN	CNAME	unmvma.unm.edu.
+seki		IN	CNAME	kiwi.ki.se.
+hearn		IN	CNAME	nic.surfnet.nl.
+jpndokyo	IN	MX	10	www.internet2.edu.
+dk0za1		IN	MX	10	www.internet2.edu.
+alijku21	IN	CNAME	alijku21.edvz.uni-linz.ac.at.
+brownvm		IN	CNAME	brownvm.brown.edu.
+alijku22	IN	CNAME	alijku22.edvz.uni-linz.ac.at.
+doe		IN	MX	10	www.internet2.edu.
+trerunvm	IN	MX	10	www.internet2.edu.
+psupen		IN	CNAME	psupen.psu.edu.
+ritvax		IN	MX	10	www.internet2.edu.
+ube		IN	MX	10	www.internet2.edu.
+bingvmb		IN	CNAME	bingvmb.cc.binghamton.edu.
+harvmail	IN	CNAME	harvmail.harvard.edu.
+wvnwvit		IN	MX	10	www.internet2.edu.
+dukemc		IN	MX	10	www.internet2.edu.
+dkauni2		IN	CNAME	rz.uni-karlsruhe.de.
+umvma		IN	CNAME	umvma.umsystem.edu.
+umvmb		IN	MX	10	www.internet2.edu.
+marist		IN	CNAME	vm.marist.edu.
+wvnsvc		IN	CNAME	wvnsvc.wvnet.edu.
+dmarum8		IN	MX	10	www.internet2.edu.
+ipcucsc		IN	MX	10	www.internet2.edu.
+irmucsc		IN	MX	10	www.internet2.edu.
+wunet		IN	CNAME	wunet.wustl.edu.
+sakaau03	IN	MX	10	www.internet2.edu.
+umslvaxa	IN	CNAME	slvaxa.umsl.edu.
+itocsivm	IN	MX	10	www.internet2.edu.
+ohstmail	IN	CNAME	osu.edu.
+sbhepny		IN	CNAME	sbhep1.sunysb.edu.
+mitppl		IN	CNAME	mitppl.mit.edu.
+albnyatm	IN	MX	10	www.internet2.edu.
+huma1		IN	MX	10	www.internet2.edu.
+jpnumin		IN	MX	10	www.internet2.edu.
+psuhmed		IN	MX	10	www.internet2.edu.
+itocsivx	IN	MX	10	www.internet2.edu.
+dhdmpi5h	IN	MX	10	www.internet2.edu.
+alijku65	IN	CNAME	alijku65.edvz.uni-linz.ac.at.
+sejnet		IN	CNAME	sejnet.sunet.se.
+dmswwu1a	IN	CNAME	uni-muenster.de.
+ibocnr		IN	MX	10	www.internet2.edu.
+snyplava	IN	MX	10	www.internet2.edu.
+dlrvm		IN	CNAME	vm.op.dlr.de.
+ililabr		IN	MX	10	www.internet2.edu.
+snyplavb	IN	MX	10	www.internet2.edu.
+dhdmpi50	IN	MX	10	www.internet2.edu.
+fair1		IN	CNAME	fair1.fairfield.edu.
+dhdmpi51	IN	MX	10	www.internet2.edu.
+uga		IN	CNAME	uga.cc.uga.edu.
+dhdmpi52	IN	MX	10	www.internet2.edu.
+snyoldva	IN	MX	10	www.internet2.edu.
+dhdmpi53	IN	MX	10	www.internet2.edu.
+tranavm1	IN	CNAME	anadolu.edu.tr.
+tranavm2	IN	CNAME	anadolu2.edu.tr.
+dhdmpi5v	IN	MX	10	www.internet2.edu.
+catcc		IN	MX	10	www.internet2.edu.
+emduam11	IN	MX	10	www.internet2.edu.
+utmem1		IN	MX	10	www.internet2.edu.
+utmem2		IN	MX	10	www.internet2.edu.
+utmem3		IN	MX	10	www.internet2.edu.
+jpnoskfm	IN	MX	10	www.internet2.edu.
+roearn		IN	CNAME	roearn.ici.ac.ro.
+plwauw61	IN	CNAME	astrouw.edu.pl.
+vcuruby		IN	MX	10	www.internet2.edu.
+dhbrrz11	IN	CNAME	zfn.uni-bremen.de.
+weizmann	IN	CNAME	weizmann.weizmann.ac.il.
+cucard		IN	MX	10	www.internet2.edu.
+psucurt		IN	MX	10	www.internet2.edu.
+ibacisec	IN	MX	10	www.internet2.edu.
+ilstu		IN	MX	10	www.internet2.edu.
+psucs		IN	MX	10	www.internet2.edu.
+jpnkektr	IN	MX	10	www.internet2.edu.
+psuykaqh	IN	MX	10	www.internet2.edu.
+wublue		IN	CNAME	wublue.wustl.edu.
+amhbit		IN	CNAME	amhbit.amherst.edu.
+cucrd0		IN	CNAME	med.columbia.edu.
+irmcnr		IN	MX	10	www.internet2.edu.
+irmluiss	IN	MX	10	www.internet2.edu.
+wvnwvsc		IN	MX	10	www.internet2.edu.
+yaleads		IN	CNAME	yaleads.cis.yale.edu.
+trboun		IN	MX	10	www.internet2.edu.
+pennstat	IN	MX	10	www.internet2.edu.
+jpnksuvx	IN	MX	10	www.internet2.edu.
+dhbrrz41	IN	MX	10	www.internet2.edu.
+ipacres		IN	CNAME	ipacres.cres.it.
+imosab		IN	MX	10	www.internet2.edu.
+laflinc		IN	MX	10	www.internet2.edu.
+evalun11	IN	CNAME	vm.ci.uv.es.
+asuchm		IN	MX	10	www.internet2.edu.
+vuctrvax	IN	MX	10	www.internet2.edu.
+jpnkekvx	IN	MX	10	www.internet2.edu.
+cuccfa		IN	MX	10	www.internet2.edu.
+pace		IN	MX	10	www.internet2.edu.
+mitsipb		IN	MX	10	www.internet2.edu.
+esa		IN	CNAME	esa.bitnet.
+unlamc		IN	MX	10	www.internet2.edu.
+cfaamp		IN	CNAME	cfaamp.harvard.edu.
+yalevm		IN	CNAME	yalevm.cis.yale.edu.
+tsu		IN	MX	10	www.internet2.edu.
+wvnwvup		IN	MX	10	www.internet2.edu.
+ers		IN	MX	10	www.internet2.edu.
+unlpdvax	IN	MX	10	www.internet2.edu.
+nasagiss	IN	MX	10	www.internet2.edu.
+albny1vx	IN	CNAME	uacsc1.albany.edu.
+uncabit		IN	CNAME	asa.acs.ucalgary.ca.
+egfrcudb	IN	CNAME	frcudb.eun.eg.
+andy		IN	CNAME	bgnet.bgsu.edu.
+iboinfn		IN	MX	10	www.internet2.edu.
+vcumvs		IN	MX	10	www.internet2.edu.
+nemovm		IN	MX	10	www.internet2.edu.
+searn		IN	CNAME	searn.sunet.se.
+fiport		IN	CNAME	fiport.funet.fi.
+utkvm1		IN	CNAME	utkvm1.utk.edu.
+jhuvms		IN	CNAME	jhuvms.hcf.jhu.edu.
+dulfaw1a	IN	CNAME	artus.faw.uni-ulm.de.
+latech		IN	CNAME	vm.cc.latech.edu.
+vnet		IN	MX	10	www.internet2.edu.
+uncgacc		IN	MX	10	www.internet2.edu.
+huche1		IN	MX	10	www.internet2.edu.
+mcgillvs	IN	CNAME	mvs.mcgill.ca.
+jpnkuhel	IN	MX	10	www.internet2.edu.
+qb001		IN	MX	10	www.internet2.edu.
+nemomus		IN	MX	10	www.internet2.edu.
+d00demo		IN	MX	10	www.internet2.edu.
+psuarl		IN	CNAME	arlvax.arl.psu.edu.
+vtinte		IN	CNAME	vtinte.phys.vt.edu.
+mina		IN	CNAME	mina.gc.cuny.edu.
+ysua		IN	MX	10	www.internet2.edu.
+uncgadc		IN	MX	10	www.internet2.edu.
+bmacadm		IN	MX	10	www.internet2.edu.
+geneseo		IN	CNAME	uno.cc.geneseo.edu.
+cfaps2		IN	MX	10	www.internet2.edu.
+ysub		IN	CNAME	ysub.ysu.edu.
+qucdn		IN	CNAME	qucdn.queensu.ca.
+interbit	IN	MX	10	www.internet2.edu.
+cumin		IN	MX	10	www.internet2.edu.
+firnvx		IN	MX	10	www.internet2.edu.
+tratauni	IN	MX	10	www.internet2.edu.
+awiimc12	IN	CNAME	vm.akh-wien.ac.at.
+udcvm		IN	MX	10	www.internet2.edu.
+wvnfsc		IN	MX	10	www.internet2.edu.
+bgsuopie	IN	CNAME	opie.bgsu.edu.
+nihcutst	IN	MX	10	www.internet2.edu.
+tcuamus		IN	CNAME	tcuamus.is.tcu.edu.
+usb		IN	MX	10	www.internet2.edu.
+wcc		IN	CNAME	waldo.cs.sunywcc.edu.
+crengate	IN	CNAME	crengate.cren.net.
+unlbit		IN	MX	10	www.internet2.edu.
+ugamusic	IN	CNAME	music.cc.uga.edu.
+snybscva	IN	CNAME	snybscva.cs.snybuf.edu.
+snymorva	IN	MX	10	www.internet2.edu.
+wvnvms		IN	CNAME	wvnvms.wvnet.edu.
+sdsuvm		IN	MX	10	www.internet2.edu.
+conu2		IN	CNAME	vax2.concordia.ca.
+waynest1	IN	CNAME	cms.cc.wayne.edu.
+mitvaps		IN	CNAME	mitvaps.mit.edu.
+triuvm11	IN	MX	10	www.internet2.edu.
+mcvax		IN	MX	10	www.internet2.edu.
+wrlcvm		IN	MX	10	www.internet2.edu.
+waynestt	IN	MX	10	www.internet2.edu.
+ukanvax		IN	CNAME	kuhub.cc.ukans.edu.
+ugaibm1		IN	CNAME	ugaibm1.cc.uga.edu.
+hbs		IN	MX	10	www.internet2.edu.
+harvunxh	IN	MX	10	www.internet2.edu.
+mitsis		IN	CNAME	mitsis.mit.edu.
+carenic		IN	MX	10	www.internet2.edu.
+duke		IN	CNAME	sysa.adm.duke.edu.
+appstate	IN	CNAME	conrad.appstate.edu.
+irmicmat	IN	MX	10	www.internet2.edu.
+uwf		IN	CNAME	uwf.cc.uwf.edu.
+harvunxt	IN	MX	10	www.internet2.edu.
+harvunxu	IN	MX	10	www.internet2.edu.
+gumncc		IN	CNAME	gumncc.terena.nl.
+yalebit		IN	CNAME	yalebit.cis.yale.edu.
+psuengra	IN	MX	10	www.internet2.edu.
+psuengrb	IN	MX	10	www.internet2.edu.
+harvunxw	IN	MX	10	www.internet2.edu.
+psuengrc	IN	MX	10	www.internet2.edu.
+psuengrd	IN	MX	10	www.internet2.edu.
+tcubvms		IN	CNAME	beta.is.tcu.edu.
+psuengre	IN	MX	10	www.internet2.edu.
+psuengrf	IN	MX	10	www.internet2.edu.
+nccibm1		IN	CNAME	epaibm.rtpnc.epa.gov.
+rockvax		IN	CNAME	rockvax.rockefeller.edu.
+jpnkek		IN	MX	10	www.internet2.edu.
+psuengri	IN	MX	10	www.internet2.edu.
+niehsc		IN	CNAME	vaxc.niehs.nih.gov.
+niehsd		IN	CNAME	vaxd.niehs.nih.gov.
+niehse		IN	CNAME	vaxe.niehs.nih.gov.
+psuengr0	IN	MX	10	www.internet2.edu.
+huscgw		IN	MX	10	www.internet2.edu.
+wvngsc		IN	MX	10	www.internet2.edu.
+haifauvm	IN	CNAME	uvm.haifa.ac.il.
+cuphar		IN	MX	10	www.internet2.edu.
+sbccvm		IN	CNAME	ccvm.sunysb.edu.
+qucdnrv2	IN	MX	10	www.internet2.edu.
+wuchem		IN	CNAME	wuchem.wustl.edu.
+lemoyne		IN	CNAME	maple.lemoyne.edu.
+asuic		IN	MX	10	www.internet2.edu.
+wvnvaxa		IN	CNAME	wvnvaxa.wvnet.edu.
+wvnvaxb		IN	MX	10	www.internet2.edu.
+qucdnee1	IN	MX	10	www.internet2.edu.
+psuvm		IN	CNAME	psuvm.psu.edu.
+sanjose		IN	MX	10	www.internet2.edu.
+muvms1		IN	MX	10	www.internet2.edu.
+muvms2		IN	CNAME	muvms2.wvnet.edu.
+snybufaa	IN	CNAME	snybufaa.cs.snybuf.edu.
+muvms3		IN	MX	10	www.internet2.edu.
+sjsuvm1		IN	CNAME	sjsuvm1.sjsu.edu.
+muvms4		IN	MX	10	www.internet2.edu.
+unladvax	IN	MX	10	www.internet2.edu.
+muvms5		IN	MX	10	www.internet2.edu.
+muvms6		IN	CNAME	muvms6.wvnet.edu.
+uvmvm		IN	CNAME	uvmvm.uvm.edu.
+snycorva	IN	MX	10	www.internet2.edu.
+derrze0		IN	MX	10	www.internet2.edu.
+derrze1		IN	MX	10	www.internet2.edu.
+plunlo51	IN	CNAME	krysia.uni.lod.edu.pl.
+dearn		IN	CNAME	vm.gmd.de.
+irmlnfvm	IN	MX	10	www.internet2.edu.
+ddagsi3		IN	CNAME	mvs.gsi.de.
+villemc2	IN	MX	10	www.internet2.edu.
+lafayett	IN	CNAME	lafvax.lafayette.edu.
+sumpei1		IN	MX	10	www.internet2.edu.
+bguvm		IN	CNAME	bguvm.bgu.ac.il.
+umbcadmn	IN	MX	10	www.internet2.edu.
+irishvma	IN	CNAME	vma.cc.nd.edu.
+jpnkit		IN	MX	10	www.internet2.edu.
+irmenea		IN	MX	10	www.internet2.edu.
+psudg1		IN	MX	10	www.internet2.edu.
+tcuavm		IN	CNAME	tcuavm.is.tcu.edu.
+bgcict		IN	CNAME	bgcict.acad.bg.
+ibacsata	IN	MX	10	www.internet2.edu.
+snymvcc		IN	CNAME	mvcc.edu.
+irmimai		IN	MX	10	www.internet2.edu.
+jpnrins		IN	MX	10	www.internet2.edu.
+snybroba	IN	MX	10	www.internet2.edu.
+dearnpc		IN	CNAME	dearnpc.gmd.de.
+harvhep		IN	MX	10	www.internet2.edu.
+polyvm		IN	CNAME	vm.poly.edu.
+mitvbud		IN	CNAME	mitvbud.mit.edu.
+uiucvmc		IN	MX	10	www.internet2.edu.
+uvvm		IN	CNAME	uvvm.uvic.ca.
+uiucvmd		IN	CNAME	vmd.cso.uiuc.edu.
+ksuvm		IN	CNAME	ksuvm.ksu.edu.
+tritucs		IN	CNAME	cs.itu.edu.tr.
+hugirk51	IN	CNAME	vax.gau.hu.
+isscoris	IN	MX	10	www.internet2.edu.
+psucse		IN	CNAME	cs.psu.edu.
+itgbox		IN	MX	10	www.internet2.edu.
+babybear	IN	MX	10	www.internet2.edu.
+punfsv2		IN	MX	10	www.internet2.edu.
+listserv	IN	MX	10	www.internet2.edu.
+faucan		IN	MX	10	www.internet2.edu.
+dkakfk3		IN	CNAME	hdimvsp.fzk.de.
+hiramb		IN	CNAME	hiramb.hiram.edu.
+ubvms		IN	CNAME	ubvms.cc.buffalo.edu.
+psuecl		IN	CNAME	ecl.psu.edu.
+jpnkeio		IN	MX	10	www.internet2.edu.
+harvjmmy	IN	MX	10	www.internet2.edu.
+vuctrvx1	IN	MX	10	www.internet2.edu.
+sunybing	IN	MX	10	www.internet2.edu.
+hussle		IN	CNAME	hussle.harvard.edu.
+rpitsvm1	IN	MX	10	www.internet2.edu.
+duvm		IN	CNAME	duvm.ocs.drexel.edu.
+mcgilla		IN	CNAME	musica.mcgill.ca.
+mcgillb		IN	CNAME	musicb.mcgill.ca.
+husc12		IN	CNAME	husc12.harvard.edu.
+cucsvm		IN	MX	10	www.internet2.edu.
+egfrcuvx	IN	CNAME	frcu.eun.eg.
+dhiavm		IN	CNAME	vm.dhia.psu.edu.
+doluni1		IN	CNAME	vmxa.hrz.uni-oldenburg.de.
+tcufvms		IN	CNAME	zeta.is.tcu.edu.
+planif61	IN	CNAME	ifpan.edu.pl.
+mcgill1		IN	CNAME	vm1.mcgill.ca.
+wsu		IN	CNAME	desire.wright.edu.
+ritvm		IN	MX	10	www.internet2.edu.
+akronvm		IN	CNAME	vm1.cc.uakron.edu.
+mitrlevm	IN	CNAME	mitrlevm.mit.edu.
+qucdntri	IN	CNAME	qucdntri.ee.queensu.ca.
+nervm		IN	CNAME	nervm.nerdc.ufl.edu.
+ouaccvmb	IN	CNAME	ouaccvmb.cats.ohiou.edu.
+marmvs		IN	MX	10	www.internet2.edu.
+tcubvm		IN	CNAME	tcubvm.is.tcu.edu.
+ivemarc		IN	MX	10	www.internet2.edu.
+epcc		IN	CNAME	laguna.epcc.edu.
+jpnaffrc	IN	MX	10	www.internet2.edu.
+dbiuni11	IN	MX	10	www.internet2.edu.
+uormvs		IN	MX	10	www.internet2.edu.
+plpotu51	IN	MX	10	www.internet2.edu.
+ipvccn		IN	MX	10	www.internet2.edu.
+trapper		IN	CNAME	trapper.bgsu.edu.
+brockvma	IN	MX	10	www.internet2.edu.
+eovuov11	IN	MX	10	www.internet2.edu.
+dbiuni19	IN	MX	10	www.internet2.edu.
+hudce0		IN	CNAME	hudce0.harvard.edu.
+sbccmail	IN	CNAME	ccmail.sunysb.edu.
+csuohio		IN	CNAME	vmcms.csuohio.edu.
+dbsptb		IN	MX	10	www.internet2.edu.
+msstate		IN	CNAME	ra.msstate.edu.
+amhtst		IN	CNAME	amhtst.amherst.edu.
+awiwuw11	IN	MX	10	www.internet2.edu.
+uorpas		IN	MX	10	www.internet2.edu.
+jpnimrtu	IN	MX	10	www.internet2.edu.
+cuorca		IN	MX	10	www.internet2.edu.
+calstate	IN	CNAME	nic.csu.net.
+husc		IN	CNAME	husc.harvard.edu.
+maine		IN	CNAME	maine.maine.edu.
+secthf51	IN	CNAME	fyvax4.fy.chalmers.se.
+kentvm		IN	CNAME	kentvm.kent.edu.
+byearn		IN	MX	10	www.internet2.edu.
+vccscent	IN	MX	10	www.internet2.edu.
+twsuvm		IN	CNAME	twsuvm.uc.twsu.edu.
+sivm		IN	CNAME	sivm.si.edu.
+wugreen		IN	CNAME	wugreen.wustl.edu.
+albnyvm1	IN	CNAME	cnsibm.albany.edu.
+albnyvms	IN	CNAME	albnyvms.albany.edu.
+finuha		IN	MX	10	www.internet2.edu.
+finuhb		IN	MX	10	www.internet2.edu.
+snyfreba	IN	MX	10	www.internet2.edu.
+sakfrc		IN	MX	10	www.internet2.edu.
+awiuni11	IN	CNAME	awiuni11.edvz.univie.ac.at.
+db0ptz1a	IN	MX	10	www.internet2.edu.
+mizzou1		IN	CNAME	mizzou1.missouri.edu.
+jneta		IN	CNAME	jneta.joiner.com.
+mizzou2		IN	MX	10	www.internet2.edu.
+jnetb		IN	CNAME	jnetb.joiner.com.
+plwatu21	IN	MX	10	www.internet2.edu.
+jnetc		IN	CNAME	jnetc.joiner.com.
+gmuvax		IN	CNAME	vms1.gmu.edu.
+jnete		IN	CNAME	jnete.joiner.com.
+jnetf		IN	CNAME	jnetf.joiner.com.
+vtmath		IN	CNAME	math.vt.edu.
+ptbib		IN	MX	10	www.internet2.edu.
+sairti00	IN	MX	10	www.internet2.edu.
+imicilea	IN	CNAME	imicilea.cilea.it.
+epavax		IN	MX	10	www.internet2.edu.
+mitvma		IN	CNAME	mitvma.mit.edu.
+triyte		IN	MX	10	www.internet2.edu.
+enlace		IN	MX	10	www.internet2.edu.
+mitvmc		IN	CNAME	mitvmc.mit.edu.
+rpiris		IN	MX	10	www.internet2.edu.
+cuphyd		IN	MX	10	www.internet2.edu.
+ilenic		IN	MX	10	www.internet2.edu.
+iup		IN	CNAME	grove.iup.edu.
+ucdasvm1	IN	CNAME	ucdasvm1.admin.ucalgary.ca.
+uoropt		IN	MX	10	www.internet2.edu.
+snybufva	IN	CNAME	snybufva.cs.snybuf.edu.
+filly		IN	CNAME	filly.calstate.edu.
+snybufvc	IN	MX	10	www.internet2.edu.
+ipacresi	IN	CNAME	ipacresi.cres.it.
+dhhdesy3	IN	CNAME	dsyibm.desy.de.
+cunixc		IN	MX	10	www.internet2.edu.
+psuesl		IN	MX	10	www.internet2.edu.
+plearn		IN	CNAME	plearn.edu.pl.
+dk0umi12	IN	MX	10	www.internet2.edu.
+pucc		IN	CNAME	pucc.princeton.edu.
+cunixf		IN	MX	10	www.internet2.edu.
+utmartn		IN	MX	10	www.internet2.edu.
+azdcacs		IN	MX	10	www.internet2.edu.
+psubeh1		IN	CNAME	psbeh1.bd.psu.edu.
+sesufek		IN	CNAME	njord.fek.su.se.
+psubeh2		IN	CNAME	psbeh2.bd.psu.edu.
+murrvax		IN	MX	10	www.internet2.edu.
+irmmlib1	IN	MX	10	www.internet2.edu.
+irmmlib2	IN	MX	10	www.internet2.edu.
+trdicle		IN	MX	10	www.internet2.edu.
+jpn		IN	MX	10	www.internet2.edu.
+psulepsa	IN	MX	10	www.internet2.edu.
+irmtvm51	IN	MX	10	www.internet2.edu.
+pplcats		IN	CNAME	pplcats.princeton.edu.
+educom		IN	MX	10	www.internet2.edu.
+seumdc51	IN	CNAME	biovax.umdc.umu.se.
+ibainfn		IN	MX	10	www.internet2.edu.
+cuorma		IN	MX	10	www.internet2.edu.
+cuormb		IN	MX	10	www.internet2.edu.
+imiucca		IN	MX	10	www.internet2.edu.
+wvnwlsc		IN	MX	10	www.internet2.edu.
+acmvm		IN	MX	10	www.internet2.edu.
+cuchem		IN	MX	10	www.internet2.edu.
+umrvma		IN	CNAME	umrvma.umr.edu.
+umrvmb		IN	CNAME	umrvmb.umr.edu.
+psuvlsi		IN	MX	10	www.internet2.edu.
+wustlb		IN	CNAME	wustlb.wustl.edu.
+iona		IN	MX	10	www.internet2.edu.
+trtrakya	IN	MX	10	www.internet2.edu.
+harvisr		IN	MX	10	www.internet2.edu.
+ibouniv		IN	MX	10	www.internet2.edu.
+psuleps3	IN	MX	10	www.internet2.edu.
+psuleps4	IN	MX	10	www.internet2.edu.
+niehs		IN	MX	10	www.internet2.edu.
+psuleps5	IN	CNAME	leps5.phys.psu.edu.
+ifiuniv		IN	MX	10	www.internet2.edu.
+usachvm1	IN	MX	10	www.internet2.edu.
+guvax		IN	MX	10	www.internet2.edu.
+cunyvm		IN	CNAME	cunyvm.cuny.edu.
+wvnwvsom	IN	MX	10	www.internet2.edu.
+icsataxa	IN	MX	10	www.internet2.edu.
+ipacuc		IN	CNAME	ipacuc.cuc.unipa.it.
+imeuniv		IN	MX	10	www.internet2.edu.
+snynewvm	IN	MX	10	www.internet2.edu.
+ornlstc		IN	MX	10	www.internet2.edu.
+husc2		IN	CNAME	husc2.harvard.edu.
+husc3		IN	CNAME	husc3.harvard.edu.
+ipguniv		IN	CNAME	ipguniv.unipg.it.
+husc4		IN	CNAME	husc4.harvard.edu.
+husc5		IN	CNAME	husc5.harvard.edu.
+marshall	IN	CNAME	muvms1.bitnet.
+umsmvs		IN	MX	10	www.internet2.edu.
+husc7		IN	CNAME	husc7.harvard.edu.
+cuthry		IN	MX	10	www.internet2.edu.
+husc8		IN	CNAME	husc8.harvard.edu.
+husc9		IN	CNAME	husc9.harvard.edu.
+ipgcuic		IN	MX	10	www.internet2.edu.
+amherst		IN	CNAME	amherst.edu.
+ecuvm1		IN	CNAME	ecuvm.cis.ecu.edu.
+twsuvax		IN	MX	10	www.internet2.edu.
+nevis		IN	MX	10	www.internet2.edu.
+ilncrd		IN	MX	10	www.internet2.edu.
+dbngmd13	IN	MX	10	www.internet2.edu.
+sdsumus		IN	MX	10	www.internet2.edu.
+kentphys	IN	MX	10	www.internet2.edu.
+snyfarva	IN	CNAME	snyfarva.cc.farmingdale.edu.
+uicbit		IN	CNAME	roo.cc.uic.edu.
+msrcvax		IN	MX	10	www.internet2.edu.
+iupacorn	IN	CNAME	acorn.grove.iup.edu.
+ds0ruh11	IN	CNAME	ruhvm.rz.uni-hohenheim.de.
+saipa00		IN	MX	10	www.internet2.edu.
+ohstmvsa	IN	CNAME	ohstmvsa.acs.ohio-state.edu.
+dbngmd24	IN	CNAME	mvsae.gmd.de.
+trinity		IN	CNAME	trinity.edu.
+huella		IN	CNAME	ella.hu.
+bitftp		IN	MX	10	www.internet2.edu.
+villvm		IN	MX	10	www.internet2.edu.
+umab		IN	MX	10	www.internet2.edu.
+uicbit2		IN	MX	10	www.internet2.edu.
+snyalfva	IN	MX	10	www.internet2.edu.
+marpup		IN	CNAME	pup.marist.edu.
+umbc		IN	MX	10	www.internet2.edu.
+rpiecs		IN	CNAME	vm.ecs.rpi.edu.
+jpnoit00	IN	MX	10	www.internet2.edu.
+dukefsb		IN	MX	10	www.internet2.edu.
+icineca		IN	CNAME	icineca.cineca.it.
+cuchm1		IN	MX	10	www.internet2.edu.
+nyshescm	IN	MX	10	www.internet2.edu.
+cuchm2		IN	MX	10	www.internet2.edu.
+cuchm3		IN	MX	10	www.internet2.edu.
+snygenva	IN	MX	10	www.internet2.edu.
+cuchm4		IN	MX	10	www.internet2.edu.
+jpnoit10	IN	MX	10	www.internet2.edu.
+awirap		IN	CNAME	pap.univie.ac.at.
+dbngmd55	IN	CNAME	zwnvx1.gmd.de.
+curly		IN	MX	10	www.internet2.edu.
+umsnve		IN	MX	10	www.internet2.edu.
+nyshescv	IN	MX	10	www.internet2.edu.
+jpnoit20	IN	MX	10	www.internet2.edu.
+umdd		IN	MX	10	www.internet2.edu.
+towson1		IN	MX	10	www.internet2.edu.
+dk0rrzk1	IN	MX	10	www.internet2.edu.
+towson2		IN	MX	10	www.internet2.edu.
+dk0rrzk2	IN	MX	10	www.internet2.edu.
+irmiss		IN	MX	10	www.internet2.edu.
+psuadmin	IN	CNAME	oas.psu.edu.
+jhmail		IN	MX	10	www.internet2.edu.
+plkrcy11	IN	CNAME	lfs.cyf-kr.edu.pl.
+browncog	IN	MX	10	www.internet2.edu.
+wvncc		IN	MX	10	www.internet2.edu.
+cugsbvm		IN	MX	10	www.internet2.edu.
+canisius	IN	MX	10	www.internet2.edu.
+ionaacad	IN	MX	10	www.internet2.edu.
+eleule11	IN	MX	10	www.internet2.edu.
+imicise		IN	MX	10	www.internet2.edu.
+jpnrcnpf	IN	MX	10	www.internet2.edu.
+ifibdp		IN	MX	10	www.internet2.edu.
+kentvms		IN	CNAME	ksuvxa.kent.edu.
+fauvax		IN	MX	10	www.internet2.edu.
+ccny		IN	MX	10	www.internet2.edu.
+umdt		IN	MX	10	www.internet2.edu.
+hueco		IN	CNAME	ursus.bke.hu.
+hubiif61	IN	CNAME	mars.iif.hu.
+uornsrl		IN	MX	10	www.internet2.edu.
+pacevm		IN	CNAME	pacevm.dac.pace.edu.
+hulaw1		IN	CNAME	hulaw1.harvard.edu.
+yalevms		IN	CNAME	venus.cis.yale.edu.
+umes		IN	MX	10	www.internet2.edu.
+templevm	IN	CNAME	vm.temple.edu.
+wvnncc		IN	MX	10	www.internet2.edu.
+ohstbh		IN	CNAME	ohstbh.acs.ohio-state.edu.
+vcuvax		IN	MX	10	www.internet2.edu.
+miavx1		IN	CNAME	miavx1.muohio.edu.
+gsumvs1		IN	MX	10	www.internet2.edu.
+dd0rud81	IN	CNAME	mail.rz.uni-duesseldorf.de.
+jpntuawa	IN	MX	10	www.internet2.edu.
+umsphy		IN	MX	10	www.internet2.edu.
+psuhmc		IN	CNAME	psuhmc.hmc.psu.edu.
+miavx3		IN	CNAME	miavx3.mid.muohio.edu.
+atsuvax1	IN	MX	10	www.internet2.edu.
+dgaeso51	IN	MX	10	www.internet2.edu.
+ifichim2	IN	MX	10	www.internet2.edu.
+jpnjrdc		IN	MX	10	www.internet2.edu.
+ibsucsc		IN	MX	10	www.internet2.edu.
+psulias1	IN	MX	10	www.internet2.edu.
+ipdinfn		IN	MX	10	www.internet2.edu.
+jpnsut00	IN	MX	10	www.internet2.edu.
+jpnsut01	IN	MX	10	www.internet2.edu.
+canada01	IN	CNAME	nac.netnorth.ca.
+plumcs11	IN	CNAME	plumcs11.umcs.lublin.pl.
+vcujade		IN	MX	10	www.internet2.edu.
+vtbit		IN	CNAME	vtbit.cc.vt.edu.
+imiucsc		IN	MX	10	www.internet2.edu.
+uordb1		IN	MX	10	www.internet2.edu.
+jpnsut10	IN	MX	10	www.internet2.edu.
+uordb2		IN	MX	10	www.internet2.edu.
+uordb3		IN	MX	10	www.internet2.edu.
+uordb4		IN	MX	10	www.internet2.edu.
+uordb5		IN	MX	10	www.internet2.edu.
+psuengr		IN	CNAME	engr.psu.edu.
+urvax		IN	MX	10	www.internet2.edu.
+uordb6		IN	MX	10	www.internet2.edu.
+uordbv		IN	MX	10	www.internet2.edu.
+uordb7		IN	MX	10	www.internet2.edu.
+db0tui11	IN	CNAME	tubvm.cs.tu-berlin.de.
+ipruniv		IN	MX	10	www.internet2.edu.
+umcvmb		IN	CNAME	umcvmb.missouri.edu.
+snysyrv1	IN	CNAME	vax.cs.hscsyr.edu.
+jpnsut20	IN	MX	10	www.internet2.edu.
+vtcc1		IN	CNAME	vtcc1.cc.vt.edu.
+uncg		IN	CNAME	iris.uncg.edu.
+saupm00		IN	MX	10	www.internet2.edu.
+jhunix		IN	CNAME	jhunix.hcf.jhu.edu.
+rpitsvm		IN	CNAME	vm.its.rpi.edu.
+skidmore	IN	CNAME	scott.skidmore.edu.
+asu1		IN	MX	10	www.internet2.edu.
+bcsc02		IN	MX	10	www.internet2.edu.
+cmuvm		IN	CNAME	cmuvm.csv.cmich.edu.
+asu2		IN	MX	10	www.internet2.edu.
+jpnsut30	IN	MX	10	www.internet2.edu.
+jpnsut31	IN	MX	10	www.internet2.edu.
+jpnsut32	IN	MX	10	www.internet2.edu.
+roifa		IN	CNAME	ifa.ro.
+alehtl11	IN	MX	10	www.internet2.edu.
+finuh		IN	CNAME	hylk.helsinki.fi.
+gwuvm		IN	CNAME	gwuvm.gwu.edu.
+ugaxa		IN	MX	10	www.internet2.edu.
+joiner		IN	CNAME	joiner.com.
+tmplcis		IN	MX	10	www.internet2.edu.
+ner		IN	CNAME	ner.nerdc.ufl.edu.
+wuvma		IN	CNAME	wuvma.wustl.edu.
+snybccaa	IN	MX	10	www.internet2.edu.
+nihcu		IN	CNAME	cu.nih.gov.
+wuvmc		IN	CNAME	wuvmc.wustl.edu.
+utepa		IN	CNAME	utepvm.ep.utexas.edu.
+ohsthr		IN	MX	10	www.internet2.edu.
+irmreti		IN	MX	10	www.internet2.edu.
+wuvmd		IN	CNAME	wuvmd.wustl.edu.
+tryildiz	IN	CNAME	vm4381.ce.yildiz.edu.tr.
+wuvme		IN	CNAME	wuvme.wustl.edu.
+unccvm		IN	CNAME	unccvm.uncc.edu.
+tunl		IN	MX	10	www.internet2.edu.
+wuvmf		IN	CNAME	wuvmf.wustl.edu.
+itopoli		IN	MX	10	www.internet2.edu.
+devsis		IN	CNAME	devsis.mit.edu.
+iris		IN	MX	10	www.internet2.edu.
+kccc		IN	MX	10	www.internet2.edu.
+ifichim		IN	MX	10	www.internet2.edu.
+cfa1		IN	MX	10	www.internet2.edu.
+esoc		IN	CNAME	vmprofs.esoc.esa.de.
+ny001		IN	MX	10	www.internet2.edu.
+cfa3		IN	MX	10	www.internet2.edu.
+cfa4		IN	MX	10	www.internet2.edu.
+harvlaw1	IN	MX	10	www.internet2.edu.
+cfa5		IN	MX	10	www.internet2.edu.
+cfa6		IN	MX	10	www.internet2.edu.
+cfa7		IN	MX	10	www.internet2.edu.
+cfa8		IN	MX	10	www.internet2.edu.
+jpntkuvm	IN	MX	10	www.internet2.edu.
+cfa9		IN	MX	10	www.internet2.edu.
+dbstu1		IN	CNAME	ws.rz.tu-bs.de.
+; 
+; Rick's additions: 
+;casita		IN	A	69.55.228.155
+casita		IN	CNAME	bit.casita.net.
+vsoft		IN	CNAME	sys1.vsoft-software.com.
+velocity	IN	CNAME	vm1.velocity-software.com.
+ua1vm		IN	CNAME	ua1vm.ua.edu.
+tamvm1		IN	CNAME	tamvm1.tamu.edu.
+;
+rvdheij 	IN	CNAME	rvdheij.com.
+cphart		IN	CNAME	jph.rvdheij.com.
+;
+www		IN	CNAME	www.bit.net.
+; 
+; 

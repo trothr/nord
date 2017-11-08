@@ -1,0 +1,99 @@
+;
+;
+;
+.                        3600000  IN  NS    a.root-servers.net.
+a.root-servers.net.      3600000  IN  A     198.41.0.4
+a.root-servers.net.      3600000  IN  AAAA  2001:503:ba3e::2:30
+;
+.                        3600000  IN  NS    a.orsn-servers.eu.
+a.orsn-servers.eu.       3600000  IN  A     185.29.88.82
+a.orsn-servers.eu.       3600000  IN  AAAA  2a00:a6a0:1:1::6:2
+;
+.                        3600000  IN  NS    b.root-servers.net.
+b.root-servers.net.      3600000  IN  A     192.228.79.201
+b.root-servers.net.      3600000  IN  AAAA  2001:500:84::b
+;
+.                        3600000  IN  NS    b.orsn-servers.eu.
+b.orsn-servers.eu.       3600000  IN  A     91.206.27.66
+b.orsn-servers.eu.       3600000  IN  AAAA  2001:67c:2044:c139::53
+;
+.                        3600000  IN  NS    c.root-servers.net.
+c.root-servers.net.      3600000  IN  A     192.33.4.12
+c.root-servers.net.      3600000  IN  AAAA  2001:500:2::c
+;
+.                        3600000  IN  NS    c.orsn-servers.eu.
+c.orsn-servers.eu.       3600000  IN  A     178.19.70.8
+c.orsn-servers.eu.       3600000  IN  AAAA  2a01:440:1:f:178:19:70:8
+;
+.                        3600000  IN  NS    d.root-servers.net.
+d.root-servers.net.      3600000  IN  A     199.7.91.13
+d.root-servers.net.      3600000  IN  AAAA  2001:500:2d::d
+;
+.                        3600000  IN  NS    d.orsn-servers.eu.
+d.orsn-servers.eu.       3600000  IN  A     85.17.122.15
+d.orsn-servers.eu.       3600000  IN  AAAA  2001:1af8:40e0:a007:bbb::
+;
+.                        3600000  IN  NS    e.root-servers.net.
+e.root-servers.net.      3600000  IN  AAAA  2001:500:a8::e
+e.root-servers.net.      3600000  IN  A     192.203.230.10
+;
+.                        3600000  IN  NS    f.root-servers.net.
+f.root-servers.net.      3600000  IN  A     192.5.5.241
+f.root-servers.net.      3600000  IN  AAAA  2001:500:2f::f
+;
+.                        3600000  IN  NS    f.orsn-servers.eu.
+f.orsn-servers.eu.       3600000  IN  A     212.224.71.116
+f.orsn-servers.eu.       3600000  IN  AAAA  2a01:7e0:0:100:212:224:71:116
+;
+.                        3600000  IN  NS    g.root-servers.net.
+g.root-servers.net.      3600000  IN  AAAA  2001:500:12::d0d
+g.root-servers.net.      3600000  IN  A     192.112.36.4
+;
+.                        3600000  IN  NS    g.orsn-servers.eu.
+g.orsn-servers.eu.       3600000  IN  A     193.93.165.1
+;
+.                        3600000  IN  NS    h.root-servers.net.
+h.root-servers.net.      3600000  IN  A     198.97.190.53
+h.root-servers.net.      3600000  IN  AAAA  2001:500:1::53
+;
+.                        3600000  IN  NS    h.orsn-servers.eu.
+h.orsn-servers.eu.       3600000  IN  A     188.165.175.112
+h.orsn-servers.eu.       3600000  IN  AAAA  2001:41d0:2:5a70::c0de
+;
+.                        3600000  IN  NS    i.root-servers.net.
+i.root-servers.net.      3600000  IN  A     192.36.148.17
+i.root-servers.net.      3600000  IN  AAAA  2001:7fe::53
+;
+.                        3600000  IN  NS    i.orsn-servers.eu.
+i.orsn-servers.eu.       3600000  IN  A     180.149.57.12
+;
+.                        3600000  IN  NS    j.root-servers.net.
+j.root-servers.net.      3600000  IN  A     192.58.128.30
+j.root-servers.net.      3600000  IN  AAAA  2001:503:c27::2:30
+;
+.                        3600000  IN  NS    j.orsn-servers.eu.
+j.orsn-servers.eu.       3600000  IN  A     188.138.82.98
+;
+.                        3600000  IN  NS    k.root-servers.net.
+k.root-servers.net.      3600000  IN  A     193.0.14.129
+k.root-servers.net.      3600000  IN  AAAA  2001:7fd::1
+;
+.                        3600000  IN  NS    k.orsn-servers.eu.
+k.orsn-servers.eu.       3600000  IN  A     82.206.1.22
+k.orsn-servers.eu.       3600000  IN  AAAA  2001:4b88:9000::
+;
+.                        3600000  IN  NS    l.root-servers.net.
+l.root-servers.net.      3600000  IN  A     199.7.83.42
+l.root-servers.net.      3600000  IN  AAAA  2001:500:9f::42
+;
+.                        3600000  IN  NS    l.orsn-servers.eu.
+l.orsn-servers.eu.       3600000  IN  A     79.99.236.6
+;
+.                        3600000  IN  NS    m.root-servers.net.
+m.root-servers.net.      3600000  IN  A     202.12.27.33
+m.root-servers.net.      3600000  IN  AAAA  2001:dc3::35
+;
+.                        3600000  IN  NS    m.orsn-servers.eu.
+m.orsn-servers.eu.       3600000  IN  A     82.193.249.196
+;
+;

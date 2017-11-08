@@ -1,0 +1,69 @@
+#!/bin/sh
+#
+#         Name: nord-build-csc (shell script)
+#         Date: 2016-June
+#               use this script to build packages via CSCRATCH
+#
+
+WD=/var/csc
+WU=nord
+
+PATH=$WD/bin:$WD:$PATH ; export PATH
+
+# name of this script for reporting
+Z=`basename $0`
+
+# be sure there is at least one argument
+if [ -z "$1" ] ; then
+  echo "$Z: specify something to build!" 1>&2
+  exit 1 ; fi
+
+# handle multiple arguments
+P1=$1 ; shift ; PL="$*"
+if [ ! -z "$PL" ] ; then
+  $0 $P1 ; exec $0 $PL ; fi
+
+# work from the standard build directory
+cd $WD
+if [ ! -d $WD ] ; then exit 1 ; fi
+
+# check that it's not already installed
+if [ -f $P1.ins ] ; then
+  echo "$Z: package '$P1' is already installed" 1>&2
+  exit 0 ; fi
+
+# download the source, if needed, and extract
+if [ ! -f $P1.src ] ; then echo "$Z: acquiring source for '$P1' ..." ; fi
+sudo su - nord -c " PATH=$PATH ; export PATH ; cd $WD ; exec make $P1.src "
+RC=$? ; if [ $RC -ne 0 ] ; then
+  echo "$Z: acquiring source for '$P1' failed" 1>&2
+  exit $RC ; fi
+
+# configure for this environment
+if [ ! -f $P1.cfg ] ; then echo "$Z: configuring '$P1' ..." ; fi
+sudo su - nord -c " PATH=$PATH ; export PATH ; cd $WD ; exec make $P1.cfg "
+RC=$? ; if [ $RC -ne 0 ] ; then
+  echo "$Z: configuring '$P1' failed" 1>&2
+  exit $RC ; fi
+
+# build it
+if [ ! -f $P1.exe ] ; then echo "$Z: building '$P1' ..." ; fi
+sudo su - nord -c " PATH=$PATH ; export PATH ; cd $WD ; exec make $P1.exe "
+RC=$? ; if [ $RC -ne 0 ] ; then
+  echo "$Z: building '$P1' failed" 1>&2
+  exit $RC ; fi
+
+# install it
+if [ ! -f $P1.ins ] ; then echo "$Z: installing '$P1' ..." ; fi
+sudo su -  root -c " \
+PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH ; export PATH ; \
+                     cd $WD ; exec make $P1.ins "
+RC=$? ; if [ $RC -ne 0 ] ; then
+  echo "$Z: installing '$P1' failed" 1>&2
+  exit $RC ; fi
+
+echo "$Z: '$P1' done"
+
+exit
+
+
