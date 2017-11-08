@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	gzip
-SC_APV		=	1.6
+SC_APV		=	1.8
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

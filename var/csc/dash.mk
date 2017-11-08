@@ -5,12 +5,8 @@
 #
 #
 
-#SC_VRM		=	dash-0.5.6
-#SC_VRM		=	dash-0.5.6.1
-#SC_VRM		=	dash-0.5.7
-
 SC_APN		=	dash
-SC_APV		=	0.5.7
+SC_APV		=	0.5.9.1
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

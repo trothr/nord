@@ -56,8 +56,10 @@ NORDAUTO
 ========
 
 When hosted on z/VM, NORD is most easily installed via NORDAUTO.
-NORDAUTO itself is just a web-oriented loader and can be used
-to bootstrap any Linux distribution.
+
+NORDAUTO itself is just a CMS-based web-oriented loader
+and can be used to bootstrap any Linux distribution.
+Try it!
 
 See the "nordauto" directory of this project, or download from
 http://www.casita.net/pub/nord/nordauto/nordauto.vmarc

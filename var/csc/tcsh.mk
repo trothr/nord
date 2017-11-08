@@ -13,7 +13,8 @@
 #SC_VRM		=	tcsh-6.18.01
 
 SC_APN		=	tcsh
-SC_APV		=	6.18.01
+#SC_APV		=	6.18.01
+SC_APV		=	6.20.00
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

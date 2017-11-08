@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	texinfo
-SC_APV		=	6.0
+SC_APV		=	6.4
 SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

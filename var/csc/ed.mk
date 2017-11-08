@@ -12,9 +12,12 @@
 #SC_VRM		=	ed-1.13
 
 SC_APN		=	ed
-SC_APV		=	1.9
+SC_APV		=	1.4
+#SC_APV		=	1.9
 #SC_APV		=	1.13	# requires lzip
+#SC_APV		=	1.14.2
 SC_ARC		=	tar.gz
+#SC_ARC		=	tar.bz2
 #SC_ARC		=	tar.lz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	findutils
-SC_APV		=	4.4.2
+SC_APV		=	4.6.0
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

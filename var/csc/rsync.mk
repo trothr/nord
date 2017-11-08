@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	rsync
-SC_APV		=	3.1.1
+SC_APV		=	3.1.2
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

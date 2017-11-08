@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	diffutils
-SC_APV		=	3.3
+SC_APV		=	3.6
 SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	wget
-SC_APV		=	1.16.3
+SC_APV		=	1.19
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

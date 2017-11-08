@@ -5,12 +5,9 @@
 #
 #
 
-#SC_VRM		=	nano-2.1.9
-#SC_VRM		=	nano-2.3.1
-
 SC_APN		=	nano
-SC_APV		=	2.4.2
-SC_ARC		=	tar.gz
+SC_APV		=	2.8.6
+SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	\

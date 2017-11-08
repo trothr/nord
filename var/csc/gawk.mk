@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	gawk
-SC_APV		=	4.1.3
+SC_APV		=	4.1.4
 SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

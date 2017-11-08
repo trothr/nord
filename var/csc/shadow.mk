@@ -32,7 +32,10 @@ SC_VRM		=	shadow-4.1.4.3
 #SC_URL=http://www.mirrorservice.org/sites/ftp.wiretapped.net/pub/security/host-security/shadow/$(SC_VRM).tar.gz
 SC_URL=http://pkg-shadow.alioth.debian.org/releases/shadow-4.1.4.3.tar.bz2
 
-SC_FETCH	=	$(SC_FETCH_BZ)
+#SC_ARC		=	tar.gz
+SC_ARC		=	tar.bz2
+
+#SC_FETCH	=	$(SC_FETCH_BZ)
 
 #SC_SOURCE	=	
 #SC_CONFIG	=	./configure --prefix=/usr --disable-nls

@@ -16,10 +16,17 @@
 #SC_VRM		=	util-linux-ng-2.17
 
 SC_APN		=	util-linux
-SC_APV		=	2.20
+#SC_APV		=	2.20
 #SC_APV		=	2.26
+SC_APV		=	2.27
+#SC_APV		=	2.28
+#SC_APV		=	2.29
+
 SC_ARC		=	tar.xz
-SC_VRM		=	$(SC_APN)-$(SC_APV)
+#SC_VRM		=	$(SC_APN)-$(SC_APV)
+SC_VRM		=	util-linux-2.27.1
+#SC_VRM		=	util-linux-2.28.2
+#SC_VRM		=	util-linux-2.29.2
 
 #SC_URL		=	\
 # http://www.kernel.org/pub/linux/utils/util-linux/$(SC_VRM).lsm \
@@ -41,16 +48,19 @@ SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 #SC_URL=http://anduin.linuxfromscratch.org/sources/LFS/lfs-packages/6.6/util-linux-ng-2.17.tar.bz2
 
+#SC_URL		=	\
+# https://www.kernel.org/pub/linux/utils/$(SC_APN)/v$(SC_APV)/$(SC_APN)-$(SC_APV).$(SC_ARC) \
+# https://www.kernel.org/pub/linux/utils/$(SC_APN)/v$(SC_APV)/$(SC_APN)-$(SC_APV).tar.sign
 SC_URL		=	\
- https://www.kernel.org/pub/linux/utils/$(SC_APN)/v$(SC_APV)/$(SC_APN)-$(SC_APV).$(SC_ARC) \
- https://www.kernel.org/pub/linux/utils/$(SC_APN)/v$(SC_APV)/$(SC_APN)-$(SC_APV).tar.sign
+ https://www.kernel.org/pub/linux/utils/$(SC_APN)/v$(SC_APV)/$(SC_VRM).$(SC_ARC) \
+ https://www.kernel.org/pub/linux/utils/$(SC_APN)/v$(SC_APV)/$(SC_VRM).tar.sign
 
 #SC_FETCH	=	$(SC_FETCH_BZ)
 
 #SC_SOURCE	=	
 
-#SC_CONFIG	=	./configure --enable-static
 SC_CONFIG	=	./configure \
+				--without-python --without-inotify \
 				--enable-static --disable-shared \
 				--disable-nls
 

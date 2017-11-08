@@ -6,8 +6,8 @@
 #
 
 SC_APN		=	sed
-SC_APV		=	4.2.2
-SC_ARC		=	tar.gz
+SC_APV		=	4.4
+SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	http://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).$(SC_ARC) \

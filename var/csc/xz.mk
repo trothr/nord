@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	xz
-SC_APV		=	5.2.2
+SC_APV		=	5.2.3
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
@@ -24,5 +24,8 @@ SC_CONFIG	=	./configure --prefix=/usr \
 #SC_BUILD	=	
 #SC_INSTALL	=	
 #SC_FIXUP	=	strip ...
+
+
+# requires gettext
 
 

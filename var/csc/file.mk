@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	file
-SC_APV		=	5.25
+SC_APV		=	5.31
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

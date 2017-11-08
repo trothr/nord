@@ -2,6 +2,15 @@
 #
 #	  Name: coreutils.mk
 #		CSCRATCH make include file for GNU COREUTILS for NORD
+#
+#
+
+SC_APN		=	coreutils
+SC_APV		=	8.27
+SC_ARC		=	tar.xz
+SC_VRM		=	$(SC_APN)-$(SC_APV)
+# need a patch to fix new default behavior ignoring /etc/mtab
+
 #		replaces shutils-2.0 fileutils-4.1 textutils-2.1
 #		Specifically, this package includes:
 #		arch base64 basename cat chcon chgrp chmod chown chroot
@@ -14,13 +23,6 @@
 #		sync tac tail tee test timeout touch tr true truncate
 #		tsort tty uname unexpand uniq unlink users vdir wc who
 #		whoami yes
-#
-
-SC_APN		=	coreutils
-SC_APV		=	8.23
-#SC_APV		=	8.24	# new behavior ignores /etc/mtab
-SC_ARC		=	tar.xz
-SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	\
 	http://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).$(SC_ARC) \
@@ -33,7 +35,7 @@ SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 #SC_SOURCE	=	
 SC_CONFIG	=	FORCE_UNSAFE_CONFIGURE=1 ; \
 			export FORCE_UNSAFE_CONFIGURE ; \
-			./configure --prefix=/usr --disable-nls
+		./configure --prefix=/usr --disable-nls --enable-mtab
 #			--enable-no-install-program=coreutils,hostname
 #SC_BUILD	=	
 SC_FIXUP	=	strip /usr/bin/basename /usr/bin/chroot \

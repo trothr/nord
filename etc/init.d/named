@@ -4,6 +4,7 @@
 #         Name: /etc/init.d/named (shell INIT script)
 #	  Date: 2004-Mar-26 (Fri)
 #		2010-Sep-19 (Sun)
+#		2016-Jun-11 (Sat)
 #
 #
 
@@ -22,18 +23,25 @@ if [ -d /var/named ] ; then D=/var/named ; cd /var/named ; fi
 
 echo "$0 $*" > /dev/console
 
+if [ -d /usr/opt/bind/bin ] ; then PATH=/usr/opt/bind/bin:$PATH ; fi
+if [ -d /usr/opt/bind/sbin ] ; then PATH=/usr/opt/bind/sbin:$PATH ; fi
+
 case "$1" in
 
   start|restart)
-    $0 stop
-    if [ -d /usr/opt/bind/bin ] ; then PATH=/usr/opt/bind/bin:$PATH ; fi
-    if [ -d /usr/opt/bind/sbin ] ; then PATH=/usr/opt/bind/sbin:$PATH ; fi
-    named -c /etc/named.conf -g & # -u named -g named
+    if [ -s /var/run/named.pid ] ; then
+      cat /var/run/named.pid | xargs -n 1 kill ; fi
+    sync ; sync ; sleep 1
+    named -c /etc/named.conf -g \
+	1> /var/log/named.1 2> /var/log/named.2 & # -u named -g named
     ;;
 
   stop)
     if [ -s /var/run/named.pid ] ; then
       cat /var/run/named.pid | xargs -n 1 kill ; fi
+    sync ; sync ; sleep 3
+    if [ -s /var/run/named.pid ] ; then
+      cat /dev/null > /var/run/named.pid ; fi
     ;;
 
   start_msg)
@@ -61,7 +69,5 @@ case "$1" in
     ;;
 
 esac
-
-
 
 

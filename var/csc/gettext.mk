@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	gettext
-SC_APV		=	0.19.6
+SC_APV		=	0.19.8
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
@@ -25,7 +25,8 @@ SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 SC_CONFIG	=	./configure --prefix=/usr \
 				--enable-static --disable-shared \
 				--disable-threads --disable-curses \
-				--without-emacs
+				--without-emacs \
+				--without-libintl-prefix
 
 #SC_BUILD	=	
 SC_FIXUP        =       strip \

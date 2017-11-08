@@ -5,8 +5,10 @@
 #
 #
 
-SC_VRM		=	screen-3.9.15
-SC_VRM		=	screen-4.0.2
+SC_APN		=	screen
+SC_APV		=	4.6.1
+SC_ARC		=	tar.gz
+SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 #SC_URL	=	 http://mirrors.sunsite.dk/gnu/screen/$(SC_VRM).tar.gz \
 #	       http://mirrors.sunsite.dk/gnu/screen/$(SC_VRM).tar.gz.sig

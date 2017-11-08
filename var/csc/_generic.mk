@@ -44,6 +44,7 @@ SC_CONFIG	=	./configure
 #SC_CONFIG	=	./configure --prefix=/usr
 
 SC_BUILD	=	$(MAKE)
+SC_BUILDX	=	$(MAKE)
 
 SC_INSTALL	=	$(MAKE) install
 
