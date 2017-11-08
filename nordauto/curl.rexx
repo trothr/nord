@@ -7,14 +7,14 @@
 
 Numeric Digits 20
 
-make_version = "2.0.30"
+make_version = "2.0.35"
 
 /* if no other output, attach console */
 'STREAMSTATE OUTPUT'
 If rc = 4 Then rc = 0
 If rc = 8 Then rc = 0
 If rc = 12 Then 'ADDPIPE *.OUTPUT: | CONSOLE'
-If rc ^= 0 Then Exit rc
+If rc /= 0 Then Exit rc
 
 verbose = 0
 outfile = ""
@@ -38,7 +38,17 @@ Do While Left(arg1,1) = "-"
     When Abbrev("--non-verbose",arg1,13) Then verbose = 0
     When Abbrev("--verbose",arg1,9) Then verbose = 1
     When Abbrev("--binary",arg1,5) Then trans = 0
+    When Abbrev("--use-binary",arg1,12) Then trans = 0
     When Abbrev("--ascii",arg1,5) Then trans = 1
+    When Abbrev("--use-ascii",arg1,11) Then trans = 1
+    When Abbrev("-B",arg1,2) Then trans = 1
+
+
+
+
+
+
+
     When Abbrev("--text",arg1,6) Then trans = 1
     When Abbrev("--output",arg1,8) Then Parse Var args outfile args
     When Abbrev("-h",arg1,2) | Abbrev("--help",arg1,6) Then Do
@@ -51,6 +61,19 @@ Do While Left(arg1,1) = "-"
         '| SPEC /CMS Make/ NW W 1 NW /' || argu || '/ NW | *.OUTPUT:'
       Exit 0
     End /* When .. Do */
+
+    When Abbrev("--insecure",arg1,10) ,
+       | Abbrev("--no-check-certificate",arg1,22) ,
+       | Abbrev("--cacert",arg1,8) ,
+       | Abbrev("--capath",arg1,8) ,
+       | Abbrev("--cert",arg1,6) ,
+       | Abbrev("-E",arg1,2) ,
+       | Abbrev("-k",arg1,2) Then Do
+      Address "COMMAND" 'XMITMSG 14 ARG1 (ERRMSG CALLER URL'
+      Say "CMS Pipelines needs SSL support"
+      Exit 24
+    End
+
     Otherwise Do
       Address "COMMAND" 'XMITMSG 3 ARG1 (ERRMSG CALLER URL'
       Exit 24
@@ -64,12 +87,12 @@ If argu = "CURL" & outfile = "" Then outfile = "-"
 'CALLPIPE STATE POSIX TCPXLBIN'
 If rc = 28 Then Address "COMMAND" 'EXEC VMLINK TCPMAINT 592'
 'CALLPIPE < POSIX TCPXLBIN | STEM TCP.'
-If rc ^= 0 Then Return rc ;  a2e = tcp.2 ;  e2a = tcp.3
+If rc /= 0 Then Return rc ;  a2e = tcp.2 ;  e2a = tcp.3
 
 /* get essential config info - like the stack name */
 'CALLPIPE < TCPIP DATA | STRIP' ,
   '| NLOCATE 1.1 /;/ | STEM TCF.'
-If rc ^= 0 Then Return rc
+If rc /= 0 Then Return rc
 tcp.id = "TCPIP"
 Do i = 1 to tcf.0
   Parse Upper Var tcf.i cf c1 .
@@ -80,7 +103,7 @@ Do i = 1 to tcf.0
 End /* Do For */
 
 /* step through command line list-o-URLs */
-Do While args ^= ""
+Do While args /= ""
   Parse Var args furl args
   Parse Var furl mode '://' host '/' file
   port = ""
@@ -91,7 +114,6 @@ Do While args ^= ""
   If POS(':',user) > 0 Then Parse Var user user ':' pass
   Upper mode
   file = "/" || file
-  If port = "" Then port = 80
   If verbose Then Do
     Say "PROTOCOL" mode
     Say "USERNAME" user
@@ -106,7 +128,7 @@ Do While args ^= ""
     When mode = "HTTP" Then Parse Value ,
       url_http(user,pass,host,port,file,outfile,trans) With rc rs
     When mode = "FTP" Then Parse Value ,
-      viarover(furl,outfile,trans) With rc rs
+      url_ftp(user,pass,host,port,file,outfile,trans) With rc rs
     Otherwise Do
 /*    Address "COMMAND" 'XMITMSG 15 MODE (ERRMSG CALLER URL'          */
       Address "COMMAND" 'XMITMSG 475 MODE (ERRMSG CALLER URL'
@@ -114,7 +136,7 @@ Do While args ^= ""
       Exit 24 ;  End
   End /* Select */
 
-  If rc ^= 0 Then Exit rc
+  If rc /= 0 Then Exit rc
 
 End
 
@@ -125,7 +147,9 @@ Exit
  */
 url_http: Procedure Expose tcp. ;  a2e = tcp.2 ;  e2a = tcp.3
 Parse Arg user,pass,host,port,file,outfile,trans,.
-Parse Var file file ";" .   /* might look for ";type=A" to mean ASCII */
+Parse Var file file ";" flag      /* look for ";type=A" to mean ASCII */
+Upper flag
+If flag = "TYPE=A" Then trans = 1
 
 /* add a stream for HTTP header handling if not already there */
 Trace Off
@@ -137,9 +161,11 @@ If Verify(host,"0123456789.") > 0 Then Do
   /* 'CALLPIPE VAR HOST | HOSTBYNAME | VAR ADDR' */
   /* a fix from phsiii */
   'CALLPIPE VAR HOST | HOSTBYNAME | SPECS w1 1 | VAR ADDR'
-  If rc ^= 0 Then Return rc
+  If rc /= 0 Then Return rc
 End /* If .. Do */
 Else addr = host
+
+If port = "" Then port = 80
 
 If outfile = "" Then outfile = basename(file)
 
@@ -165,14 +191,14 @@ e2ax = "X" || C2X(e2a)
     '*.OUTPUT.HTTP: | TCPCLIENT' addr port ,
                       'LINGER 7 USERID' tcp.id 'DEBLOCK LINEND 0A' ,
                    '| *.INPUT.HTTP:'
-If rc ^= 0 Then Return rc
+If rc /= 0 Then Return rc
 
 /* send the request header then read the response header */
 'CALLPIPE (END !) STEM REQ.' ,
   '| E2A: XLATE | SPEC 1-* 1 x0D0A N' ,
   '| *.OUTPUT.HTTP:',
   '! STRLITERAL' e2ax '| E2A:'
-If rc ^= 0 Then Return rc
+If rc /= 0 Then Return rc
 
 /* consume the response header */
 'SELECT INPUT HTTP'
@@ -181,7 +207,7 @@ i = 0
 lm = ""
 Do Forever
   'PEEKTO RECORD'
-  If rc ^= 0 Then Leave
+  If rc /= 0 Then Leave
   Parse Var record record '0D'x
   If record = "" Then Leave
   i = i + 1 ; h.i = Translate(record,a2e)
@@ -191,7 +217,7 @@ Do Forever
   'READTO'
 End
 If rc = 12 Then rc = 0
-If rc ^= 0 Then Do
+If rc /= 0 Then Do
   _rc = rc
   'SELECT INPUT 0'
   Return _rc
@@ -204,7 +230,7 @@ h.0 = i
 If h.0 > 0 Then Do
   Parse Var h.1 . _rc rs
   If _rc = 200 Then _rc = 0
-  If _rc ^= 0 Then Do
+  If _rc /= 0 Then Do
     'SELECT INPUT 0'
     Return _rc rs
   End
@@ -226,10 +252,81 @@ _rc = rc
 
 /* 'CALLPIPE STEM H. | > WGET HEAD A' */
 /* stamp time on file if a file was written */
-If fn ^= "-" & lm ^= "" Then lm = _lm2full(lm)
-If fn ^= "-" & lm ^= "" Then Address "COMMAND" 'DMSPLU' fn ft 'A' lm
+If fn /= "-" & lm /= "" Then lm = _lm2full(lm)
+If fn /= "-" & lm /= "" Then Address "COMMAND" 'DMSPLU' fn ft 'A' lm
 
 Return _rc
+
+
+/* ------------------------------------------------------------- URL_FTP
+ */
+url_ftp: Procedure Expose tcp. ;  a2e = tcp.2 ;  e2a = tcp.3
+Parse Arg user,pass,host,port,file,outfile,trans,.
+Parse Var file file ";" flag      /* look for ";type=A" to mean ASCII */
+Upper flag
+If flag = "TYPE=A" Then trans = 1
+
+If Verify(host,"0123456789.") > 0 Then Do
+  /* 'CALLPIPE VAR HOST | HOSTBYNAME | VAR ADDR' */
+  /* a fix from phsiii */
+  'CALLPIPE VAR HOST | HOSTBYNAME | SPECS w1 1 | VAR ADDR'
+  If rc /= 0 Then Return rc
+End /* If .. Do */
+Else addr = host
+
+If outfile = "" Then outfile = basename(file)
+
+/* determine output to file or stream */
+Parse Upper Var outfile fn '.' ft '.' .
+If fn = "" Then fn = Userid()
+If ft = "" & trans Then ft = "TXT"
+If ft = "" Then ft = "BIN"
+If fn = "-" Then pipe = "*.OUTPUT:"
+            Else pipe = ""
+
+/* build a standard FTP request */
+If user = "" Then user = "anonymous"
+If pass = "" Then pass = Userid()
+If port = "" Then port = 21
+
+/* parse server-side file and directory */
+file = Reverse(file)
+Parse Var file file '/' dir
+dir = Reverse(dir)
+file = Reverse(file)
+
+temp = "temp.file"
+
+Address "COMMAND" 'MAKEBUF'
+
+  Queue user pass
+  If trans Then Queue "TYPE A"
+           Else Queue "TYPE I"
+  Do While dir /= ""
+    Parse Var dir dir1 "/" dir
+    Queue "CD" dir1
+  End
+  Queue "GET" file temp "(REPLACE"
+  Queue "QUIT"
+
+  Address "CMS" 'FTP' host port
+  ftprc = rc
+
+Address "COMMAND" 'DROPBUF'
+
+If ftprc /= 0 Then Return ftprc
+
+/* pipeline fixup here */
+Parse Upper Var temp tfn '.' tft '.' .
+If pipe = "" Then Do
+  Address "CMS" 'RENAME' tfn tft "A" fn ft "="
+End ;        Else Do
+  'CALLPIPE <' tfn tft '|' pipe
+  ftprc = rc
+  Address "COMMAND" 'ERASE' tfn tft "A"
+End
+
+Return ftprc
 
 
 /* ------------------------------------------------------------ VIAROVER
@@ -284,7 +381,7 @@ lmdt = dd mon yyyy time
 /* convert to POSIX for easier arithmetic */
 Address "COMMAND" ,
 'PIPE VAR LMDT | DATECONVERT NORMAL POSIX | VAR PDATE'
-If rc ^= 0 Then Return ""
+If rc /= 0 Then Return ""
 
 /* apply time zone offset */
 zdate = C2D(pdate) + tzoffset("S")
@@ -293,7 +390,7 @@ zdate = D2C(zdate,8)
 /* convert back to FULLDATE and include time */
 Address "COMMAND" ,
 'PIPE VAR ZDATE | DATECONVERT POSIX FULLDATE TIMEOUT | VAR RS'
-If rc ^= 0 Then Return ""
+If rc /= 0 Then Return ""
 
 /* slice off fractional time and return usable stamp */
 Parse Var rs rd rt .
@@ -340,5 +437,21 @@ Select /* denom */
   When denom = "M" Then Return zo * 60           /* offset in minutes */
   Otherwise Return zo
 End /* Select denom */
+
+
+/*
+ * There are many more options defined for 'curl' and 'wget' than this
+ * implementation can support. Some which we should support soon are:
+ *
+ *     --connect-timeout SECONDS  Maximum time allowed for connection
+ *     --ftp-pasv      Use PASV/EPSV instead of PORT
+ * -d, --data DATA     HTTP POST data
+ * -G, --get           Send the -d data with a HTTP GET
+ *     --data-ascii DATA  HTTP POST ASCII data
+ *     --data-binary DATA  HTTP POST binary data
+ *     --data-urlencode DATA  HTTP POST data url encoded
+ * -n, --netrc         Must read .netrc for user name and password
+ * -I, --head          Show document info only
+ */
 
 
