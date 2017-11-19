@@ -22,18 +22,19 @@ NORD follows the standard recipe for building internet sourced packages.
 
 * get the source, keep your copy indefinitely
 * explode the source
-* ./configure
-* make
-* make install
+* `./configure`
+* `make`
+* `make install`
 
 On top of that are two build schemes.
 
 * CSCRATCH
 	builds the core of NORD into a bootable root filesystem
 	using an existing host platform (possibly not NORD)
-* Chicory (the /usr/opt scheme)
+* Chicory (the `/usr/opt` scheme)
 	builds non-core NORD packages as relocatable,
-	possibly shareable components (similar to IBM /usr/lpp or Sun /opt/SUNW)
+	possibly shareable components (similar to 
+	IBM `/usr/lpp` or Sun `/opt/SUNW`)
 
 Between these two is a solid core with a lot of flexibility.
 
@@ -52,18 +53,23 @@ The following work now:
 Platforms listed here as "excepting bootstrap" run in 'chroot'.
 Those which are "excepting runtime" borrow the runtime of the host.
 
-NORDAUTO
+ZNETBOOT
 ========
 
-When hosted on z/VM, NORD is most easily installed via NORDAUTO.
+When hosted on z/VM, NORD is most easily installed via ZNETBOOT.
 
-NORDAUTO itself is just a CMS-based web-oriented loader
+ZNETBOOT itself is just a CMS-based web-oriented loader
 and can be used to bootstrap any Linux distribution.
 Try it!
 
-See the "nordauto" directory of this project, or download from
-http://www.casita.net/pub/nord/nordauto/nordauto.vmarc
+See the ZNETBOOT project on Github, or download from
+http://www.casita.net/pub/znetboot/znetboot.vmarc
 or
-http://www.casita.net/pub/nord/nordauto/nordauto.tar.gz
+http://www.casita.net/pub/znetboot/znetboot.tar.gz
+
+Use the `nord.znetboot` config file included.
+Tailor it to your specific configuration, then run the command
+
+    znetboot nord
 
 
