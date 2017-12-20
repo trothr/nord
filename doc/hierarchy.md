@@ -12,6 +12,10 @@ We're in the middle of importing from the Google Docs version.
 
 
 
+## FHS
+
+NORD filesystem hierarchy begins with the standard FHS directories. 
+
 | Directory    | Description                                          |
 | ------------ | ---------------------------------------------------- |
 | /bin         | Essential command binaries                           |
@@ -31,6 +35,48 @@ We're in the middle of importing from the Google Docs version.
 | /var         | Variable data                                        |
 | /home        | User home directories                                |
 | /root        | Home directory for the administrator                 |
+
+
+## NORD
+
+
+Directories intended solely for use as mount points are `chmod 555`. 
+
+`/lib/modules` is a sym-link to `/boot/modules` so that kernel modules 
+can reside with their respective kernel in case `/boot` is a separate filesystem. 
+
+`/etc/mtab` is never a sym-link to `/proc/mounts` in NORD. 
+The reason for this is primarily to simplify use of `chroot` 
+where `/proc/mounts` content may be misleading or may expose 
+too much of the hosting environment. 
+
+
+## /usr
+
+some specific directories
+
+| Directory        | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| /usr/bin         | Supplemental command binaries                        |
+| /usr/lib         | Supplemental shared libraries and static libraries   |
+| /usr/lib\<qual\> | Alternate supplemental libraries                     |
+| /usr/libexec     |                                                      |
+| /usr/sbin        | Supplemental system binaries                         |
+| /usr/include     | Header files                                         |
+| /usr/share       |                                                      |
+| /usr/man         | Sym-link to /usr/share/man                           |
+| /usr/info        | Sym-link to /usr/share/info                          |
+| /usr/spool       | Sym-link to /var/spool                               |
+| /usr/opt         | Critical path for Chicory (Portable Apps)            |
+| /usr/local       | Localized content                                    |
+| /usr/src         | General sources, especially the kernel               |
+| /usr/X11         | Common path for X windows files                      |
+
+
+
+
+
+
 
 
 
