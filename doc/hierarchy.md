@@ -31,7 +31,7 @@ Directory   |Description                                          |
 /var        |Variable data                                        |
 /home       |User home directories                                |
 /root       |Home directory for the administrator                 |
-
+[Prototype table]
 
 
 
