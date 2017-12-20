@@ -12,7 +12,7 @@ We're in the middle of importing from the Google Docs version.
 
 
 
-
+|
 |Directory |Description
 |/bin      |Essential command binaries
 |/boot     |Static files of the boot loader
