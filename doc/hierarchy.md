@@ -38,7 +38,7 @@ NORD filesystem hierarchy begins with the standard FHS directories.
 
 ## NORD
 
-Directories intended solely for use as mount points are `chmod 555`. 
+Directories intended solely for use as mount points are '`chmod 555`'. 
 
 `/lib/modules` is a sym-link to `/boot/modules` so that kernel modules 
 can reside with their respective kernel in case `/boot` is a separate filesystem. 
