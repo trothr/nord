@@ -3,13 +3,12 @@
 This is the NORD Filesystem Hierarchy doc as a markdown file.
 This version is a migration from, and a simplifcation of, the original Google Docs version.
 
-https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
-
 
 ## importing
 
 We're in the middle of importing from the Google Docs version.
 
+https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
 
 
 ## FHS
@@ -38,7 +37,6 @@ NORD filesystem hierarchy begins with the standard FHS directories.
 
 
 ## NORD
-
 
 Directories intended solely for use as mount points are `chmod 555`. 
 
