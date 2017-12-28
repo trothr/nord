@@ -1,10 +1,11 @@
-# ﻿NORD Installation
+# NORD Installation
 
-This document discusses installation of NORD Linux 
-and is specifically focused on installing NORD via CMS 
-onto a z/VM virtual machine. To that end, the first part describes 
-the ZNETBOOT utility. Following sections, starting with “nordinstboot”, 
-are common to other architectures. 
+This document discusses installation of NORD Linux and is specifically 
+focused on installing NORD via CMS onto a z/VM virtual machine. 
+(That means the S/390 architecture.) To that end, the first part 
+describes the ZNETBOOT utility. Following sections, starting with 
+“nordinstboot”, are common to other architectures. 
+
 
 ## ZNETBOOT
 
@@ -31,10 +32,9 @@ for that matter.) ZNETBOOT can probably be used with other
 operating systems, anything which can be IPLed from a virtual 
 card deck fetched from the web or intranet. 
 
-
-You can get ZNETBOOT EXEC and CURL REXX separately or download them 
-together in ZNETBOOT VMARC, which includes samples and a help file. 
-There is also znetboot.tar.gz with the same content. ZNETBOOT is 
+You can get `ZNETBOOT EXEC` and `CURL REXX` separately or download them 
+together in `ZNETBOOT VMARC`, which includes samples and a help file. 
+There is also `znetboot.tar.gz` with the same content. ZNETBOOT is 
 a CMS application, so most filenames are expressed as fn ft in that context. 
 
 
@@ -131,14 +131,14 @@ to the “wheel” group and selectively escalate privileges via `sudo`
 
 ## Using ZNETBOOT with ClefOS
 
-To bring up the ClefOS installer, simply create <vmid> ZNETBOOT 
+To bring up the ClefOS installer, simply create \<vmid\> ZNETBOOT 
 with the kernel, initrd, and boot parameters needed for ClefOS. 
 As an example, see CLEFOS ZNETBOOT.
 
 
 ## Using ZNETBOOT with Slack/390
 
-To bring up Slack/390 with ZNETBOOT, create <vmid> ZNETBOOT 
+To bring up Slack/390 with ZNETBOOT, create \<vmid\> ZNETBOOT 
 identifying the location of the kernel and initrd and including 
 other boot parameters needed by the Slackware installer. 
 As an example, see SLACK390 ZNETBOOT. 
@@ -146,7 +146,7 @@ As an example, see SLACK390 ZNETBOOT.
 
 ## Using ZNETBOOT with Ubuntu
 
-To bring up the Ubuntu installer, simply create <vmid> ZNETBOOT 
+To bring up the Ubuntu installer, simply create \<vmid\> ZNETBOOT 
 with the kernel, initrd, and boot parameters needed for Ubuntu on z/VM. 
 As an example, see UBUNTU ZNETBOOT. Linux kernels requiring z12 
 exhibit 0BADCCCC abend when IPLed on a z10. This is true for Ubuntu Xenial.
@@ -154,30 +154,22 @@ exhibit 0BADCCCC abend when IPLed on a z10. This is true for Ubuntu Xenial.
 
 ## Using ZNETBOOT with Debian
 
-To bring up the Debian installer, simply create <vmid> ZNETBOOT 
+To bring up the Debian installer, simply create \<vmid\> ZNETBOOT 
 with the kernel, initrd, and boot parameters needed for Debian. 
 
 
 ## Using ZNETBOOT with Fedora
 
-To bring up the Fedora installer, simply create <vmid> ZNETBOOT 
+To bring up the Fedora installer, simply create \<vmid\> ZNETBOOT 
 with the kernel, initrd, and boot parameters needed for Fedora. 
 
 
 
-This file is part of the collection found on GitHub at …
+This file is part of the collection found on GitHub at ... 
 
-https://github.com/trothr/nord/tree/master/doc
-
-(watch out for line wrap)
+    https://github.com/trothr/nord/tree/master/doc
 
 
-
-
-
-
-
-
-this page “NORD Installation” last updated 2017-Oct-23 (Monday) by RMT
+this page “NORD Installation” last updated 2017-Dec-28 (Thursday) by RMT
 
 
