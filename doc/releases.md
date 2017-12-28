@@ -1,10 +1,9 @@
-﻿NORD release 7 (Aurora)
-NORD release 6 (Tasha)
-NORD release 5 (Brewster)
-NORD release 4 (Polaris)
-NORD release 3 (Snow Shoe)
-# NORD release numbers are integers
-
+   NORD release 7 (Aurora)
+   NORD release 6 (Tasha)
+   NORD release 5 (Brewster)
+   NORD release 4 (Polaris)
+   NORD release 3 (Snow Shoe)
+   # NORD release numbers are integers
 
 Latest release is at the top of the deck. 
 
