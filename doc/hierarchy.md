@@ -78,4 +78,10 @@ some specific directories
 
 
 
+This file is part of the collection found on GitHub at ... 
+
+    https://github.com/trothr/nord/tree/master/doc
+
+
+this page “NORD Filesystem Hierarchy” last updated 2017-Dec-20 (Wednesday) by RMT
 
