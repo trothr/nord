@@ -8,7 +8,7 @@ FILES	=	usropt.rtf releases.rtf nordauto.rtf xmasgift.rtf \
 			cscratch.rtf nordplan.rtf srctrust.rtf
 TEXTS	=	usropt.txt releases.txt nordauto.txt xmasgift.txt \
 			cscratch.txt nordplan.txt srctrust.txt
-MARKDOWN =	hierarchy.md
+MARKDOWN =	hierarchy.md releases.md install.md
 
 
 #
@@ -102,9 +102,26 @@ nordplan.txt:
 # NORD Linux to-do
 
 #
+# markdown replaces Google Docs
+
 # NORD FHS Hierarchy and Layout
 hierarchy.md:
 	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
+
+# NORD releases
+releases.md:
+	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
+
+# NORD installation
+install.md:
+	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
+
+#	doc/cscratch.md
+#	doc/nordplan.md
+#	doc/srctrust.md
+#	doc/usropt.md, rename to Chicory
+#	doc/xmasgift.md
+
 
 #
 # sharedfs
@@ -114,16 +131,7 @@ clean:
 	@rm -f $(FILES) $(TEXTS)
 
 
-# parent folder
-#https://drive.google.com/drive/folders/
-
-# NORD folder
-#https://drive.google.com/drive/folders/0B7AkQhEvbQZfMmVkMzIwMDctM2EyMi00MzBhLWIzYTktOGYyY2EzNGFiYzg3
-
-# etc folder
-#https://drive.google.com/drive/folders/0B7AkQhEvbQZfNWIwMmQ1NTktMjZmMS00Mjg1LTk3NGYtZWVlMDFmYmVlM2Ri
-
-# correlation
+# Google Docs correlation
 #https://docs.google.com/a/casita.net/document/d/[googleid]/[function]
 #https://docs.google.com/document/d/[googleid]/[function]
 
