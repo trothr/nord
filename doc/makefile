@@ -8,6 +8,8 @@ FILES	=	usropt.rtf releases.rtf nordauto.rtf xmasgift.rtf \
 			cscratch.rtf nordplan.rtf srctrust.rtf
 TEXTS	=	usropt.txt releases.txt nordauto.txt xmasgift.txt \
 			cscratch.txt nordplan.txt srctrust.txt
+MARKDOWN =	hierarchy.md
+
 
 #
 # Using 'wget' to pull files from Google Drive (fka Google Docs)
@@ -24,9 +26,9 @@ _default:
 	@echo "$(MAKE): specify something to make!"
 	@sh -c ' exit -1 '
 
-all:	$(FILES)
+all:	$(FILES) $(MARKDOWN)
 
-texts:	$(TEXTS)
+texts:	$(TEXTS) $(MARKDOWN)
 
 
 #
@@ -101,6 +103,8 @@ nordplan.txt:
 
 #
 # NORD FHS Hierarchy and Layout
+hierarchy.md:
+	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
 
 #
 # sharedfs
