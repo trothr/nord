@@ -17,7 +17,7 @@ The effort gives you more control.
 
 ## Your Mission, ... 
 
-Both CSCRATCH and /usr/opt Chicory support vetting of source archives. 
+Both CSCRATCH and `/usr/opt` Chicory support vetting of source archives. 
 For those sources which are signed by their publisher, the build logic 
 will check the signature. 
 
