@@ -191,6 +191,6 @@ This file is part of the collection found on GitHub at ...
 
     https://github.com/trothr/nord/tree/master/doc
 
-**this page “NORD CSCRATCH” last updated 2017-Aug-25 (Friday) by RMT**
+*this page “NORD CSCRATCH” last updated 2017-Aug-25 (Friday) by RMT*
 
 
