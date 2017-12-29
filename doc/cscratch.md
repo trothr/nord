@@ -143,7 +143,7 @@ This is the command to install the package. The default is 'make install'.
 This command performs any post processing after installation. 
 The default is no fixup post processing. 
 
-Using XZ as an example, the stub would something like ... 
+Using XZ as an example, the stub would look something like ... 
 
 
     SC_APN    =    xz
@@ -191,6 +191,6 @@ This file is part of the collection found on GitHub at ...
 
     https://github.com/trothr/nord/tree/master/doc
 
-this page “NORD CSCRATCH” last updated 2017-Aug-25 (Friday) by RMT
+**this page “NORD CSCRATCH” last updated 2017-Aug-25 (Friday) by RMT**
 
 
