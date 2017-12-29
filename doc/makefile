@@ -116,12 +116,16 @@ releases.md:
 install.md:
 	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
 
-#	doc/cscratch.md
+srctrust.md:
+	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
+
+cscratch.md:
+	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
+
+# the following need to be converted to markdown
 #	doc/nordplan.md
-#	doc/srctrust.md
 #	doc/usropt.md, rename to Chicory
 #	doc/xmasgift.md
-
 
 #
 # sharedfs
