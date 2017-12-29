@@ -10,14 +10,14 @@ third party. Companies can purchase support to create a legal relationship,
 assigning the risk of trust (and other risks) to the distributor. 
 
 NORD is FOSS based, so it instead has a trust relationship with each 
-package author/maintainer. When you use either CSCRATCH or /usr/opt 
-Chicory, you go direct in trusting each package publisher. 
+package author/maintainer. When you use either CSCRATCH or Chicory 
+(`/usr/opt`), you go direct in trusting each package publisher. 
 The effort gives you more control. 
 
 
 ## Your Mission, ... 
 
-Both CSCRATCH and `/usr/opt` Chicory support vetting of source archives. 
+Both CSCRATCH and Chicory (`/usr/opt`) support vetting of source archives. 
 For those sources which are signed by their publisher, the build logic 
 will check the signature. 
 
