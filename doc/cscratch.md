@@ -7,42 +7,48 @@ This document describes CSCRATCH, an in-place system build mechanism.
 The name CSCRATCH is a contraction of "Casita Scratch". 
 It is a from-scratch build scheme, simply a wrapper around 'make' and the standard recipe. 
 
-CSCRATCH is used in NORD Linux but is not restricted to either NORD or Linux. It can coexist with Your Favorite Distro: You can use it to build or rebuild packages on ClefOS, SUSE, RedHat, FreeBSD, theoretically any POSIX platform. Given a working POSIX or POSIX-like system, you can rebuild, replace, or upgrade many of its component packages with fresh versions from source. 
+CSCRATCH is used in NORD Linux but is not restricted to either NORD or Linux. 
+It can coexist with Your Favorite Distro: You can use it to build or rebuild 
+packages on ClefOS, SUSE, RedHat, FreeBSD, theoretically any POSIX platform. 
+Given a working POSIX or POSIX-like system, you can rebuild, replace, 
+or upgrade many of its component packages with fresh versions from source. 
 
-CSCRATCH consists of a makefile and a collection of stub makefiles which are officially available at … 
+CSCRATCH consists of a makefile and a collection of stub makefiles 
+which are officially available at ... 
 
+        http://www.casita.net/pub/cscratch/
 
-        http://www.casita.net/pub/cscratch/ 
+The make logic creates marker files for each step in building a package: 
+source extracted, package configured, compiled, and installed. There is 
+a “stub” rules file for each package. The result is that any package 
+can be downloaded, compiled, and installed with just a single command. 
 
-
-The make logic creates marker files for each step in building a package: source extracted, package configured, compiled, and installed. There is a “stub” rules file for each package. The result is that any package can be downloaded, compiled, and installed with just a single command. 
-
-
-CSCRATCH attempts to stay as close as possible to the original Internet sources. All Linux distributions, even Debian (as re-doable as it is), have their own substantial modifications to the package sources. CSCRATCH has few or none. 
-
+CSCRATCH attempts to stay as close as possible to the original Internet 
+sources. All Linux distributions, even Debian (as re-doable as it is), 
+have their own substantial modifications to the package sources. 
+CSCRATCH has few or none. 
 
 For the history books, yes there was a BSCRATCH. 
 
-
-CSCRATCH has no knowledge of package managers. It will install a software package that your package manager does not know about. It will replace the components of a software package that your package manager does know about. 
-
-
-
+CSCRATCH has no knowledge of package managers. It will install a software 
+package that your package manager does not know about. It will replace 
+the components of a software package that your package manager does know about. 
 
 How Does One Use CSCRATCH?
 
-
 Using CSCRATCH is easy: 
-
 
 * download the makefile 
 * build one or more packages 
 
+All needed files, rules stubs, sources, are downloaded automatically. 
+Sources are kept so that a re-build of any package happens without a 
+re-visit to the download site(s). Marker files are created as each 
+step completes. 
 
-All needed files, rules stubs, sources, are downloaded automatically. Sources are kept so that a re-build of any package happens without a re-visit to the download site(s). Marker files are created as each step completes. 
-
-
-As an example, say you wanted to update BASH in response to the Shellshock bug. (Also assume that the bash.mk stub on the official site is up-to-date, which for this discussion is correct.) Simply run these commands. 
+As an example, say you wanted to update BASH in response to the Shellshock 
+bug. (Also assume that the bash.mk stub on the official site is up-to-date, 
+which for this discussion is correct.) Simply run these commands. 
 
 
 mkdir /var/csc
@@ -56,22 +62,18 @@ The /var/csc directory is convention, not a requirement.
 
 
 bash.mk is retrieved automatically. 
-It has the knowledge about where to find the BASH source code and patches, and how to build it. 
-
-
+It has the knowledge about where to find the BASH source code and patches, 
+and how to build it. 
 
 
 What Packages Does CSCRATCH Support?
-
 
 Theoretically, any FOSS package can be handled with CSCRATCH. 
 What is needed is per-package knowledge: where to find it, how to compile it. 
 (See below section “Adding Packages to CSCRATCH”. Contributions welcome!) 
 
-
-For each package to be built/installed with CSCRATCH, there is a “.mk” stub file. The most recently used stubs are … 
-
-
+For each package to be built/installed with CSCRATCH, there is a 
+“.mk” stub file. The most recently used stubs are … 
 
 
 autoconf.mk automake.mk bash.mk bc.mk bison.mk bzip2.mk coreutils.mk curl.mk dash.mk diffutils.mk e2fsprogs.mk ed.mk file.mk findutils.mk flex.mk gawk.mk gettext.mk glibc.mk grep.mk gzip.mk less.mk libtool.mk m4.mk make.mk nano.mk ncurses.mk netsnmp.mk patch.mk pdksh.mk pkgconfig.mk procps.mk pth.mk readline.mk rsync.mk screen.mk sed.mk shadow.mk sharutils.mk sudo.mk sysklogd.mk sysvinit.mk tar.mk tcsh.mk texinfo.mk utillinux.mk vim.mk wget.mk which.mk xinetd.mk xz.mk zlib.mk zsh.mk
@@ -79,7 +81,8 @@ autoconf.mk automake.mk bash.mk bc.mk bison.mk bzip2.mk coreutils.mk curl.mk das
 
 
 
-The complete collection, including many untested and out-of-date stubs, is at the above mentioned web site. 
+The complete collection, including many untested and out-of-date stubs, 
+is at the above mentioned web site. 
 
 
 
@@ -99,7 +102,8 @@ Adding Packages to CSCRATCH
 
 
 To add a package to CSCRATCH, create a rules stub file for that package. 
-This file must have an extension of ".mk" and must at least set SC_VRM and SC_URL.  Variables set in this stub file include: 
+This file must have an extension of ".mk" and must at least set SC_VRM 
+and SC_URL.  Variables set in this stub file include: 
 
 
 SC_VRM
@@ -119,7 +123,9 @@ This is the package archive extension, e.g. tar.gz.
 
 
 SC_URL
-There is no default.  This URL indicates where the source may be downloaded. The URL string may contain more than one file and often includes a cryptographic signature file. 
+There is no default.  This URL indicates where the source may be downloaded. 
+The URL string may contain more than one file and often includes a 
+cryptographic signature file. 
 
 
 SC_FETCH
@@ -173,13 +179,17 @@ SC_CONFIG    =    ./configure --prefix=/usr
 Name the stub file “xz.mk” and do a ‘make xz.ins’. Voi-la! 
 
 
-An important additional step is verifying the archive signature. In the above example, we do download the signature, but CSCRATCH will not use it unless SC_SOURCE_VERIFY defines a command to do so. 
+An important additional step is verifying the archive signature. 
+In the above example, we do download the signature, but CSCRATCH 
+will not use it unless SC_SOURCE_VERIFY defines a command to do so. 
 
 
 SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 
 
-In this example, the public key for XZ is found in “lasse_collin_pubkey.txt”, but you should vet all public keys manually. There’s no way around personal action when establishing initial trust. 
+In this example, the public key for XZ is found in “lasse_collin_pubkey.txt”, 
+but you should vet all public keys manually. There’s no way around personal 
+action when establishing initial trust. 
 
 
 
@@ -187,11 +197,14 @@ In this example, the public key for XZ is found in “lasse_collin_pubkey.txt”
 ‘nord-build-csc’ script
 
 
-The steps for building a package with CSCRATCH are automated in a shell script. ‘nord-build-csc’ handles all of the complexity described above for more than 100 packages. The script requires ‘sudo’ and related authorization as well as a build user “nord”. On NORD systems, this ID exists and is authorized. 
+The steps for building a package with CSCRATCH are automated in a shell script. 
+‘nord-build-csc’ handles all of the complexity described above for 
+more than 100 packages. The script requires ‘sudo’ and related authorization 
+as well as a build user “nord”. On NORD systems, this ID exists and is authorized. 
 
-
-‘nord-build-csc’ will find the stub makefile for the indicated package, download it, and walk it through its paces. The source, configure, and build steps are done as user “nord”. The install step is done as user “root”. 
-
+‘nord-build-csc’ will find the stub makefile for the indicated package, 
+download it, and walk it through its paces. The source, configure, and 
+build steps are done as user “nord”. The install step is done as user “root”. 
 
 
 
@@ -202,3 +215,5 @@ This file is part of the collection found on GitHub at ...
     https://github.com/trothr/nord/tree/master/doc
 
 this page “NORD CSCRATCH” last updated 2017-Aug-25 (Friday) by RMT
+
+
