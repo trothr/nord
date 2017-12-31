@@ -1,7 +1,7 @@
 # NORD Packages
 
-This is the NORD Packages listas a markdown file.
-This version is a migration from, and a simplifcation of, 
+This is the NORD Packages list as a markdown file.
+This version is a migration from, and a simplifcation of,
 the original Google Docs version.
 
 
@@ -70,7 +70,6 @@ https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
 | netcat        | 0.7.1     | http://umn.dl.sourceforge.net/sourceforge/netcat/netcat-0.7.1.tar.gz      |                    |     |
 | pkg-config*   | 0.18      | http://pkgconfig.freedesktop.org/releases/pkg-config-0.18.tar.gz          |                    | CD2 |
 | procps        | 3.2.8     | http://procps.sourceforge.net/procps-3.2.8.tar.gz                         |                    |     |
-| pth           | 2.0.7     | ftp://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz                                |                    |     |
 | screen        | 4.6.1     | http://ftp.gnu.org/pub/gnu/screen/screen-4.6.1.tar.gz                     |                    | CD3 |
 | shadow        | 4.1.4.3   | http://pkg-shadow.alioth.debian.org/releases/shadow-4.1.4.3.tar.bz2       |                    |     |
 | sharutils     | 4.15.2    | http://ftp.gnu.org/gnu/sharutils/sharutils-4.15.2.tar.gz                  |                    |     |
@@ -89,7 +88,7 @@ https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
 | module-init-tools* | 3.5  | http://www.kernel.org/pub/linux/kernel/people/rusty/modules/module-init-tools-3.5.tar.gz | 0xc86ba06a517d0f0e | |
 | lilo          | 23.2      | http://lilo.alioth.debian.org/ftp/sources/lilo-23.2.tar.gz                | needkey            |     |
 | s390-tools*   | 1.8.0     |                                                                           | needkey            |     |
-| ------------- | --------- | ------------------------------------------------------------------------- | ------------------ | --- |
+|               |           |                                                                           |                    |     |
 | perl          | 5.22.0    | http://www.cpan.org/src/perl-5.22.0.tar.gz                                |                    | CD1 |
 | python        | 2.6.9     | http://www.python.org/ftp/python/2.6.9/Python-2.6.9.tar.xz                |                    | CD1 |
 | python        | 3.4.3     |                                                                           |                    |     |
@@ -98,13 +97,14 @@ https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
 | oorexx        | 4.2.0     | http://sourceforge.net/projects/oorexx/files/oorexx/4.1.0/ooRexx-4.2.0-source.tar.gz |         | CD1 |
 | regina        | 3.4       | http://iweb.dl.sourceforge.net/sourceforge/regina-rexx/Regina-REXX-3.4.tar.gz |                | CD1 |
 | the           | 3.2       | http://downloads.sourceforge.net/project/the/THE-3.2..tar.gz              |                    | CD1 |
-| ------------- | --------- | ------------------------------------------------------------------------- | ------------------ | --- |
+|               |           |                                                                           |                    |     |
 | gcc           | 4.8.5     | http://ftp.gnu.org/pub/gnu/gcc/gcc-4.8.5/gcc-4.8.5.tar.bz2                | 0x3ab00996fc26a641 | CD2 |
 | binutils      | 2.24.51.0.3 | http://www.kernel.org/pub/linux/devel/binutils/binutils-2.24.51.0.3.tar.gz |                 | CD2 |
 | bin86         | 0.16.18   | http://distro.ibiblio.org/slitaz/sources/packages-stable/b/bin86-0.16.18.tar.gz |              | CD2 |
 | make          | 3.82      | http://ftp.gnu.org/pub/gnu/make/make-3.82.tar.gz                          | 0x96b047156338b6d4 | CD2 |
 | cmake         | 3.5.1     | http://www.cmake.org/files/v3.5/cmake-3.5.1.tar.gz                        |                    | CD2 |
-| ------------- | --------- | ------------------------------------------------------------------------- | ------------------ | --- |
+| pth           | 2.0.7     | ftp://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz                                |                    |     |
+|               |           |                                                                           |                    |     |
 | apache        | 2.2.19    | http://archive.apache.org/dist/httpd/httpd-2.2.19.tar.gz                  | 0xa348b9847f7214a7 | CD3 |
 | nginx         | 1.2.5     | http://www.nginx.org/download/nginx-1.2.5.tar.gz                          |                    | CD3 |
 | bind          | 9.11.1    | http://ftp.isc.org/isc/bind9/9.10.4b3/bind-9.10.4b3.tar.gz                | 0x6fa6ebc9911a4c02 | CD3 |
@@ -115,29 +115,29 @@ https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
 | subversion    | 1.9.2     | http://mirrors.sonic.net/apache/subversion/subversion-1.9.2.tar.bz2       |                    | CD3 |
 | cvs           | 1.11.23   | http://ftp.gnu.org/non-gnu/cvs/source/stable/1.11.23/cvs-1.11.23.tar.gz   |                    | CD3 |
 | c3270         | 3.3       | http://voxel.dl.sourceforge.net/sourceforge/x3270/c3270-3.3.5p4.tgz       |                    | CD3 |
-| ------------- | --------- | ------------------------------------------------------------------------- | ------------------ | --- |
+|               |           |                                                                           |                    |     |
+| libassuan     | d 2.1.1   |                                                                           | needkey            | CD4 |
+| libgpg-error* | 1.17      |                                                                           | needkey            | CD4 |
+| libksba       | 1.3.0     |                                                                           | needkey            | CD4 |
+| libevent      | 2.0.22    |                                                                           | needkey            | CD4 |
+| libgcrypt     | 1.6.2     |                                                                           | needkey            | CD4 |
+|               |           |                                                                           |                    |     |
 | gnupg         | 1.4.21    | ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.21.tar.gz                      | 0x249b39d24f25e3b6 | CD5 |
 | openssl       | 1.0.1t    | http://www.openssl.org/source/openssl-1.0.1t.tar.gz                       | 0xd9c4d26d0e604491 | CD5 |
 | libressl      | 2.3.10    | http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.10.tar.gz        | 0x663af51bd5e4d8d5 | CD5 |
 |               | 2.4.5     | http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.5.tar.gz         | 0x663af51bd5e4d8d5 | CD5 |
 | openssh       | 7.3p1     | http://mirror.planetunix.net/pub/OpenBSD/OpenSSH/portable/openssh-7.3p1.tar.gz | 0xd3e5f56b6d920d30 | CD5 |
 | openvpn       | 2.3.10    | https://swupdate.openvpn.org/community/releases/openvpn-2.3.10.tar.xz     |                    | CD5 |
-| ------------- | --------- | ------------------------------------------------------------------------- | ------------------ | --- |
-| libassuan     | d 2.1.1   |                                                                           | needkey            | CD4 |
-| libgpg-error* | 1.17      |                                                                           | needkey            | CD4 |
-| libksba       | 1.3.0     |                                                                           | needkey            | CD4 |
-| libevent      | 2.0.22    |                                                                           | needkey            | CD4 |
-| libgcrypt     | 1.6.2     |                                                                           | needkey            | CD4 |
-| ------------- | --------- | ------------------------------------------------------------------------- | ------------------ | --- |
+|               |           |                                                                           |                    |     |
 
 
 ## NORD docs
 
-This file is part of the collection found on GitHub at ... 
+This file is part of the collection found on GitHub at ...
 
     https://github.com/trothr/nord/tree/master/doc
 
 
-this page “NORD Packages” last updated 2017-Dec-30 (Saturday) by RMT
+this page "NORD Packages" last updated 2017-Dec-30 (Saturday) by RMT
 
 
