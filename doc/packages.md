@@ -14,10 +14,10 @@ https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
 
 ## NORD Packages
 
-| package       | release   | source URL                                                                | source signing key | |
-| ------------- | --------- |                                                                           |                    | |
-|               |           |                                                                           |                    | |
-|               |           |                                                                           |                    | |
+| package       | release   | source URL                                                                | source signing key |     |
+| ------------- | --------- | ------------------------------------------------------------------------- | ------------------ | --- |
+|               |           |                                                                           |                    |     |
+|               |           |                                                                           |                    |     |
 | autoconf      | 2.69      | http://ftp.gnu.org/pub/gnu/autoconf/autoconf-2.69.tar.gz                  | 0xa7a16b4a2527436a | CD0 |
 | automake      | 1.15      | http://ftp.gnu.org/pub/gnu/automake/automake-1.15.tar.gz                  | 0x60f906016e407573 | CD0 |
 | bash          | 4.4       | http://ftp.gnu.org/pub/gnu/bash/bash-4.3.30.tar.gz                        | 0xbb5869f064ea74ab | CD0 |
