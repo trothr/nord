@@ -8,7 +8,8 @@ FILES	=	usropt.rtf releases.rtf nordauto.rtf xmasgift.rtf \
 			cscratch.rtf nordplan.rtf srctrust.rtf
 TEXTS	=	usropt.txt releases.txt nordauto.txt xmasgift.txt \
 			cscratch.txt nordplan.txt srctrust.txt
-MARKDOWN =	hierarchy.md releases.md install.md
+MARKDOWN =	hierarchy.md releases.md install.md srctrust.md \
+			cscratch.md
 
 
 #
@@ -122,10 +123,22 @@ srctrust.md:
 cscratch.md:
 	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
 
+packages.md:
+	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
+
 # the following need to be converted to markdown
 #	doc/nordplan.md
 #	doc/usropt.md, rename to Chicory
 #	doc/xmasgift.md
+
+packages.csv:	packages.md
+	grep '^|' packages.md | tail -n +2 \
+	  | sed 's#|#,#g' | sed 's# ##g' \
+	  | awk -F, '{print gensub("-","","",$$2) "-" $$3 \
+		"," $$4 "," $$5 "," $$6}' \
+	  | sed 's#\*##g' \
+	  | grep -v '^-' \
+	  > packages.csv
 
 #
 # sharedfs
