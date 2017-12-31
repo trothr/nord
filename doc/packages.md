@@ -18,12 +18,12 @@ https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
 | ------------- | --------- | ------------------------------------------------------------------------- | ------------------ | --- |
 | autoconf      | 2.69      | http://ftp.gnu.org/pub/gnu/autoconf/autoconf-2.69.tar.gz                  | 0xa7a16b4a2527436a | CD0 |
 | automake      | 1.15      | http://ftp.gnu.org/pub/gnu/automake/automake-1.15.tar.gz                  | 0x60f906016e407573 | CD0 |
-| bash          | 4.4       | http://ftp.gnu.org/pub/gnu/bash/bash-4.3.30.tar.gz                        | 0xbb5869f064ea74ab | CD0 |
+| bash          | 4.4       | http://ftp.gnu.org/pub/gnu/bash/bash-4.4.tar.gz                           | 0xbb5869f064ea74ab | CD0 |
 | bison         | 3.0.4     | http://ftp.gnu.org/pub/gnu/bison/bison-3.0.4.tar.gz                       | 0x0ddcaa3278d5264e | CD0 |
 | bzip2         | 1.0.6     | http://sources.redhat.com/pub/bzip2/v106/bzip2-1.0.6.tar.gz               |                    | CD0 |
-| coreutils     | 8.27      | http://ftp.gnu.org/pub/gnu/coreutils/coreutils-8.23.tar.xz                | 0xdf6fd971306037d9 | CD0 |
-| curl          | 7.54.1    | http://curl.haxx.se/download/curl-7.45.0.tar.gz                           | 0x78e11c6b279d5c91 | CD0 |
-| dash          | 0.5.9.1   | http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.7.tar.gz          |                    | CD0 |
+| coreutils     | 8.27      | http://ftp.gnu.org/pub/gnu/coreutils/coreutils-8.27.tar.xz                | 0xdf6fd971306037d9 | CD0 |
+| curl          | 7.54.1    | http://curl.haxx.se/download/curl-7.54.1.tar.gz                           | 0x78e11c6b279d5c91 | CD0 |
+| dash          | 0.5.9.1   | http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.9.1.tar.gz        |                    | CD0 |
 | diffutils     | 3.6       | http://ftp.gnu.org/pub/gnu/diffutils/diffutils-3.6.tar.xz                 | 0x7fd9fccb000beeee | CD0 |
 | file          | 5.31      | http://distfiles.macports.org/file/file-5.31.tar.gz                       |                    | CD0 |
 | findutils     | 4.6.0     | http://ftp.gnu.org/pub/gnu/findutils/findutils-4.6.0.tar.gz               | 0xa15b725964a95ee5 | CD0 |
