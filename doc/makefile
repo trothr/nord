@@ -42,7 +42,7 @@ usropt.txt:
  https://docs.google.com/document/d/1QBsK--hq6qHOBpKCMQYln4qck39xfi7s1FTL73G-7VM/export?format=txt
 
 #
-# NORD-releases
+# NORD Releases
 releases.rtf:
 	wget -O releases.rtf \
  https://docs.google.com/document/d/1Q3b6oAx2QL310FozVFI9qRRRJmZhOC_KawTay9nbpZ4/export?format=rtf
@@ -105,31 +105,35 @@ nordplan.txt:
 #
 # markdown replaces Google Docs
 
-# NORD FHS Hierarchy and Layout
+# NORD Filesystem Hierarchy and Layout
 hierarchy.md:
 	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
 
-# NORD releases
+# NORD Releases
 releases.md:
 	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
 
-# NORD installation
+# NORD Installation
 install.md:
 	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
 
+# NORD Source Trust
 srctrust.md:
 	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
 
+# NORD CSCRATCH build method
 cscratch.md:
 	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
 
+# NORD Packages
 packages.md:
 	wget https://raw.githubusercontent.com/trothr/nord/master/doc/$@
 
 # the following need to be converted to markdown
-#	doc/nordplan.md
+#	doc/nordplan.md,	“NORD Linux” -or- "NORD Scratch Linux" (suitable as a flyer or glossy)
 #	doc/usropt.md, rename to Chicory
 #	doc/xmasgift.md
+
 
 packages.csv:	packages.md
 	grep '^|' packages.md | tail -n +2 \

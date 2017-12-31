@@ -15,7 +15,8 @@ Aurora dramatically reduces shared library requirements, even more than other NO
 
 Clearer delineation between CSCRATCH and Chicory. 
 
-Bootable I386, S390. S390 installed via ‘nordauto’. I386 installed via HD image. ‘chroot’ PPC, ARM. 
+Bootable I386, S390. S390 installed via '`nordauto`'.
+I386 installed via HD image. '`chroot`' PPC, ARM. 
 
 ## The “Tasha” release of NORD Linux
 
@@ -60,5 +61,6 @@ This file is part of the collection found on GitHub at ...
     https://github.com/trothr/nord/tree/master/doc
 
 
-this page “NORD Installation” last updated 2017-Dec-28 (Thursday) by RMT
+this page “NORD Releases" last updated 2017-Dec-28 (Thursday) by RMT
+
 
