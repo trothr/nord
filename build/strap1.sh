@@ -6,6 +6,7 @@
 D=`dirname $0`
 . $D/strap.rc
 $D/strap0.sh ### [re]run stage 0
+RC=$? ; if [ $RC -ne 0 ] ; then exit $RC ; fi
 echo "strap1.sh: SYSTEM=$SYSTEM"
 
 if [ ! -d opt ] ; then
@@ -152,6 +153,7 @@ for P in ` ls ../opt/CD2 ` ; do
 done
 
 mkdir -m 555 -p arc
+umount arc 2> /dev/null
 mount -o bind ../arc arc
 
 

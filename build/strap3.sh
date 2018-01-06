@@ -1,6 +1,12 @@
 #!/bin/sh
 #
 
+D=`dirname $0`
+. $D/strap.rc
+#$D/strap2.sh # which in turn [re]runs 'strap1.sh' and 'strap0.sh'
+#RC=$? ; if [ $RC -ne 0 ] ; then exit $RC ; fi
+echo "strap3.sh: SYSTEM=$SYSTEM"
+
 for P in ` ls /usr/opt/. | grep -v '.-.' \
     | grep -v '^apache$' \
     | grep -v '^mpc$' | grep -v '^gmp$' | grep -v '^mpfr$' \
