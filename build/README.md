@@ -42,6 +42,10 @@ into the new root.
 
 As of 2018 January, rootstrapping is difficult, incomplete, error-prone.
 
+Many package makefile stubs include a verification step to check the source
+against a PGP signature. The new root will need `gpg` and both `root` and `nord`
+will need `pubring.gpg` with known keys.
+
 
 
 
