@@ -17,7 +17,8 @@ with content from CD0 (Chicory build of the core, CD1 (scripting languages,
 especially Perl), and CD2 (compiler and utilities). It also creates `strap.set`
 with PATH settings to find commands via Chicory without sym-linkery.
 
-At the end of its run, `strap1.sh` attempts to run a shell in the new system root.
+At the end of its run, `strap1.sh` attempts to run a shell
+in the new system root.
 
 ## strap2.sh
 
@@ -43,10 +44,7 @@ into the new root.
 As of 2018 January, rootstrapping is difficult, incomplete, error-prone.
 
 Many package makefile stubs include a verification step to check the source
-against a PGP signature. The new root will need `gpg` and both `root` and `nord`
-will need `pubring.gpg` with known keys.
-
-
-
+against a PGP signature. The new root will need '`gpg`' and both
+`root` and `nord` will need "`pubring.gpg`" with known keys.
 
 
