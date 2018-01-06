@@ -21,7 +21,7 @@ At the end of its run, `strap1.sh` attempts to run a shell in the new system roo
 
 ## strap2.sh
 
-`strap2.sh` [re]runs '`strap1.sh` and then fleshes out the build environment,
+`strap2.sh` [re]runs `strap1.sh` and then fleshes out the build environment,
 notably the kernel headers. It drives a build of individual core packages.
 
 ## strap3.sh
