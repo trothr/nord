@@ -31,12 +31,16 @@ not in the CD0 Chicory collection.
 
 ## You Will Need
 
-You will need the following:
+For these scripts to work, you will need the following:
 
 * `etc` directory with initial `passwd` and `group` files.
 
 * `opt` directory with CD0, CD1, and CD2 which will be bind mounted
 into the new root.
+
+## Status
+
+As of 2018 January, rootstrapping is difficult, incomplete, error-prone.
 
 
 
