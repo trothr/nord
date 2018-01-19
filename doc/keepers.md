@@ -48,4 +48,7 @@ LVM2 is listed as something we should keep because it provides
 generic volume management available for all filesystems,
 even those which might wish to do their own volume managment.
 
+LVM2 is everything partitioning wanted to be.
+If anything should be left to fade into history, partitioning is such.
+But partitioning persists. Please also let us keep LVM2.
 
