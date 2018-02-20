@@ -1,6 +1,8 @@
 #!/bin/sh
 #
-# source this file for rootstrapping variables
+#         Name: strap.rc
+#               source this file for rootstrapping variables
+#
 
 UNAMES=`uname -s`
 UNAMEM=`uname -m | sed 's#i.86#i386#' | sed 's#armv..#arm#'`

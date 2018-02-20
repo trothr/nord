@@ -11,8 +11,8 @@ SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	\
-	http://ftp.gnu.org/pub/gnu/nano/$(SC_VRM).tar.gz \
-	http://ftp.gnu.org/pub/gnu/nano/$(SC_VRM).tar.gz.sig
+	http://ftp.gnu.org/pub/gnu/nano/$(SC_VRM).$(SC_ARC) \
+	http://ftp.gnu.org/pub/gnu/nano/$(SC_VRM).$(SC_ARC).sig
 
 #SC_FETCH	=	
 #SC_SOURCE	=	

@@ -11,8 +11,8 @@ SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	\
- http://gondor.apana.org.au/~herbert/dash/files/$(SC_VRM).tar.gz \
- http://gondor.apana.org.au/~herbert/dash/files/$(SC_VRM).tar.gz.sha1sum
+ http://gondor.apana.org.au/~herbert/dash/files/$(SC_VRM).$(SC_ARC) \
+ http://gondor.apana.org.au/~herbert/dash/files/$(SC_VRM).$(SC_ARC).sha256sum
 
 #SC_FETCH	=	
 #SC_SOURCE	=	

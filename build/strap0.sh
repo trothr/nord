@@ -1,7 +1,10 @@
 #!/bin/sh
 #
-# This stage [re]creates the filesystem layout.
-# It must tolerate portions already existing (in case of restart).
+#         Name: strap0.sh
+#               This stage [re]creates the filesystem layout.
+#               It must tolerate portions already existing
+#               (in case of restart).
+#
 
 D=`dirname $0`
 if [ ! -r $D/strap.rc ] ; then
@@ -16,7 +19,7 @@ mkdir -p "$SYSTEM"
 
 cd "$SYSTEM"
 
-echo "strap0.sh: creating FHS hierarchy for '$SYSTEM' ..."
+echo "strap0.sh: creating filesystem hierarchy for '$SYSTEM' ..."
 
 mkdir -m 1777 -p tmp
 mkdir -m 555 -p proc sys mnt

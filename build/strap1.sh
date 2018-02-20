@@ -1,7 +1,10 @@
 #!/bin/sh
 #
-# This stage leverages /usr/opt packages.
-# It may replace prior /usr/opt content in the target hierarchy.
+#         Name: strap1.sh
+#               This stage leverages Chicory /usr/opt packages.
+#               It may replace prior /usr/opt content
+#               in the target hierarchy.
+#
 
 D=`dirname $0`
 . $D/strap.rc

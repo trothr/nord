@@ -1,5 +1,7 @@
 #!/bin/sh
 #
+#         Name: strap3.sh
+#
 
 D=`dirname $0`
 . $D/strap.rc

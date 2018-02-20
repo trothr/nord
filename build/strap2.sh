@@ -1,6 +1,8 @@
 #!/bin/sh
 #
-# this stage drives the CSCRATCH package builds
+#         Name: strap2.sh
+#               This stage drives the CSCRATCH package builds.
+#
 
 D=`dirname $0`
 . $D/strap.rc
@@ -37,13 +39,13 @@ rm -f usr/include/asm
 rsync -a -u -x -H -O -S /usr/include/. usr/include/.
 
 . ./strap.set
-chroot . sh -c " cd usr/src/linux ; yes '' | make config "
+#OK#chroot . sh -c " cd usr/src/linux ; yes '' | make config "
 #        sh -c " cd usr/src/linux ; yes '' | make config "
 RC=$? ; if [ $RC -ne 0 ] ; then exit $RC ; fi
-chroot . sh -c " cd usr/src/linux ; make include/linux/version.h "
+#OK#chroot . sh -c " cd usr/src/linux ; make include/linux/version.h "
 #        sh -c " cd usr/src/linux ; make include/linux/version.h "
 RC=$? ; if [ $RC -ne 0 ] ; then exit $RC ; fi
-chroot . sh -c " cd usr/src/linux ; make headers_install "
+#OK#chroot . sh -c " cd usr/src/linux ; make headers_install "
 RC=$? ; if [ $RC -ne 0 ] ; then exit $RC ; fi
 
 #mkdir -p usr/include/linux
@@ -78,7 +80,6 @@ for P in ` ls opt/CD0 | grep '.-.' \
   if [ "$RC" -eq 0 ] ; then rm var/opt/$P var/opt/$P-* ; fi
 done
 echo "strap2.sh: done"
-
 
 exit
 

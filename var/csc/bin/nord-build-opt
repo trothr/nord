@@ -1,8 +1,11 @@
 #!/bin/sh
 #
 #         Name: nord-build-opt (shell script)
-#         Date: 2016-June
-#               use this script to build packages as "Portable Apps"
+#         Date: 2016-June, 2016-Nov-25 (Black Friday)
+#               use this script to build packages via Chicory
+#         Note: Variable PD here is the package prefix directory.
+#               For NORD and for the official Chicory samples
+#               the prefix directory is always /usr/opt.
 #
 
 WD=/local/opt           # package residence parent directory

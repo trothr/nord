@@ -10,7 +10,8 @@
 #SC_VRM		=	ppp-2.4.2
 #SC_VRM		=	ppp-2.4.4b1
 SC_VRM		=	ppp-2.4.5
-SC_URL		=	ftp://ftp.samba.org/pub/ppp/$(SC_VRM).tar.gz 
+#SC_URL		=	ftp://ftp.samba.org/pub/ppp/$(SC_VRM).tar.gz 
+SC_URL		=	https://ftp.samba.org/pub/ppp/$(SC_VRM).tar.gz 
 #SC_FETCH	=	
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr
