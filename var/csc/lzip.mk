@@ -21,8 +21,6 @@ SC_CONFIG	=	./configure --prefix=/usr
 
 #SC_BUILD	=	
 #SC_INSTALL	=	
-#SC_FIXUP	=	strip ...
-
-
+SC_FIXUP	=	strip /usr/bin/lzip
 
 

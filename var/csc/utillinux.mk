@@ -60,9 +60,10 @@ SC_URL		=	\
 #SC_SOURCE	=	
 
 SC_CONFIG	=	./configure \
-				--without-python --without-inotify \
+				--without-python \
 				--enable-static --disable-shared \
 				--disable-nls
+#--without-inotify
 
 #SC_BUILD        =       $(MAKE) CC=gcc
 #SC_FIXUP	=	

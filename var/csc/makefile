@@ -245,5 +245,3 @@ VRMINSTALLED:
 	ls -d /usr/opt/*-* >> /etc/cscpackages
 
 
-
-

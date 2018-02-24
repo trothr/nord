@@ -23,8 +23,8 @@ SC_CONFIG	=	./configure --prefix=/usr \
 			--disable-shared --enable-static
 #SC_BUILD	=	
 #SC_INSTALL	=	
-#SC_FIXUP	=	strip ...
-
+SC_FIXUP	=	strip /usr/bin/xz \
+	/usr/bin/lzmainfo /usr/bin/lzmadec /usr/bin/xzdec
 
 # requires gettext
 
