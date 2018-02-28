@@ -1,13 +1,11 @@
-NORD
-====
+# NORD
 
 This is the Github repository for NORD,
 a minimalist computer operating system suitable as a base for
 server, desktop, or embedded systems.  It is built to start fast
 and run light.  It uses the Linux kernel and Linux-related packages.
 
-Keeping Linux Simple
-====================
+## Keeping Linux Simple
 
 NORD is a Linux system that tries hard to not be yet another distro.
 It uses two different build schemes, both of which ride on top of
@@ -15,8 +13,7 @@ the standard recipe. NORD uses source archives aquired directly from
 the individual package authors and maintainers. The result is a system
 with no dependency on any central distributor.
 
-standard recipe
-===============
+## standard recipe
 
 NORD follows the standard recipe for building internet sourced packages.
 
@@ -38,8 +35,7 @@ On top of that are two build schemes.
 
 Between these two is a solid core with a lot of flexibility.
 
-Hardware Platforms
-==================
+## Hardware Platforms
 
 Ideally, NORD can run on any hardware supported by Linux.
 The following work now:
@@ -53,8 +49,7 @@ The following work now:
 Platforms listed here as "excepting bootstrap" run in 'chroot'.
 Those which are "excepting runtime" borrow the runtime of the host.
 
-ZNETBOOT
-========
+## ZNETBOOT
 
 When hosted on z/VM, NORD is most easily installed via ZNETBOOT.
 
