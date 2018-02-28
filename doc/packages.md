@@ -11,6 +11,7 @@ We're in the middle of importing from the Google Docs version.
 
 https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
 
+https://docs.google.com/spreadsheets/d/1me3Nkq4sJTNI0HX9ZwJcWIBX4yh2l2Cg2a0ZtmCZSMA
 
 ## NORD Packages
 
