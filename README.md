@@ -5,6 +5,10 @@ a minimalist computer operating system suitable as a base for
 server, desktop, or embedded systems.  It is built to start fast
 and run light.  It uses the Linux kernel and Linux-related packages.
 
+Original Google Docs landing:
+
+    https://docs.google.com/document/d/1QQyCdRe4oHvxFv_23u1DX1rO7EVzhreB6zC3OoCPycM
+
 ## Keeping Linux Simple
 
 NORD is a Linux system that tries hard to not be yet another distro.
@@ -17,11 +21,11 @@ with no dependency on any central distributor.
 
 NORD follows the standard recipe for building internet sourced packages.
 
-* get the source, keep your copy indefinitely
-* explode the source
-* `./configure`
-* `make`
-* `make install`
+    # get the source, keep your copy indefinitely
+    # explode the source
+    ./configure
+    make
+    make install
 
 On top of that are two build schemes.
 
