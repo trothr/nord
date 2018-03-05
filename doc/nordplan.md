@@ -161,12 +161,7 @@ Jon E Bird suggested that NORD should have a mascot.
 So it seemed that a friendly black and white animal with a fondness for 
 colder climates would do:
 
-
-
-
-  
-
-
+![tasha-in-snow.jpg](tasha-in-snow.jpg)
 
 In this case, those colder climates are northern. 
 This ain't no penguin; she's got teeth! 
