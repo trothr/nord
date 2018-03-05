@@ -1,4 +1,4 @@
-# ﻿NORD Scratch Linux
+# NORD Scratch Linux
 
 NORD is a minimalist computer operating system, JeOS (Just Enough OS), 
 suitable as a base for server, desktop*, or embedded systems. 
@@ -129,6 +129,7 @@ Other languages can be added.
 
 
 What it lacks:
+
 
 
    * X ... or any graphics (but you can leverage X from another distro; 
