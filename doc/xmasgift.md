@@ -1,4 +1,4 @@
-# ﻿MEMO XMASGIFT
+# MEMO XMASGIFT
 
 NORD is intended partly as a gift to the VM community. 
 On the VMSHARE conference there was a file called MEMO XMASGIFT 
@@ -17,32 +17,24 @@ Some URLs listed below may indicate a specific host.
 If for some reason a host is down or decommissioned, 
 substitute “www” for that hostname. 
 
+Latest news is at the top of this deck. 
 
-Latest news is at the top of the deck. 
+* 2018-January
 
+Moved all documentation from Google Drive to GitHub.
 
-2018-January
-
-
-
-2015-December
+* 2015-December
 
 Finally actually announced the availability of NORDAUTO EXEC and friends.
 This follows months of periodic review and updates to the NORD system.
 
-
-
-
-2014-December
+* 2014-December
 
 NORDAUTO EXEC and supporting files (be sure to get CURL REXX)
 This script runs in CMS, pulls down a kernel and memory based root FS.
 Boots in under 15 seconds, gets the guest on the net and ready to run ‘nordinstboot’ and/or ‘nordinstroot’ if you wish.
 
-
-
-
-2013-December
+* 2013-December
 
 CD0.iso
 This CD image has the “rootstrap” packages for I386, S390, and PPC.
