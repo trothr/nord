@@ -23,20 +23,26 @@ Latest news is at the top of this deck.
 
 Moved all documentation from Google Drive to GitHub.
 
+NORDAUTO was supseded by ZNETBOOT around 2017 October.
+
 * 2015-December
 
 Finally actually announced the availability of NORDAUTO EXEC and friends.
 This follows months of periodic review and updates to the NORD system.
+(ZNETBOOT supersedes NORDAUTO)
 
 * 2014-December
 
 NORDAUTO EXEC and supporting files (be sure to get CURL REXX)
+(ZNETBOOT supersedes NORDAUTO with the same capability)
 This script runs in CMS, pulls down a kernel and memory based root FS.
-Boots in under 15 seconds, gets the guest on the net and ready to run ‘nordinstboot’ and/or ‘nordinstroot’ if you wish.
+Boots in under 15 seconds, gets the guest on the net and ready to run
+`nordinstboot` and/or `nordinstroot` if you wish.
 
 * 2013-December
 
 CD0.iso
+
 This CD image has the “rootstrap” packages for I386, S390, and PPC.
 Note that GLIBC for I386 is back-level (2.6.1) from that for S390 
 and PPC (2.12.2).
