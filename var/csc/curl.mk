@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	curl
-SC_APV		=	7.54.1
+SC_APV		=	7.60.0
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

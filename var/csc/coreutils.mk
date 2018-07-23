@@ -6,7 +6,8 @@
 #
 
 SC_APN		=	coreutils
-SC_APV		=	8.27
+#SC_APV		=	8.27
+SC_APV		=	8.13
 SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 # need a patch to fix new default behavior ignoring /etc/mtab

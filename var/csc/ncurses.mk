@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	ncurses
-SC_APV		=	6.0
+SC_APV		=	6.1
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

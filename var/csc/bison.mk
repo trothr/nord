@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	bison
-SC_APV		=	3.0.4
+SC_APV		=	3.0.5
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
