@@ -72,3 +72,20 @@ Tailor it to your specific configuration, then run the command
     znetboot nord
 
 
+## Links
+
+A related project was published by Petros Koutoupis
+in Linux Journal in July of 2018. The article:
+
+https://www.linuxjournal.com/content/diy-build-custom-minimal-linux-distribution-source
+
+Tiny URL to the article:
+
+https://t.co/evJVLnGJCo
+
+Petros Koutoupis' Facebook page:
+
+https://www.facebook.com/petros.koutoupis/
+
+
+
