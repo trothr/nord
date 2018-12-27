@@ -1,0 +1,204 @@
+;       This file holds the information on root name servers needed to
+;       initialize cache of Internet domain name servers
+;       (e.g. reference this file in the "cache  .  <file>"
+;       configuration file of BIND domain name servers).
+;
+;       This file is made available by InterNIC 
+;       under anonymous FTP as
+;           file                /domain/named.cache
+;           on server           FTP.INTERNIC.NET
+;       -OR-                    RS.INTERNIC.NET
+;
+;       last update:    October 20, 2016
+;       related version of root zone:   2016102001
+;
+;         Note: THIS copy edited by hand 2017-Jan-23 (Mon)
+;               to add IPv6 addresse for "E" and "G"
+;
+;
+; formerly NS.INTERNIC.NET
+;
+.                        3600000      NS    A.ROOT-SERVERS.NET.
+;A.ROOT-SERVERS.NET.      3600000      AAAA  2001:503:ba3e::2:30
+A.ROOT-SERVERS.NET.      3600000      A     198.41.0.4
+;
+; formerly NS1.ISI.EDU
+;
+; ISI
+.                        3600000      NS    B.ROOT-SERVERS.NET.
+;B.ROOT-SERVERS.NET.      3600000      AAAA  2001:500:84::b
+B.ROOT-SERVERS.NET.      3600000      A     192.228.79.201
+;b.root-servers.net mail is handled by 20 mail.isi.edu.
+;
+; formerly C.PSI.NET
+;
+.                        3600000      NS    C.ROOT-SERVERS.NET.
+;C.ROOT-SERVERS.NET.      3600000      AAAA  2001:500:2::c
+C.ROOT-SERVERS.NET.      3600000      A     192.33.4.12
+;
+; formerly TERP.UMD.EDU
+;
+.                        3600000      NS    D.ROOT-SERVERS.NET.
+;D.ROOT-SERVERS.NET.      3600000      AAAA  2001:500:2d::d
+D.ROOT-SERVERS.NET.      3600000      A     199.7.91.13
+;
+; formerly NS.NASA.GOV
+;
+.                        3600000      NS    E.ROOT-SERVERS.NET.
+E.ROOT-SERVERS.NET.      3600000      A     192.203.230.10
+;e.root-servers.net.      3600000      AAAA  2001:500:a8::e
+;
+; formerly NS.ISC.ORG
+;
+.                        3600000      NS    F.ROOT-SERVERS.NET.
+;F.ROOT-SERVERS.NET.      3600000      AAAA  2001:500:2f::f
+F.ROOT-SERVERS.NET.      3600000      A     192.5.5.241
+;
+; formerly NS.NIC.DDN.MIL
+;
+.                        3600000      NS    G.ROOT-SERVERS.NET.
+G.ROOT-SERVERS.NET.      3600000      A     192.112.36.4
+;g.root-servers.net.      3600000      AAAA  2001:500:12::d0d
+;
+; formerly AOS.ARL.ARMY.MIL
+;
+.                        3600000      NS    H.ROOT-SERVERS.NET.
+;H.ROOT-SERVERS.NET.     3600000      AAAA  2001:500:1::803f:235
+;H.ROOT-SERVERS.NET.      3600000      AAAA  2001:500:1::53
+;H.ROOT-SERVERS.NET.      3600000      A     128.63.2.53
+H.ROOT-SERVERS.NET.      3600000      A     198.97.190.53
+;
+; formerly NIC.NORDU.NET
+;
+.                        3600000      NS    I.ROOT-SERVERS.NET.
+;I.ROOT-SERVERS.NET.      3600000      AAAA  2001:7fe::53
+I.ROOT-SERVERS.NET.      3600000      A     192.36.148.17
+;i.root-servers.net mail is handled by 10 mx.i.root-servers.org.
+;
+; temporarily housed at NSI (InterNIC)
+;
+.                        3600000      NS    J.ROOT-SERVERS.NET.
+;J.ROOT-SERVERS.NET.      3600000      AAAA  2001:503:c27::2:30
+J.ROOT-SERVERS.NET.      3600000      A     192.58.128.30
+;
+; housed in LINX, operated by RIPE NCC
+;
+.                        3600000      NS    K.ROOT-SERVERS.NET.
+;K.ROOT-SERVERS.NET.      3600000      AAAA  2001:7fd::1
+K.ROOT-SERVERS.NET.      3600000      A     193.0.14.129
+;
+; temporarily housed at ISI (IANA)
+;
+.                        3600000      NS    L.ROOT-SERVERS.NET.
+;L.ROOT-SERVERS.NET.      3600000      AAAA  2001:500:3::42
+;L.ROOT-SERVERS.NET.      3600000      AAAA  2001:500:9f::42
+L.ROOT-SERVERS.NET.      3600000      A     199.7.83.42
+;
+; housed in Japan, operated by WIDE
+;
+.                        3600000      NS    M.ROOT-SERVERS.NET.
+;M.ROOT-SERVERS.NET.      3600000      AAAA  2001:dc3::35
+M.ROOT-SERVERS.NET.      3600000      A     202.12.27.33
+; End of File
+;
+; ORSN, Open Root Server Network - All rights reserved.
+;
+;     This file holds the information on root name servers needed to
+;     initialize cache of ORSN Internet domain name servers
+;
+;     This file is made available by ORSN under the following URL
+;     http://www.orsn.org/roothint/
+;
+; Related to version of root zone: (2015031900)
+; Reference source: (auth01.orsn-servers.eu)
+;
+;
+; (A.ORSN-SERVERS.EU.) housed in (AT), operated by (XINON GmbH, A-8354 St. Anna am Aigen) ASN: (60587)
+; Contact: Jantscher, Martin (m.jantscher@orsn.org)
+;
+;.                        3600000      NS    A.ORSN-SERVERS.EU.
+A.ORSN-SERVERS.EU.       3600000      A     185.29.88.82
+;A.ORSN-SERVERS.EU.        3600000    AAAA 2a00:a6a0:1:1::6:2
+;
+; (B.ORSN-SERVERS.EU.) housed in (PL), operated by (HosTeam, Poland) ASN: (51290)
+; Contact: Waszak, Bartosz (b.waszak@orsn.org)
+;
+;.                        3600000      NS    B.ORSN-SERVERS.EU.
+B.ORSN-SERVERS.EU.       3600000      A     91.206.27.66
+;B.ORSN-SERVERS.EU.        3600000    AAAA 2001:67c:2044:c139::53
+;
+; (C.ORSN-SERVERS.EU.) housed in (DE), operated by (whTec, Oberhausen) ASN: (29551)
+; Contact: Korves, Tim (t.korves@orsn.org)
+;
+;.                        3600000      NS    C.ORSN-SERVERS.EU.
+C.ORSN-SERVERS.EU.       3600000      A     178.19.70.8
+;C.ORSN-SERVERS.EU.        3600000    AAAA 2a01:440:1:f:178:19:70:8
+;
+; (D.ORSN-SERVERS.EU.) housed in (NL), operated by (Private) ASN: (16265)
+; Contact: Canitez, Omer (o.canitez@orsn.org)
+;
+;.                        3600000      NS    D.ORSN-SERVERS.EU.
+D.ORSN-SERVERS.EU.       3600000      A     85.17.122.15
+;D.ORSN-SERVERS.EU.        3600000    AAAA 2001:1af8:40e0:a007:bbb::
+;
+;.                        3600000      NS    E.ORSN-SERVERS.EU.
+e.orsn-servers.eu.       3600000      A     153.92.126.127
+;e.orsn-servers.eu.        3600000    AAAA 2a00:1a28:1157:27::1337
+;
+; (F.ORSN-SERVERS.EU.) housed in (DE), operated by (First Colo GmbH, Munich, Germany) ASN: (44066)
+; Contact: Verges, Martin (m.verges@orsn.org)
+;
+;.                        3600000      NS    F.ORSN-SERVERS.EU.
+F.ORSN-SERVERS.EU.       3600000      A     212.224.71.116
+;F.ORSN-SERVERS.EU.        3600000    AAAA 2a01:7e0:0:100:212:224:71:116
+;
+; (G.ORSN-SERVERS.EU.) housed in (GR), operated by (ASDA Greece) ASN: (29229)
+; Contact: Tsintjelis, Lefteris (lefty.tsintjelis@orsn.org)
+;
+;.                        3600000      NS    G.ORSN-SERVERS.EU.
+G.ORSN-SERVERS.EU.       3600000      A     193.93.165.1
+;
+; (H.ORSN-SERVERS.EU.) housed in (FR), operated by (Hungary) ASN: (16276)
+; Contact: Vamos, Peter (peter.vamos@orsn.org)
+;
+;.                        3600000      NS    H.ORSN-SERVERS.EU.
+H.ORSN-SERVERS.EU.       3600000      A     188.165.175.112
+;H.ORSN-SERVERS.EU.        3600000    AAAA 2001:41d0:2:5a70::c0de
+;
+; (I.ORSN-SERVERS.EU.) housed in (IN), operated by (National Knowledge Network, New Delhi) ASN: (55824)
+; Contact: Kansal, Gaurav (gaurav.kansal@nic.in)
+;
+;.                        3600000      NS    I.ORSN-SERVERS.EU.
+I.ORSN-SERVERS.EU.       3600000      A     180.149.57.12
+;
+; (J.ORSN-SERVERS.EU.) housed in (DE), operated by (3Q Medien GmbH) ASN: (8972)
+; Contact: Thomas, Julius (j.thomas@orsn.org)
+;
+;.                        3600000      NS    J.ORSN-SERVERS.EU.
+J.ORSN-SERVERS.EU.       3600000      A     188.138.82.98
+;
+; (K.ORSN-SERVERS.EU.) housed in (DE), operated by (Titan Networks GmbH, Hofheim) ASN: (20640)
+; Contact: Boffin, Marcel (m.boffin@orsn.org)
+;
+;.                        3600000      NS    K.ORSN-SERVERS.EU.
+K.ORSN-SERVERS.EU.       3600000      A     82.206.1.22
+;K.ORSN-SERVERS.EU.        3600000    AAAA 2001:4b88:9000::
+;
+; (L.ORSN-SERVERS.EU.) housed in (NL), operated by (JustNet GmbH, Baden, Schweiz) ASN: (44227)
+; Contact: May, Pascal (p.may@orsn.org)
+;
+;.                        3600000      NS    L.ORSN-SERVERS.EU.
+L.ORSN-SERVERS.EU.       3600000      A     79.99.236.6
+;
+; (M.ORSN-SERVERS.EU.) housed in (DE), operated by (ORSN) ASN: (12693)
+; Contact: Grundmann, Markus (mgrundmann@de.orsn.org)
+;
+;.                        3600000      NS    M.ORSN-SERVERS.EU.
+;M.ORSN-SERVERS.EU.        3600000    A    82.193.249.196
+M.ORSN-SERVERS.EU.       3600000      A     212.224.121.155
+;
+; End of file.
+;
+;
+
+
