@@ -7,92 +7,95 @@
 ;     This file is made available by ORSN under the following URL
 ;     http://www.orsn.org/roothint/
 ;
-; Related to version of root zone: (2015031900)
+; Related to version of root zone: (2017111600)
 ; Reference source: (auth01.orsn-servers.eu)
 ;
+;         Note: THIS copy edited by hand 2018-Dec-27 (Thu)
 ;
 ; (A.ORSN-SERVERS.EU.) housed in (AT), operated by (XINON GmbH, A-8354 St. Anna am Aigen) ASN: (60587)
 ; Contact: Jantscher, Martin (m.jantscher@orsn.org)
 ;
-.                         3600000 IN NS   A.ORSN-SERVERS.EU.
-A.ORSN-SERVERS.EU.        3600000 IN A    185.29.88.82
-A.ORSN-SERVERS.EU.        3600000    AAAA 2a00:a6a0:1:1::6:2
+.                        3600000  IN  NS    A.ORSN-SERVERS.EU.
+a.orsn-servers.eu.       3600000  IN  A     185.29.88.82
+a.orsn-servers.eu.       3600000    AAAA    2a00:a6a0:1:1::6:2
 ;
 ; (B.ORSN-SERVERS.EU.) housed in (PL), operated by (HosTeam, Poland) ASN: (51290)
 ; Contact: Waszak, Bartosz (b.waszak@orsn.org)
 ;
-.                         3600000    NS   B.ORSN-SERVERS.EU.
-B.ORSN-SERVERS.EU.        3600000    A    91.206.27.66
-B.ORSN-SERVERS.EU.        3600000    AAAA 2001:67c:2044:c139::53
+.                        3600000      NS    B.ORSN-SERVERS.EU.
+b.orsn-servers.eu.       3600000      A     91.206.27.66
+b.orsn-servers.eu.       3600000    AAAA    2001:67c:2044:c139::53
 ;
 ; (C.ORSN-SERVERS.EU.) housed in (DE), operated by (whTec, Oberhausen) ASN: (29551)
 ; Contact: Korves, Tim (t.korves@orsn.org)
 ;
-.                         3600000    NS   C.ORSN-SERVERS.EU.
-C.ORSN-SERVERS.EU.        3600000    A    178.19.70.8
-C.ORSN-SERVERS.EU.        3600000    AAAA 2a01:440:1:f:178:19:70:8
+.                        3600000      NS    C.ORSN-SERVERS.EU.
+c.orsn-servers.eu.       3600000      A     178.19.70.8
+c.orsn-servers.eu.       3600000    AAAA    2a01:440:1:f:178:19:70:8
 ;
 ; (D.ORSN-SERVERS.EU.) housed in (NL), operated by (Private) ASN: (16265)
 ; Contact: Canitez, Omer (o.canitez@orsn.org)
 ;
-.                         3600000    NS   D.ORSN-SERVERS.EU.
-D.ORSN-SERVERS.EU.        3600000    A    85.17.122.15
-D.ORSN-SERVERS.EU.        3600000    AAAA 2001:1af8:40e0:a007:bbb::
+.                        3600000      NS    D.ORSN-SERVERS.EU.
+d.orsn-servers.eu.       3600000      A     85.17.122.15
+d.orsn-servers.eu.       3600000    AAAA    2001:1af8:40e0:a007:bbb::
 ;
-;.                         3600000    NS   E.ORSN-SERVERS.EU.
-;E.ORSN-SERVERS.EU.        3600000    A    153.92.126.127
-;E.ORSN-SERVERS.EU.        3600000    AAAA 2a00:1a28:1157:27::1337
+; ORSN does not use the "E" root server?
+;
+;.                        3600000      NS    E.ORSN-SERVERS.EU.
+e.orsn-servers.eu.       3600000      A     153.92.126.127
+e.orsn-servers.eu.       3600000    AAAA    2a00:1a28:1157:27::1337
 ;
 ; (F.ORSN-SERVERS.EU.) housed in (DE), operated by (First Colo GmbH, Munich, Germany) ASN: (44066)
-; Contact: Verges, Martin (m.verges@orsn.org)
+; Contact: NOC, First-Colo (m.verges@orsn.org)
 ;
-.                         3600000    NS   F.ORSN-SERVERS.EU.
-F.ORSN-SERVERS.EU.        3600000    A    212.224.71.116
-F.ORSN-SERVERS.EU.        3600000    AAAA 2a01:7e0:0:100:212:224:71:116
+.                        3600000      NS    F.ORSN-SERVERS.EU.
+f.orsn-servers.eu.       3600000      A     212.224.71.116
+f.orsn-servers.eu.       3600000    AAAA    2a01:7e0:0:100:212:224:71:116
 ;
 ; (G.ORSN-SERVERS.EU.) housed in (GR), operated by (ASDA Greece) ASN: (29229)
 ; Contact: Tsintjelis, Lefteris (lefty.tsintjelis@orsn.org)
 ;
-.                         3600000    NS   G.ORSN-SERVERS.EU.
-G.ORSN-SERVERS.EU.        3600000    A    193.93.165.1
+.                        3600000      NS    G.ORSN-SERVERS.EU.
+g.orsn-servers.eu.       3600000      A     193.93.165.1
 ;
 ; (H.ORSN-SERVERS.EU.) housed in (FR), operated by (Hungary) ASN: (16276)
 ; Contact: Vamos, Peter (peter.vamos@orsn.org)
 ;
-.                         3600000    NS   H.ORSN-SERVERS.EU.
-H.ORSN-SERVERS.EU.        3600000    A    188.165.175.112
-H.ORSN-SERVERS.EU.        3600000    AAAA 2001:41d0:2:5a70::c0de
+.                        3600000      NS    H.ORSN-SERVERS.EU.
+h.orsn-servers.eu.       3600000      A     188.165.175.112
+h.orsn-servers.eu.       3600000    AAAA    2001:41d0:2:5a70::c0de
 ;
 ; (I.ORSN-SERVERS.EU.) housed in (IN), operated by (National Knowledge Network, New Delhi) ASN: (55824)
 ; Contact: Kansal, Gaurav (gaurav.kansal@nic.in)
 ;
-.                         3600000    NS   I.ORSN-SERVERS.EU.
-I.ORSN-SERVERS.EU.        3600000    A    180.149.57.12
+.                        3600000      NS    I.ORSN-SERVERS.EU.
+i.orsn-servers.eu.       3600000      A     180.149.57.12
 ;
 ; (J.ORSN-SERVERS.EU.) housed in (DE), operated by (3Q Medien GmbH) ASN: (8972)
 ; Contact: Thomas, Julius (j.thomas@orsn.org)
 ;
-.                         3600000    NS   J.ORSN-SERVERS.EU.
-J.ORSN-SERVERS.EU.        3600000    A    188.138.82.98
+.                        3600000      NS    J.ORSN-SERVERS.EU.
+j.orsn-servers.eu.       3600000      A     188.138.82.98
 ;
 ; (K.ORSN-SERVERS.EU.) housed in (DE), operated by (Titan Networks GmbH, Hofheim) ASN: (20640)
 ; Contact: Boffin, Marcel (m.boffin@orsn.org)
 ;
-.                         3600000    NS   K.ORSN-SERVERS.EU.
-K.ORSN-SERVERS.EU.        3600000    A    82.206.1.22
-K.ORSN-SERVERS.EU.        3600000    AAAA 2001:4b88:9000::
+.                        3600000      NS    K.ORSN-SERVERS.EU.
+k.orsn-servers.eu.       3600000      A     82.206.1.22
+k.orsn-servers.eu.       3600000    AAAA    2001:4b88:9000::
 ;
-; (L.ORSN-SERVERS.EU.) housed in (NL), operated by (JustNet GmbH, Baden, Schweiz) ASN: (44227)
-; Contact: May, Pascal (p.may@orsn.org)
+; (L.ORSN-SERVERS.EU.) housed in (NL), operated by (Titan Networks GmbH, Hofheim) ASN: (44227)
+; Contact: Boffin, Marcel (m.boffin@orsn.org)
 ;
-.                         3600000    NS   L.ORSN-SERVERS.EU.
-L.ORSN-SERVERS.EU.        3600000    A    79.99.236.6
+.                        3600000      NS    L.ORSN-SERVERS.EU.
+l.orsn-servers.eu.       3600000      A     79.99.236.6
 ;
-; (M.ORSN-SERVERS.EU.) housed in (DE), operated by (ORSN) ASN: (12693)
+; (M.ORSN-SERVERS.EU.) housed in (DE), operated by (ORSN) ASN: (44066)
 ; Contact: Grundmann, Markus (mgrundmann@de.orsn.org)
 ;
-.                         3600000    NS   M.ORSN-SERVERS.EU.
-M.ORSN-SERVERS.EU.        3600000    A    82.193.249.196
+.                        3600000      NS    M.ORSN-SERVERS.EU.
+m.orsn-servers.eu.       3600000      A     212.224.121.155
 ;
 ; End of file.
 ;
