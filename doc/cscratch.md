@@ -16,7 +16,7 @@ or upgrade many of its component packages with fresh versions from source.
 CSCRATCH consists of a makefile and a collection of stub makefiles 
 which are officially available at ... 
 
-        http://www.casita.net/pub/cscratch/
+http://www.casita.net/pub/cscratch/
 
 The make logic creates marker files for each step in building a package: 
 source extracted, package configured, compiled, and installed. There is 
@@ -73,7 +73,6 @@ What is needed is per-package knowledge: where to find it, how to compile it.
 For each package to be built/installed with CSCRATCH, there is a 
 “.mk” stub file. The most recently used stubs are … 
 
-
  autoconf.mk automake.mk bash.mk bc.mk bison.mk bzip2.mk coreutils.mk curl.mk 
  dash.mk diffutils.mk e2fsprogs.mk ed.mk file.mk findutils.mk flex.mk gawk.mk 
  gettext.mk glibc.mk grep.mk gzip.mk less.mk libtool.mk m4.mk make.mk nano.mk 
@@ -81,9 +80,6 @@ For each package to be built/installed with CSCRATCH, there is a
  readline.mk rsync.mk screen.mk sed.mk shadow.mk sharutils.mk sudo.mk 
  sysklogd.mk sysvinit.mk tar.mk tcsh.mk texinfo.mk utillinux.mk vim.mk 
  wget.mk which.mk xinetd.mk xz.mk zlib.mk zsh.mk
-
-
-
 
 The complete collection, including many untested and out-of-date stubs, 
 is at the aforementioned web site. 
@@ -189,11 +185,11 @@ CSCRATCH can share an archive hierarchy with Chicory.
 
 This file is part of the collection found on GitHub at ...
 
-    https://github.com/trothr/nord/tree/master/doc
+https://github.com/trothr/nord/tree/master/doc
 
 Also see the Chicory project ...
 
-    https://github.com/trothr/chicory/
+https://github.com/trothr/chicory/
 
 *this page “NORD CSCRATCH” last updated 2019-Jan-12 (Saturday) by RMT*
 
