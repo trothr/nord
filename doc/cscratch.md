@@ -86,7 +86,7 @@ For each package to be built/installed with CSCRATCH, there is a
 
 
 The complete collection, including many untested and out-of-date stubs, 
-is at the above mentioned web site. 
+is at the aforementioned web site. 
 
 
 ## Is There A Release Plan for CSCRATCH?
@@ -95,6 +95,7 @@ There is no version/release/mod number for CSCRATCH.
 There is no release plan or road map. 
 Packages are added as knowledge about each is gathered. 
 Individual packages have their own versioning. 
+Individual make stubs for CSCRATCH are upgraded as needs require and as time allows. 
 
 
 ## Adding Packages to CSCRATCH
@@ -145,7 +146,6 @@ The default is no fixup post processing.
 
 Using XZ as an example, the stub would look something like ... 
 
-
     SC_APN    =    xz
     SC_APV    =    5.2.2
     SC_ARC    =    tar.gz
@@ -158,9 +158,7 @@ Using XZ as an example, the stub would look something like ...
 
     SC_CONFIG    =    ./configure --prefix=/usr
 
-
 Name the stub file “xz.mk” and do a ‘make xz.ins’. Voi-la! 
-
 
 An important additional step is verifying the archive signature. 
 In the above example, we do download the signature, but CSCRATCH 
@@ -169,7 +167,7 @@ will not use it unless SC_SOURCE_VERIFY defines a command to do so.
     SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 
 In this example, the public key for XZ is found in “lasse_collin_pubkey.txt”, 
-but you should vet all public keys manually. There’s no way around personal 
+*but you should vet all public keys manually*. There’s no way around personal 
 action when establishing initial trust. 
 
 
@@ -184,6 +182,8 @@ as well as a build user “nord”. On NORD systems, this ID exists and is autho
 download it, and walk it through its paces. The source, configure, and 
 build steps are done as user “nord”. The install step is done as user “root”. 
 
+CSCRATCH can share an archive hierarchy with Chicory. 
+
 
 ## NORD docs
 
@@ -191,6 +191,10 @@ This file is part of the collection found on GitHub at ...
 
     https://github.com/trothr/nord/tree/master/doc
 
-*this page “NORD CSCRATCH” last updated 2017-Aug-25 (Friday) by RMT*
+Also see the Chicory project ...
+
+    https://github.com/trothr/chicory/
+
+*this page “NORD CSCRATCH” last updated 2019-Jan-12 (Saturday) by RMT*
 
 
