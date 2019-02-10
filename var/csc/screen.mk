@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	screen
-SC_APV		=	4.6.1
+SC_APV		=	4.6.2
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

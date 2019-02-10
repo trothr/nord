@@ -6,7 +6,8 @@
 #
 
 SC_APN		=	patch
-SC_APV		=	2.7.5
+#SC_APV		=	2.7.5
+SC_APV		=	2.7.6
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

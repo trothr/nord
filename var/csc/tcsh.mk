@@ -19,7 +19,7 @@ SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 #SC_URL=http://freshmeat.net/redir/tcsh/10304/url_tgz/tcsh-6.12.00.tar.gz
-SC_URL  = http://freshmeat.net/redir/tcsh/10304/url_tgz/$(SC_VRM).tar.gz
+#SC_URL  = http://freshmeat.net/redir/tcsh/10304/url_tgz/$(SC_VRM).tar.gz
 # http://ftp.teledanmark.no/pub/unix/tcsh-6.10.tar.gz
 # http://freshmeat.net/projects/tcsh/
 # http://freshmeat.net/redir/tcsh/10304/url_tgz/tcsh-6.12.00.tar.gz

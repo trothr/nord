@@ -11,10 +11,10 @@
 #SC_VRM		=	groff-1.18
 #SC_VRM		=	groff-1.18.1.4   ### fails 2011
 #SC_VRM		=	groff-1.19.2   ### fails 2011
-SC_VRM		=	groff-1.21
+#SC_VRM		=	groff-1.21
+SC_VRM		=	groff-1.22.4
 SC_URL		=    http://ftp.gnu.org/pub/gnu/groff/$(SC_VRM).tar.gz \
 		   http://ftp.gnu.org/pub/gnu/groff/$(SC_VRM).tar.gz.sig
-#			http://ftp.gnu.org/gnu/groff/groff-1.21.tar.gz
 
 #SC_FETCH	=	
 #SC_SOURCE	=	
@@ -46,3 +46,5 @@ SC_FIXUP	=	strip /usr/bin/groff \
 
 
 # http://freshmeat.net/projects/groff/
+
+

@@ -7,7 +7,8 @@
 
 #SC_VRM		=	less-381
 #SC_VRM		=	less-382
-SC_VRM		=	less-444
+#SC_VRM		=	less-444
+SC_VRM		=	less-530
 #SC_URL		=	http://ftp.gnu.org/pub/gnu/less/$(SC_VRM).tar.gz
 SC_URL		=  http://www.greenwoodsoftware.com/less/less-444.tar.gz
 

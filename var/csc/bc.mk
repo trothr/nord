@@ -5,9 +5,9 @@
 #
 #
 
-SC_VRM		=	bc-1.06
+SC_VRM		=	bc-1.07.1
 
-SC_URL		=	http://ftp.gnu.org/pub/gnu/bc/bc-1.06.tar.gz
+SC_URL		=	http://ftp.gnu.org/pub/gnu/bc/bc-1.07.1.tar.gz
 
 #SC_FETCH	=	
 #SC_SOURCE	=	

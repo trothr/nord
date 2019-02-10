@@ -8,8 +8,9 @@
 #
 
 SC_APN		=	tar
-SC_APV		=	1.22
+#SC_APV		=	1.22
 #SC_APV		=	1.26
+SC_APV		=	1.30
 #SC_ARC		=	tar.xz
 SC_ARC		=	tar.bz2
 SC_VRM		=	$(SC_APN)-$(SC_APV)

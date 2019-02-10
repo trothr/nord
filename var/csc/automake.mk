@@ -6,7 +6,8 @@
 #
 
 SC_APN		=	automake
-SC_APV		=	1.15
+#SC_APV		=	1.15
+SC_APV		=	1.16.1
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
