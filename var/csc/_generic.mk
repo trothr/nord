@@ -126,7 +126,8 @@ $(APPLID).exe:	$(APPLID).cfg
 #		sh -c ' cd $(SC_SOURCE) ; $(SC_BUILD) '
 		sh -c ' cd $(SC_BUILDD) ; $(SC_BUILD) '
 #		touch $(SC_VRM).exe $(APPLID).exe
-		touch $(APPLID).exe
+#		touch $(APPLID).exe
+		echo "$(SC_VRM)" > $(APPLID).exe
 
 $(APPLID).cfg:	$(APPLID).src
 		@test ! -z "$(APPLID)"
@@ -140,7 +141,8 @@ $(APPLID).cfg:	$(APPLID).src
 #		sh -c ' cd $(SC_SOURCE) ; $(SC_CONFIG) '
 		sh -c ' cd $(SC_BUILDD) ; $(SC_CONFIG) '
 #		touch $(SC_VRM).cfg $(APPLID).cfg
-		touch $(APPLID).cfg
+#		touch $(APPLID).cfg
+		echo "$(SC_VRM)" > $(APPLID).cfg
 
 #$(APPLID).src:	arc/$(SC_VRM).tar.gz
 #$(APPLID).src:	arc/$(APPLID)/$(SC_VRM).tar.gz
@@ -166,7 +168,8 @@ $(APPLID).src:	$(APPLID).mk arc/$(APPLID)/$(SC_VRM).$(SC_ARC)
 #		./cscpatch.sh $(SC_VRM)
 		./cscpatch.sh $(SC_SOURCE)
 #		touch $(SC_VRM).src $(APPLID).src
-		touch $(APPLID).src
+#		touch $(APPLID).src
+		echo "$(SC_VRM)" > $(APPLID).src
 
 #arc/$(SC_VRM).tar.gz:
 #arc/$(APPLID)/$(SC_VRM).tar.gz:
