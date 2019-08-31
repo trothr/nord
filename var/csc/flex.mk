@@ -7,10 +7,10 @@
 
 SC_APN		=	flex
 #SC_APV		=	2.5.39
-#SC_APV		=	2.6.4
-SC_APV		=	2.6.0
-#SC_ARC		=	tar.gz
-SC_ARC		=	tar.bz2
+#SC_APV		=	2.6.0
+SC_APV		=	2.6.4
+SC_ARC		=	tar.gz
+#SC_ARC		=	tar.bz2
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 #SC_URL        = http://ftp.gnu.org/pub/non-gnu/flex/flex-2.5.4a.tar.gz \
@@ -26,7 +26,10 @@ SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 #SC_FETCH	=	cscgetsf.sh $(SC_APN)/$(SC_VRM).$(SC_ARC)
 
-SC_URL		=	https://downloads.sourceforge.net/$(SC_APN)/$(SC_VRM).$(SC_ARC)
+#SC_URL		=	https://downloads.sourceforge.net/$(SC_APN)/$(SC_VRM).$(SC_ARC)
+SC_URL		=	\
+ https://github.com/westes/$(SC_APN)/releases/download/v$(SC_APV)/$(SC_SOURCE).$(SC_ARC) \
+ https://github.com/westes/$(SC_APN)/releases/download/v$(SC_APV)/$(SC_SOURCE).$(SC_ARC).sig
 
 #SC_SOURCE	=	
 #SC_CONFIG	=	./configure --prefix=/usr --disable-nls
