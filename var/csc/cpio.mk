@@ -27,6 +27,6 @@ SC_CONFIG       =       ./configure --prefix=/usr
 #SC_BUILD       =
 #SC_INSTALL     =
 #SC_FIXUP       =
-SC_FIXUP        =       strip bin/cpio libexec/rmt
+SC_FIXUP        =       strip /usr/bin/cpio /usr/libexec/rmt
 
 
