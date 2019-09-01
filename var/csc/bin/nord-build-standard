@@ -6,7 +6,7 @@
 #               selectively to [re]create standard NORD components
 #
 
-# tool chain (sans compiler and assembler)
+# tool chain (sans compiler and assembler) "CD0"
 nord-build-csc autoconf
 nord-build-csc automake
 nord-build-csc libtool
@@ -14,21 +14,22 @@ nord-build-csc gawk
 nord-build-csc sed
 nord-build-csc grep
 nord-build-csc m4
-nord-build-csc flex             # need source
 nord-build-csc bison
+nord-build-csc flex
 
-# file and archive and retrieval tools
+# file and archive and retrieval tools "CD0"
 nord-build-csc gzip
 nord-build-csc bzip2
 nord-build-csc xz
 nord-build-csc lzip
 nord-build-csc patch
 nord-build-csc tar
+nord-build-csc cpio
 nord-build-csc rsync
 nord-build-csc wget
 nord-build-csc curl
 
-# common utilities
+# common utilities "CD0"
 nord-build-csc coreutils
 nord-build-csc diffutils
 nord-build-csc sharutils
@@ -39,16 +40,16 @@ nord-build-csc make
 nord-build-csc ed
 nord-build-csc bc
 
-# editors and file handling utilities
+# editors and file handling utilities "CD0"
 nord-build-csc texinfo
 nord-build-csc nano
-nord-build-csc vim
+nord-build-csc vim      # does not support re-direction
 # THE is built with 'nord-build-opt' (see below)
 nord-build-csc less
 nord-build-csc screen           # need source
 nord-build-csc groff            # requires C++
 
-# system utilities
+# system utilities (not on CD0)
 nord-build-csc shadow
 nord-build-csc sudo
 nord-build-csc sysklogd
@@ -58,10 +59,12 @@ nord-build-csc utillinux        # need source
 nord-build-csc modtools         # need source
 nord-build-csc procps           # may do an 'ldconfig' if built w/o "SHARED=0"
 nord-build-csc autofs           # needs /proc mounted
+nord-build-csc acl
+nord-build-csc attr
 
 nord-build-csc cdrtools
 
-# shells
+# shells (on CD0)
 nord-build-csc bash
 nord-build-csc pdksh
 nord-build-csc zsh
@@ -89,16 +92,18 @@ nord-build-csc ppp              # need source
 # also should include subversion
 # also should include git
 
-# common libraries
+# common libraries "CD0"
 nord-build-csc ncurses                  # lib
 nord-build-csc readline                 # lib
 nord-build-csc gettext                  # lib
+nord-build-csc zlib             # performs an 'ldconfig'
+
 #nord-build-csc pth                     # lib, opt
 #nord-build-csc npth                    # lib, opt
 #nord-build-csc libxml2                 # lib, opt
-nord-build-csc zlib             # performs an 'ldconfig'
 
 #nord-build-csc glibc           # this is a monster, takes forever and is seriously invasive
+#nord-build-csc musl            # dramatically smaller than GLIBC
 
 # optional packages
 #nord-build-csc rpm
@@ -207,13 +212,6 @@ esac
 
 exit
 
-nord-build-opt regina
-nord-build-opt the
-nord-build-opt oorexx
-nord-build-opt perl
-nord-build-opt python
-nord-build-opt ruby
-nord-build-opt tcl
 
 nord-build-opt apache
 
@@ -241,10 +239,36 @@ exit
 # opt libvirt
 # opt mpc
 # opt mpfr
-# opt musl                       # CD0
 # opt nettle
 # opt nginx
 # opt pdsh
 # opt subversion-1.9.2
+
+
+# packages on CD1
+for P in \
+  oorexx-4.2.0          \
+  perl-5.22.0           \
+  python-2.6.9          \
+  python-2.7.15         \
+  python-3.4.3          \
+  python-3.7.2          \
+  regina-3.4            \
+  ruby-1.9.1            \
+  tcl-8.5.19            \
+  the-3.2               \
+  ; do
+    if [ -d /usr/opt/$P ] ; then continue ; fi
+    if [ -x /opt/CD1/$P/setup ] ; /opt/CD1/$P/setup ; fi
+    nord-build-opt $P
+done
+
+# packages on CD2
+
+# packages on CD3
+
+# packages on CD4
+
+# packages on CD5
 
 

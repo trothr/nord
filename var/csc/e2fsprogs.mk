@@ -8,7 +8,8 @@
 #SC_VRM		=	e2fsprogs-1.33
 #SC_VRM		=	e2fsprogs-1.36
 #SC_VRM		=	e2fsprogs-1.41.0
-SC_VRM		=	e2fsprogs-1.41.14
+#SC_VRM		=	e2fsprogs-1.41.14
+SC_VRM		=	e2fsprogs-1.44.5
 
 #SC_URL		=	\
 # http://umn.dl.sourceforge.net/sourceforge/e2fsprogs/e2fsprogs-1.33.tar.gz

@@ -13,8 +13,8 @@ SC_VRM		=	pkg-config-0.29.2
 SC_URL   =    http://pkgconfig.freedesktop.org/releases/$(SC_VRM).tar.gz 
 #SC_FETCH	=	
 #SC_SOURCE	=	
-SC_CONFIG	=	./configure --prefix=/usr --disable-nls \
-						--with-internal-glib
+SC_CONFIG	=	./configure --prefix=/usr # --disable-nls
+#						--with-internal-glib
 #SC_BUILD	=	
 SC_FIXUP	=	strip /usr/bin/pkg-config 
 #SC_INSTALL	=	
