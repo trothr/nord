@@ -5,21 +5,19 @@
 #
 #
 
-#SC_VRM		=	groff-1.17
-#SC_VRM		=	groff-1.17.1
-#SC_VRM		=	groff-1.17.2
-#SC_VRM		=	groff-1.18
-#SC_VRM		=	groff-1.18.1.4   ### fails 2011
-#SC_VRM		=	groff-1.19.2   ### fails 2011
-#SC_VRM		=	groff-1.21
-SC_VRM		=	groff-1.22.4
-SC_URL		=    http://ftp.gnu.org/pub/gnu/groff/$(SC_VRM).tar.gz \
-		   http://ftp.gnu.org/pub/gnu/groff/$(SC_VRM).tar.gz.sig
+SC_APN		=	groff
+SC_APV		=	1.22.4
+SC_VRM          =       $(SC_APN)-$(SC_APV)
+SC_ARC          =       tar.gz
+
+SC_URL		=	\
+		https://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).tar.gz \
+		https://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).tar.gz.sig
 
 #SC_FETCH	=	
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr
-#SC_BUILD	=	
+# Note: if X11 headers are present, be sure the libraries are linkable.
 SC_FIXUP	=	strip /usr/bin/groff \
 				/usr/bin/addftinfo \
 				/usr/bin/eqn \
@@ -43,7 +41,6 @@ SC_FIXUP	=	strip /usr/bin/groff \
 				/usr/bin/tfmtodit \
 				/usr/bin/troff
 #SC_INSTALL	=	
-
 
 # http://freshmeat.net/projects/groff/
 

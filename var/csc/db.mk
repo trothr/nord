@@ -25,9 +25,7 @@ SC_SOURCE	=	$(SC_VRM)/build_unix
 SC_CONFIG	=     ../dist/configure --prefix=/usr --enable-compat185 \
 					--enable-static --disable-shared
 
-#SC_BUILD	=	
-
-#SC_FIXUP	=	strip ...
+SC_FIXUP	=	strip ...
 
 #SC_INSTALL	=	
 

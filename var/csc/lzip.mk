@@ -5,9 +5,7 @@
 #
 #
 
-APPLID		=	lzip
 SC_APN		=	lzip
-#SC_APV		=	1.15
 SC_APV		=	1.20
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
@@ -17,11 +15,10 @@ SC_URL		=	\
 
 #SC_FETCH	=	
 #SC_SOURCE	=	
-
 SC_CONFIG	=	./configure --prefix=/usr
-
-#SC_BUILD	=	
 #SC_INSTALL	=	
-SC_FIXUP	=	strip /usr/bin/lzip
+#SC_FIXUP	=	strip ...
+
+
 
 

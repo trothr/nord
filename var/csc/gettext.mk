@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	gettext
-SC_APV		=	0.19.8
+SC_APV		=	0.20.1
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
@@ -14,7 +14,7 @@ SC_URL		=	\
 	http://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).$(SC_ARC) \
 	http://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 
-SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
+#SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 #gpg --keyserver hkp://pool.sks-keyservers.net/ --recv-keys 0xd605848ed7e69871
 
 
@@ -28,7 +28,6 @@ SC_CONFIG	=	./configure --prefix=/usr \
 				--without-emacs \
 				--without-libintl-prefix
 
-#SC_BUILD	=	
 SC_FIXUP        =       strip \
 	/usr/bin/gettext \
 	/usr/bin/ngettext \
@@ -53,5 +52,6 @@ SC_FIXUP        =       strip \
 	/usr/bin/recode-sr-latin
 #SC_INSTALL	=	
 
-
 # http://freshmeat.net/projects/gettext/
+
+

@@ -6,8 +6,7 @@
 #
 
 SC_APN		=	bison
-#SC_APV		=	3.0.5
-SC_APV		=	3.3.2
+SC_APV		=	3.5.3
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
@@ -21,7 +20,6 @@ SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 #SC_FETCH	=	
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr --disable-nls
-#SC_BUILD	=	
 SC_FIXUP	=	strip /usr/bin/bison
 #SC_INSTALL	=	
 

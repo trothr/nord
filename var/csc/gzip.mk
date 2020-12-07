@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	gzip
-SC_APV		=	1.9
+SC_APV		=	1.10
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
@@ -19,7 +19,6 @@ SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 #SC_FETCH	=	
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr
-#SC_BUILD	=	
 SC_FIXUP	=	strip /usr/bin/gzip
 #SC_INSTALL	=	
 

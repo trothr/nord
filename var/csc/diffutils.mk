@@ -25,11 +25,9 @@ SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 #SC_FETCH	=	
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr --disable-nls
-#SC_BUILD	=	
 SC_FIXUP	=	strip /usr/bin/diff /usr/bin/cmp \
 				/usr/bin/diff3 /usr/bin/sdiff
 #SC_INSTALL	=	
-
 
 # http://freshmeat.net/projects/diffutils/
 

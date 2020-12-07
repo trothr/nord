@@ -5,7 +5,8 @@
 #
 
 UNAMES=`uname -s`
-UNAMEM=`uname -m | sed 's#i.86#i386#' | sed 's#armv..#arm#'`
+UNAMEM=`uname -m | sed 's#^i.86$#i386#' | sed 's#^armv.l$#arm#'`
+
 SYSTEM="$UNAMES-$UNAMEM"
 
 #export UNAMES UNAMEM SYSTEM

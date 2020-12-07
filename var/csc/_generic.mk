@@ -119,15 +119,13 @@ $(APPLID).exe:	$(APPLID).cfg
 		@test ! -z "$(SC_VRM)"
 		@test ! -z "$(SC_SOURCE)"
 		@test ! -z "$(SC_BUILDD)"
-		@test ! -z "$(SC_BUILD)"
+		@test ! -z "$(SC_BUILDX)"
 		@rm -f $(SC_VRM).exe $(APPLID).exe
 		test -d "$(SC_SOURCE)"
 		test -d "$(SC_BUILDD)"
-#		sh -c ' cd $(SC_SOURCE) ; $(SC_BUILD) '
-		sh -c ' cd $(SC_BUILDD) ; $(SC_BUILD) '
+		sh -c ' cd $(SC_BUILDD) ; $(SC_BUILDX) '
 #		touch $(SC_VRM).exe $(APPLID).exe
-#		touch $(APPLID).exe
-		echo "$(SC_VRM)" > $(APPLID).exe
+		touch $(APPLID).exe
 
 $(APPLID).cfg:	$(APPLID).src
 		@test ! -z "$(APPLID)"
@@ -141,8 +139,7 @@ $(APPLID).cfg:	$(APPLID).src
 #		sh -c ' cd $(SC_SOURCE) ; $(SC_CONFIG) '
 		sh -c ' cd $(SC_BUILDD) ; $(SC_CONFIG) '
 #		touch $(SC_VRM).cfg $(APPLID).cfg
-#		touch $(APPLID).cfg
-		echo "$(SC_VRM)" > $(APPLID).cfg
+		touch $(APPLID).cfg
 
 #$(APPLID).src:	arc/$(SC_VRM).tar.gz
 #$(APPLID).src:	arc/$(APPLID)/$(SC_VRM).tar.gz
@@ -168,8 +165,7 @@ $(APPLID).src:	$(APPLID).mk arc/$(APPLID)/$(SC_VRM).$(SC_ARC)
 #		./cscpatch.sh $(SC_VRM)
 		./cscpatch.sh $(SC_SOURCE)
 #		touch $(SC_VRM).src $(APPLID).src
-#		touch $(APPLID).src
-		echo "$(SC_VRM)" > $(APPLID).src
+		touch $(APPLID).src
 
 #arc/$(SC_VRM).tar.gz:
 #arc/$(APPLID)/$(SC_VRM).tar.gz:
@@ -231,7 +227,7 @@ $(APPLID).html:  $(APPLID).ins _generic.mk makefile
 	@echo "<li>version $(SC_VRM)"                   >> $(APPLID).tmp
 	@echo "<li>download <tt>$(SC_URL)</tt>"         >> $(APPLID).tmp
 	@echo "<li>configure <tt>$(SC_CONFIG)</tt>"     >> $(APPLID).tmp
-	@echo "<li>build <tt>$(SC_BUILD)</tt>"          >> $(APPLID).tmp
+	@echo "<li>build <tt>$(SC_BUILDX)</tt>"          >> $(APPLID).tmp
 	@date +"<li>built <tt>%Y-%b-%d</tt>" \
 			-r $(APPLID).exe                >> $(APPLID).tmp
 	@echo "</ul></body>"                            >> $(APPLID).tmp

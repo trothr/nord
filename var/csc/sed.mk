@@ -6,7 +6,7 @@
 #
 
 SC_APN		=	sed
-SC_APV		=	4.5
+SC_APV		=	4.8
 SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
@@ -20,7 +20,6 @@ SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr --disable-nls
 #			executable found in /bin on SuSE
-#SC_BUILD	=	
 SC_FIXUP	=	strip /usr/bin/sed
 #SC_INSTALL	=	
 

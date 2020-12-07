@@ -29,17 +29,12 @@ SC_URL		=	\
 # FIXUP=cp pdksh-5.2.14-patches.1 pdksh-5.2.14-1.diff
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr
-
-SC_BUILD	=	_POSIX2_VERSION=200111 ; \
+SC_BUILDX	=	_POSIX2_VERSION=200111 ; \
 			export _POSIX2_VERSION ; \
 			$(MAKE)
-
 #SC_INSTALL	=	
 SC_FIXUP	=	strip /usr/bin/ksh
 
-
-
 # _POSIX2_VERSION=199209 ; export _POSIX2_VERSION
-
 
 

@@ -6,7 +6,6 @@
 #
 
 SC_APN		=	xz
-#SC_APV		=	5.2.3
 SC_APV		=	5.2.4
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
@@ -22,10 +21,9 @@ SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr \
 			--disable-shared --enable-static
-#SC_BUILD	=	
 #SC_INSTALL	=	
-SC_FIXUP	=	strip /usr/bin/xz \
-	/usr/bin/lzmainfo /usr/bin/lzmadec /usr/bin/xzdec
+#SC_FIXUP	=	strip ...
+
 
 # requires gettext
 

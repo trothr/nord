@@ -22,7 +22,6 @@ SC_FETCH	=	cscgetsf.sh netcat/netcat-0.7.1.tar.gz ; \
 
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr
-#SC_BUILD	=	
 #SC_INSTALL	=	
 #SC_FIXUP	=	
  
