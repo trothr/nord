@@ -25,7 +25,7 @@ SC_CONFIG	=	./configure --prefix=/usr --sysconfdir=/etc
 #			need to set SYSDIR=/etc
 #SC_BUILD	=	
 #SC_INSTALL	=	
-#SC_FIXUP	=	strip ...
+SC_FIXUP	=	strip /usr/bin/less
 
 #http://ftp.gnu.org/pub/gnu/less/$(SC_VRM).tar.gz
 #http://freshmeat.net/projects/less/

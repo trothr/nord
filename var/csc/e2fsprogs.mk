@@ -7,8 +7,8 @@
 
 SC_APN		=	e2fsprogs
 #SC_APV		=	1.45.6
-#SC_APV		=	1.41.14
-SC_APV		=	1.42.13
+SC_APV		=	1.41.14
+#SC_APV		=	1.42.13
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 SC_ARC		=	tar.gz
 
