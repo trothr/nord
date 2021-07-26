@@ -3,13 +3,11 @@
 This is the NORD Filesystem Hierarchy doc as a markdown file.
 This version is a migration from, and a simplifcation of, the original Google Docs version.
 
-
 ## importing
 
 We're in the middle of importing from the Google Docs version.
 
 https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
-
 
 ## FHS
 
@@ -35,8 +33,7 @@ NORD filesystem hierarchy begins with the standard FHS directories.
 | /home        | User home directories                                |
 | /root        | Home directory for the administrator                 |
 
-
-## NORD
+## NORD norms
 
 Directories intended solely for use as mount points are '`chmod 555`'. 
 
@@ -48,6 +45,10 @@ The reason for this is primarily to simplify use of `chroot`
 where `/proc/mounts` content may be misleading or may expose 
 too much of the hosting environment. 
 
+`/run` is always a sym-link to `/var/run` in NORD. 
+In FHS, this is reversed to facilitate mounting `/var` separate from the root. 
+But it's not strictly required, and NORD does not use SystemD which has a 
+hard requirement for the `run` directory and begins exectution early in startup. 
 
 ## /usr
 
@@ -70,11 +71,18 @@ some specific directories
 | /usr/src         | General sources, especially the kernel               |
 | /usr/X11         | Common path for X windows files                      |
 
+## NORD norms
 
+`/usr/local` is a sym-link to `/local` in NORD 
+and `/local` is unique per instance as a practice. 
+(Could be part of the root. But not enforced in any case.) 
 
+`/usr/opt` is usually a sym-link to `/var/opt` in NORD. 
+This facilitates shared OS content, in particular shared `/usr`. 
+`/var/opt` has varying content and is usually unique per instance 
+(not shared). 
 
-
-
+`doc` and `docs` are sym-links to `/usr/share/doc`. 
 
 ## NORD docs
 
@@ -82,6 +90,6 @@ This file is part of the collection found on GitHub at ...
 
     https://github.com/trothr/nord/tree/master/doc
 
+this page “NORD Filesystem Hierarchy” last updated 2021-Jul-26 (Monday) by RMT
 
-this page “NORD Filesystem Hierarchy” last updated 2017-Dec-20 (Wednesday) by RMT
 
