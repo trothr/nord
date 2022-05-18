@@ -6,6 +6,8 @@
 #
 
 SC_APN		=	gawk
+#SC_APV		=	4.1.4
+#SC_APV		=	4.2.1
 SC_APV		=	5.0.1
 SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
@@ -22,6 +24,7 @@ SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 #			executable found in /bin on SuSE
 SC_CONFIG	=	./configure --prefix=/usr --disable-nls \
 				--enable-static --disable-shared
+#SC_BUILD	=	
 SC_FIXUP	=	strip /usr/bin/gawk
 #SC_INSTALL	=	
 

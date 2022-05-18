@@ -6,9 +6,12 @@
 #
 
 SC_APN		=	curl
-SC_APV		=	7.72.0
-SC_VRM		=	$(SC_APN)-$(SC_APV)
+#SC_APV		=	7.60.0
+#SC_APV		=	7.61.1
+#SC_APV		=	7.72.0
+SC_APV		=	7.81.0
 SC_ARC		=	tar.gz
+SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 #SC_URL		=	http://curl.haxx.se/download/$(SC_VRM).tar.gz
 SC_URL		=	 http://curl.haxx.se/download/$(SC_VRM).tar.gz \
@@ -27,10 +30,13 @@ SC_URL		=	 http://curl.haxx.se/download/$(SC_VRM).tar.gz \
 #SC_FETCH	=	
 #SC_SOURCE	=	
 #SC_CONFIG	=	
+
 #SC_CONFIG	=	./configure --prefix=/usr
 SC_CONFIG	=	./configure --prefix=/usr \
 				--disable-shared --enable-static \
 				--with-ssl=/usr/opt/openssl
+
+#SC_BUILD	=	
 #SC_INSTALL	=	
 SC_FIXUP	=	strip /usr/bin/curl
 
