@@ -31,7 +31,7 @@ On top of that are two build schemes.
 
 * CSCRATCH
 	builds the core of NORD into a bootable root filesystem
-	using an existing host platform (possibly not NORD)
+	using an existing host platform (not necessarily NORD)
 * Chicory (the `/usr/opt` scheme)
 	builds non-core NORD packages as relocatable,
 	possibly shareable components (similar to 
@@ -52,6 +52,9 @@ The following work now:
 
 Platforms listed here as "excepting bootstrap" run in 'chroot'.
 Those which are "excepting runtime" borrow the runtime of the host.
+
+Above are the 32-bit variants of bi-modal architectures.
+The 64-bit counterpart to i386 (x86_64) is underway.
 
 ## ZNETBOOT
 
@@ -86,6 +89,5 @@ https://t.co/evJVLnGJCo
 Petros Koutoupis' Facebook page:
 
 https://www.facebook.com/petros.koutoupis/
-
 
 

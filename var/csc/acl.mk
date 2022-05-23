@@ -20,7 +20,8 @@ SC_URL          =       \
 
 #SC_FETCH	=	
 #SC_SOURCE	=	
-#SC_CONFIG	=	./configure --prefix=/usr --enable-static --disable-shared
+SC_CONFIG	=	./configure --prefix=/usr \
+					--enable-static --disable-shared
 #SC_INSTALL	=	
 #SC_FIXUP	=	
  
