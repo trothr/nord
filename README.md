@@ -17,6 +17,8 @@ the standard recipe. NORD uses source archives aquired directly from
 the individual package authors and maintainers. The result is a system
 with no dependency on any central distributor.
 
+While NORD uses the Linux kernel, it is more about Unix than Linux.
+
 ## standard recipe
 
 NORD follows the standard recipe for building internet sourced packages.
@@ -30,14 +32,18 @@ NORD follows the standard recipe for building internet sourced packages.
 On top of that are two build schemes.
 
 * CSCRATCH
-	builds the core of NORD into a bootable root filesystem
-	using an existing host platform (not necessarily NORD)
+    builds the core of NORD into a bootable root filesystem
+    using an existing host platform (not necessarily NORD)
 * Chicory (the `/usr/opt` scheme)
-	builds non-core NORD packages as relocatable,
-	possibly shareable components (similar to 
-	IBM `/usr/lpp` or Sun `/opt/SUNW`)
+    builds non-core packages (not necessarily for NORD) as relocatable,
+    possibly shareable components (similar to IBM `/usr/lpp`
+    or Sun `/opt/SUNW`)
 
 Between these two is a solid core with a lot of flexibility.
+
+Find out more about Chicory from its GitHub project:
+
+https://github.com/trothr/chicory
 
 ## Hardware Platforms
 
