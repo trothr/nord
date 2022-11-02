@@ -23,15 +23,23 @@ NORD filesystem hierarchy begins with the standard FHS directories.
 | /lib\<qual\> | Alternate essential libraries                        |
 | /media       | Mount point for removable media                      |
 | /mnt         | Mount point for mounting a filesystem temporarily    |
-| /opt         | Add-on application software packages                 |
+| /opt         | "Optional" application software packages             |
 | /run         | Data relevant to running processes                   |
+|              | (this is a symbolic link to /var/run)                |
 | /sbin        | Essential system binaries                            |
 | /srv         | Data for services provided by this system            |
-| /tmp         | Temporary files                                      |
-| /usr         | Secondary hierarchy                                  |
-| /var         | Variable data                                        |
+| /tmp         | Temporary files (may be cleared at boot time)        |
+| /usr         | Secondary hierarchy (bin, lib, sbin, so forth)       |
+| /var         | "Variable" data                                      |
+| /var/web     | primary web server content                           |
+| /var/run     | Data relevant to running processes                   |
 | /home        | User home directories                                |
 | /root        | Home directory for the administrator                 |
+
+NORD does not specifically use or supply `/srv` content or framework.
+
+NORD uses /var/run (sym-linked to /run for compatibility)
+and avoids contention by handling /var mount early.
 
 ## NORD norms
 
@@ -67,13 +75,15 @@ some specific directories
 | /usr/info        | Sym-link to /usr/share/info                          |
 | /usr/spool       | Sym-link to /var/spool                               |
 | /usr/opt         | Critical path for Chicory (Portable Apps)            |
+|                  | (this is commonly a symbolic link to /var/opt)       |
 | /usr/local       | Localized content                                    |
+|                  | (this *may* be a symbolic link to /local)            |
 | /usr/src         | General sources, especially the kernel               |
 | /usr/X11         | Common path for X windows files                      |
 
 ## NORD norms
 
-`/usr/local` is a sym-link to `/local` in NORD 
+`/usr/local` is often a sym-link to `/local` in NORD
 and `/local` is unique per instance as a practice. 
 (Could be part of the root. But not enforced in any case.) 
 
@@ -90,6 +100,6 @@ This file is part of the collection found on GitHub at ...
 
     https://github.com/trothr/nord/tree/master/doc
 
-this page “NORD Filesystem Hierarchy” last updated 2021-Jul-26 (Monday) by RMT
+this page “NORD Filesystem Hierarchy” last updated 2022-Jul-02 (Monday) by RMT
 
 
