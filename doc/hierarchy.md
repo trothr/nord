@@ -3,38 +3,41 @@
 This is the NORD Filesystem Hierarchy doc as a markdown file.
 This version is a migration from, and a simplifcation of, the original Google Docs version.
 
-## importing
-
-We're in the middle of importing from the Google Docs version.
-
-https://docs.google.com/document/d/1Pz7rP1S56JWAQxdJ2rO1osuzMH3mZ7QjGTSc37XxSKo
-
-## FHS
+## Starting from FHS
 
 NORD filesystem hierarchy begins with the standard FHS directories. 
 
-| Directory    | Description                                          |
-| ------------ | ---------------------------------------------------- |
-| /bin         | Essential command binaries                           |
-| /boot        | Static files of the boot loader                      |
-| /dev         | Device files                                         |
-| /etc         | Host-specific system configuration                   |
-| /lib         | Essential shared libraries and kernel modules        |
-| /lib\<qual\> | Alternate essential libraries                        |
-| /media       | Mount point for removable media                      |
-| /mnt         | Mount point for mounting a filesystem temporarily    |
-| /opt         | "Optional" application software packages             |
-| /run         | Data relevant to running processes                   |
-|              | (this is a symbolic link to /var/run)                |
-| /sbin        | Essential system binaries                            |
-| /srv         | Data for services provided by this system            |
-| /tmp         | Temporary files (may be cleared at boot time)        |
-| /usr         | Secondary hierarchy (bin, lib, sbin, so forth)       |
-| /var         | "Variable" data                                      |
-| /var/web     | primary web server content                           |
-| /var/run     | Data relevant to running processes                   |
-| /home        | User home directories                                |
-| /root        | Home directory for the administrator                 |
+https://www.pathname.com/fhs/pub/fhs-2.3.html
+
+NORD varies from the popular FHS standard in that it follows
+historical Unix layouts and supports sharable content.
+
+| Directory    | Description                                          | Shareable |
+| ------------ | ---------------------------------------------------- | --------- |
+| /boot        | Static files of the boot loader                      |    y      |
+| /bin         | Essential command binaries                           |    y      |
+| /sbin        | Essential system binaries                            |    y      |
+| /lib         | Essential shared libraries and kernel modules        |    y      |
+| /lib\<qual\> | Alternate essential libraries                        |    y      |
+| /usr         | Secondary hierarchy (bin, lib, sbin, so forth)       |    y      |
+| /opt         | "Optional" application software packages             |    y      |
+| /etc         | Host-specific system configuration                   |    \*     |
+| /dev         | Device files                                         |           |
+| /media       | Mount point for removable media                      |           |
+| /mnt         | Mount point for mounting a filesystem temporarily    |           |
+| /run         | Data relevant to running processes                   |           |
+|              | (this is a symbolic link to /var/run)                |           |
+| /srv         | Data for services provided by this system            |           |
+| /tmp         | Temporary files (may be cleared at boot time)        |           |
+| /var         | "Variable" data                                      |           |
+| /var/web     | primary web server content                           |           |
+| /var/run     | Data relevant to running processes                   |           |
+| /home        | User home directories                                |           |
+| /root        | Home directory for the administrator                 |           |
+
+\*The `/dev` directory can be shared if dynamic devices are not used.
+Most often, however, some devices will come and go, so a host-specific
+`/dev/` pseudo filesystem is recommended.
 
 NORD does not specifically use or supply `/srv` content or framework.
 
@@ -100,6 +103,5 @@ This file is part of the collection found on GitHub at ...
 
     https://github.com/trothr/nord/tree/master/doc
 
-this page “NORD Filesystem Hierarchy” last updated 2022-Jul-02 (Monday) by RMT
-
+this page "NORD Filesystem Hierarchy" last updated 2023-03-02 (Thursday) by RMT
 
