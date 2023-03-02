@@ -34,15 +34,20 @@ historical Unix layouts and supports sharable content.
 | /var/run     | Data relevant to running processes                   |           |
 | /home        | User home directories                                |           |
 | /root        | Home directory for the administrator                 |           |
+| /SYSTEM      | Explicitly shareable operating system content        |    y      |
 
 \*The `/dev` directory can be shared if dynamic devices are not used.
 Most often, however, some devices will come and go, so a host-specific
-`/dev/` pseudo filesystem is recommended.
+`/dev` pseudo filesystem is recommended.
 
 NORD does not specifically use or supply `/srv` content or framework.
 
 NORD uses /var/run (sym-linked to /run for compatibility)
 and avoids contention by handling /var mount early.
+
+`/SYSTEM` is best illustrated by examples:
+`/Linux-i386` or `/Linux-x86_64` would be for NORD on PC hardware
+when the operating system disk is shared (i.e., among virtual machines).
 
 ## NORD norms
 
