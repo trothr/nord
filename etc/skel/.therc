@@ -1,0 +1,67 @@
+/*
+ *        Name: PROFILE XEDIT (on CMS)
+ *              $HOME/.therc (on Linux or Unix)
+ *        Date: 2005-Oct-13
+ *              2005-Oct-24
+ *
+ * http://helpdesk.ua.edu/unix/bamasoft/the/
+ */
+ 
+Parse Source systype .
+If systype = "UNIX" | systype = "WIN32S" Then Do
+  'set compat x x x'
+  'set mouse off'
+  systype = "UNIX"
+End
+ 
+'SET CASE M I'
+'SET CMDLINE TOP'
+'SET PREF ON RIGHT'
+'SET NUMB ON'
+ 
+If systype = "CMS" Then 'SET SCALE ON 3'
+                   Else 'SET SCALE ON +1'
+ 
+If systype = "CMS" Then 'SET CURL ON 4'
+                   Else 'SET CURL +2'
+ 
+'SET MSGLINE ON 1 3 OVERLAY'
+ 
+':1'
+ 
+If systype = "CMS" Then 'SET NULLS ON'
+If systype = "CMS" Then 'SET PF10 BEFORE SPLIT CURSOR'
+                   Else 'DEFINE F10 SPLIT CURSOR'
+ 
+'SET WRAP ON'
+ 
+If systype = "CMS" Then tmax = 24
+                   Else tmax = 5
+t = "1" ; Do i = 1 to tmax ; t = t i * 8 + 1 ; End
+'SET TABS' t
+ 
+'SET STAY ON'
+ 
+'COMMAND PREFIX SYN . /'
+ 
+Exit
+ 
+ 
+/*
+define ins cursor home
+define find set insertmode toggle
+define remove backward
+define select sos delchar
+define F2 sos lineadd
+define F3 qquit
+define F7 backward
+define F8 forward
+define F9 left
+define F10 right
+define F11 spltjoin
+set tabsin on 8
+set cmdarrow tab
+ */
+ 
+ 
+ 
