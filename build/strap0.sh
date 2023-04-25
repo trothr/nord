@@ -26,15 +26,21 @@ mkdir -m 555 -p proc sys mnt
 mkdir -m 755 -p home local arc
 mkdir -m 755 -p dev ; mkdir -m 555 -p dev/pts ; mkdir -m 1777 -p dev/shm
 mkdir -m 755 -p lib bin sbin usr boot
+#sync ; sleep 1
 
 mkdir -m 755 -p usr/bin usr/lib usr/libexec usr/include usr/sbin usr/src
 mkdir -m 755 -p usr/share usr/share/man usr/share/info
 ln -sf share/man share/info /var/spool usr/.
+#sync ; sleep 1
 
-mkdir -m 755 -p opt etc var srv var/run var/log var/spool
+mkdir -m 755 -p opt etc var srv
+#sync ; sleep 1
+mkdir -m 755 -p var/run var/log var/spool
+#sync ; sleep 1
 touch var/run/utmp var/log/wtmp
 mkdir -m 700 -p root
 mkdir -m 555 -p misc media cdrom
+#sync ; sleep 1
 
 if [ ! -r etc/mtab ] ; then echo "/ / chroot rw 0 0" > etc/mtab ; fi
 if [ ! -r etc/passwd ] ; then cp -p ../etc/passwd etc/. ; fi

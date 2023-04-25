@@ -6,8 +6,8 @@
 
 D=`dirname $0`
 . $D/strap.rc
-$D/strap1.sh # which in turn [re]runs 'strap0.sh'
-RC=$? ; if [ $RC -ne 0 ] ; then exit $RC ; fi
+#$D/strap1.sh # which in turn [re]runs 'strap0.sh'
+#RC=$? ; if [ $RC -ne 0 ] ; then exit $RC ; fi
 echo "strap2.sh: SYSTEM=$SYSTEM"
 
 cd "$SYSTEM"

@@ -26,9 +26,9 @@ cd "$SYSTEM"
 echo "strap1.sh: populating 'root-strap' support ..."
 
 case $UNAMEM in 
-  x86_64|s390x)
-    LIB=lib64
-    ;;
+#  x86_64|s390x)
+#    LIB=lib64
+#    ;;
   *)
     LIB=lib
     ;;
