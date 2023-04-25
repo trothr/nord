@@ -1,0 +1,79 @@
+;
+;
+;         Name: cctld.us.hint (BIND database)
+;         Date: 2022-11-01 (Tue) after the RIF
+;
+;
+;
+.                       3600000     NS          a.cctld.us.
+a.cctld.us.             3600000     A           156.154.124.70
+;                       3600000     AAAA        ::
+;
+.                       3600000     NS          b.cctld.us.
+b.cctld.us.             3600000     A           156.154.125.70
+b.cctld.us.             3600000     AAAA        2001:502:ad09::29
+;
+.                       3600000     NS          c.cctld.us.
+c.cctld.us.             3600000     A           156.154.127.70
+;                       3600000     AAAA        ::
+;
+;ost d.cctld.us. not found: 3(NXDOMAIN)
+;
+.                       3600000     NS          e.cctld.us.
+e.cctld.us.             3600000     A           156.154.126.70
+;
+.                       3600000     NS          f.cctld.us.
+f.cctld.us.             3600000     A           209.173.58.70
+f.cctld.us.             3600000     AAAA        2001:500:3682::11
+;
+;ost g.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost h.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost i.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost j.cctld.us. not found: 3(NXDOMAIN)
+;
+.                       3600000     NS          k.cctld.us.
+k.cctld.us.             3600000     A           156.154.128.70
+k.cctld.us.             3600000     AAAA        2001:503:e239::3:1
+;
+;ost l.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost m.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost n.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost o.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost p.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost q.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost r.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost s.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost t.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost u.cctld.us. not found: 3(NXDOMAIN)
+;
+;ost v.cctld.us. not found: 3(NXDOMAIN)
+;
+.                       3600000     NS          w.cctld.us.
+w.cctld.us.             3600000     A           37.209.192.15
+w.cctld.us.             3600000     AAAA        2001:dcd:1::15
+;
+.                       3600000     NS          x.cctld.us.
+x.cctld.us.             3600000     A           37.209.194.15
+x.cctld.us.             3600000     AAAA        2001:dcd:2::15
+;
+.                       3600000     NS          y.cctld.us.
+y.cctld.us.             3600000     A           37.209.196.15
+y.cctld.us.             3600000     AAAA        2001:dcd:3::15
+;
+.                       3600000     NS          z.cctld.us.
+z.cctld.us.             3600000     A           37.209.198.15
+z.cctld.us.             3600000     AAAA        2001:dcd:4::15
+;
+; End of File
