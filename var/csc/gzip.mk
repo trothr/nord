@@ -2,12 +2,14 @@
 #
 #	  Name: gzip.mk
 #		CSCRATCH make include file for GZIP for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
 SC_APN		=	gzip
 #SC_APV		=	1.9
-SC_APV		=	1.10
+#SC_APV		=	1.10
+SC_APV		=	1.12
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

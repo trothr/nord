@@ -2,6 +2,7 @@
 #
 #	  Name: db.mk
 #		make include file for DB for La Casita
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
@@ -24,6 +25,8 @@ SC_SOURCE	=	$(SC_VRM)/build_unix
 #SC_CONFIG	=     ../dist/configure --prefix=/usr --enable-compat185
 SC_CONFIG	=     ../dist/configure --prefix=/usr --enable-compat185 \
 					--enable-static --disable-shared
+
+#SC_BUILD	=	
 
 #SC_FIXUP	=	strip ...
 

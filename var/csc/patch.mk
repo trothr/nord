@@ -2,6 +2,7 @@
 #
 #	  Name: patch.mk
 #		CSCRATCH make include file for Patch for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 

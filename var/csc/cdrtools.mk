@@ -2,6 +2,7 @@
 #
 #	  Name: cdrtools.mk
 #		make include file for CD Record Tools for La Casita
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
@@ -28,8 +29,5 @@ SC_INSTALL	=	exec $(MAKE) INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root install
 # http://freshmeat.net/projects/cdrecord/
 # replaces cdrecord, mkisofs, and probably cdrdao
 # may also replace vcdimager, cdparanoia, cdk, or zisofs
-
-
-
 
 

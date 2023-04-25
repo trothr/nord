@@ -2,10 +2,12 @@
 #
 #	  Name: grep.mk
 #		CSCRATCH make include file for GREP for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
 SC_APN		=	grep
+#SC_APV		=	3.1
 SC_APV		=	3.3
 SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)

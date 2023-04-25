@@ -2,11 +2,13 @@
 #
 #	  Name: bash.mk
 #		CSCRATCH make include file for BASH for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
 SC_APN		=	bash
-SC_APV		=	5.0
+#SC_APV		=	5.0
+SC_APV		=	5.1.8
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

@@ -2,29 +2,31 @@
 #
 #	  Name: e2fsprogs.mk
 #		CSCRATCH make include file for E2FSPROGS for La Casita
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
-SC_APN		=	e2fsprogs
-#SC_APV		=	1.45.6
-SC_APV		=	1.41.14
-#SC_APV		=	1.42.13
-SC_VRM		=	$(SC_APN)-$(SC_APV)
-SC_ARC		=	tar.gz
+#SC_VRM		=	e2fsprogs-1.33
+#SC_VRM		=	e2fsprogs-1.36
+#SC_VRM		=	e2fsprogs-1.41.0
+#SC_VRM		=	e2fsprogs-1.41.14
+#SC_VRM		=	e2fsprogs-1.44.5
+SC_VRM		=	e2fsprogs-1.45.6
 
-SC_URL          =       \
- https://mirrors.edge.kernel.org/pub/linux/kernel/people/tytso/$(SC_APN)/v$(SC_APV)/$(SC_VRM).$(SC_ARC) \
- https://mirrors.edge.kernel.org/pub/linux/kernel/people/tytso/$(SC_APN)/v$(SC_APV)/$(SC_VRM).tar.sign
-
-#SC_SOURCE_VERIFY = xzcat < arc/$(SC_APN)/$(SC_VRM).$(SC_ARC) \
-#                       | gpg --verify arc/$(SC_APN)/$(SC_VRM).tar.sign -
-#gpg --keyserver hkp://pool.sks-keyservers.net/ --recv-keys 0xddbc579dab37fba9
+#SC_URL		=	\
+# http://umn.dl.sourceforge.net/sourceforge/e2fsprogs/e2fsprogs-1.33.tar.gz
+#SC_URL		=	\
+# http://easynews.dl.sourceforge.net/sourceforge/e2fsprogs/$(SC_VRM).tar.gz
+SC_URL		=	\
+   http://iweb.dl.sourceforge.net/sourceforge/e2fsprogs/$(SC_VRM).tar.gz
+#http://prdownloads.sourceforge.net/e2fsprogs/$(SC_VRM).tar.gz
 
 #SC_FETCH	=	
 #SC_SOURCE	=	
 #SC_CONFIG	=	./configure --prefix=/usr --disable-nls
 SC_CONFIG	=	./configure CC=gcc --prefix=/usr --disable-nls \
 				--sysconfdir=/etc
+#SC_BUILD	=	
 #SC_FIXUP	=	strip ...
 
 # convoluted install to support Util-Linux later

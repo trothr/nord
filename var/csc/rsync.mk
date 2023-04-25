@@ -2,11 +2,14 @@
 #
 #	  Name: rsync.mk
 #		CSCRATCH make include file for RSYNC for NORD
+#         Date: 2023-04-24 (Monday) and prior, back level
 #
 #
 
 SC_APN		=	rsync
-SC_APV		=	3.1.3
+#SC_APV		=	3.1.2
+#SC_APV		=	3.1.3
+SC_APV		=	3.2.3
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
@@ -21,6 +24,7 @@ SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).asc
 #SC_FETCH	=	
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr
+#SC_BUILD	=	
 #SC_INSTALL	=	
 SC_FIXUP	=	strip /usr/bin/rsync
 

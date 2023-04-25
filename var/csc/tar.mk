@@ -2,8 +2,9 @@
 #
 #	  Name: tar.mk
 #		CSCRATCH make include file for GNU TAR for NORD
-#		This is back-level until file ownership oddness
-#		with the 1.26 release is resolved.
+#		This was back-level until file ownership oddness
+#		with the 1.26 release got resolved.
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 

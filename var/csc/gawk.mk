@@ -2,6 +2,7 @@
 #
 #	  Name: gawk.mk
 #		CSCRATCH make include file for GAWK for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 

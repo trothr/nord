@@ -1,10 +1,11 @@
-# 
-# 
-#	  Name: netcat.mk 
-#		make include file for netcat for La Casita 
-# 
-# 
- 
+#
+#
+#	  Name: netcat.mk
+#		make include file for netcat for La Casita
+#         Date: 2023-04-24 (Monday) and prior, back level
+#
+#
+
 #SC_VRM		=	netcat-1.10
 #SC_URL		=	\
 # http://umn.dl.sourceforge.net/sourceforge/nc110/nc110.tgz
@@ -22,7 +23,8 @@ SC_FETCH	=	cscgetsf.sh netcat/netcat-0.7.1.tar.gz ; \
 
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr
+#SC_BUILD	=	
 #SC_INSTALL	=	
-SC_FIXUP	=	strip /usr/bin/netcat
- 
+#SC_FIXUP	=	
+
 

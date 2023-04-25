@@ -2,6 +2,7 @@
 #
 #	  Name: zlib.mk
 #		CSCRATCH make include file for ZLIB for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
@@ -21,6 +22,7 @@ SC_URL		=	http://www.zlib.net/$(SC_VRM).$(SC_ARC)
 #SC_SOURCE	=	
 #SC_CONFIG	=	./configure --prefix=/usr
 SC_CONFIG	=	./configure --prefix=/usr --static
+#SC_BUILD	=	
 #SC_INSTALL	=	
 #SC_FIXUP	=	strip ...
 

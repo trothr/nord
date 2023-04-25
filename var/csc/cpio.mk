@@ -7,7 +7,7 @@
 #
 
 SC_APN          =       cpio
-#SC_APV          =       2.12
+#SC_APV         =       2.12
 SC_APV          =       2.13
 SC_ARC          =       tar.bz2
 SC_VRM          =       $(SC_APN)-$(SC_APV)

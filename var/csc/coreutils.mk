@@ -2,10 +2,13 @@
 #
 #	  Name: coreutils.mk
 #		CSCRATCH make include file for GNU COREUTILS for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
 SC_APN		=	coreutils
+#SC_APV		=	8.27
+#SC_APV		=	8.30
 SC_APV		=	8.31
 SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)

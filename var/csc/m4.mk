@@ -2,11 +2,13 @@
 #
 #	  Name: m4.mk
 #		CSCRATCH make include file for M4 for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
 SC_APN		=	m4
-SC_APV		=	1.4.18
+#SC_APV		=	1.4.18
+SC_APV		=	1.4.19
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
@@ -19,6 +21,7 @@ SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
 #SC_FETCH	=	
 #SC_SOURCE	=	
 SC_CONFIG	=	./configure --prefix=/usr
+#SC_BUILD	=	
 SC_FIXUP	=	strip /usr/bin/m4
 #SC_INSTALL	=	
 

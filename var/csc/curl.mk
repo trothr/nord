@@ -2,6 +2,7 @@
 #
 #	  Name: curl.mk
 #		CSCRATCH make include file for CURL for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
@@ -9,7 +10,8 @@ SC_APN		=	curl
 #SC_APV		=	7.60.0
 #SC_APV		=	7.61.1
 #SC_APV		=	7.72.0
-SC_APV		=	7.81.0
+#SC_APV		=	7.81.0
+SC_APV		=	7.88.1
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

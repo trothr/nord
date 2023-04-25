@@ -228,10 +228,8 @@ cycle:
 		echo "	$(MAKE) `cat cycle.tmp`.exe"
 		$(MAKE) `cat cycle.tmp`.exe
 		echo "	$(MAKE) `cat cycle.tmp`.ins"
-		$(MAKE) `cat cycle.tmp`.ins
+		sudo $(MAKE) `cat cycle.tmp`.ins
 		@rm cycle.tmp
-
-
 
 VRMLIST:
 	@grep '^SC_VRM' *.mk | awk -F'=' '{print $$2}'

@@ -1,27 +1,20 @@
 #
 #
-#	  Name: sharutils.mk
-#		CSCRATCH make include file for SHARUTILS for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
-SC_APN		=	sharutils
-SC_APV		=	4.15.2
-SC_VRM		=	$(SC_APN)-$(SC_APV)
-SC_ARC		=	tar.xz
-
-SC_URL		=	\
-	   https://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).$(SC_ARC) \
-	   https://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
-
-#SC_SOURCE_VERIFY = gpg --verify arc/$(SC_APN)/$(SC_VRM).$(SC_ARC).sig
-#gpg --keyserver hkp://pool.sks-keyservers.net/ --recv-keys 0xd9204cb5bfbf0221
-
-#SC_FETCH	=	
-#SC_SOURCE	=	
-SC_CONFIG	=	./configure --prefix=/usr \
-				--enable-static --disable-shared
-#SC_INSTALL	=	
-#SC_FIXUP	=	strip ...
+#SC_VRM = sharutil-4.2c
+#SC_VRM = sharutils-4.2.1
+#SC_VRM = sharutils-4.11.1
+#SC_VRM = sharutils-4.13.5
+SC_VRM = sharutils-4.15.2
+#SC_URL = http://ftp.gnu.org/pub/gnu/sharutils/$(SC_VRM).tar.gz
+SC_URL = http://ftp.gnu.org/gnu/sharutils/$(SC_VRM).tar.gz \
+         http://ftp.gnu.org/gnu/sharutils/$(SC_VRM).tar.gz.sig
+#         http://ftp.gnu.org/gnu/sharutils/$(SC_VRM).md5sum \
+#         http://ftp.gnu.org/gnu/sharutils/$(SC_VRM).md5sum.sig
+SC_CONFIG = ./configure --prefix=/usr
+# /usr/bin/shar /usr/bin/unshar /usr/bin/uuencode /usr/bin/uudecode
 
 

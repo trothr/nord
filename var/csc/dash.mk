@@ -2,6 +2,7 @@
 #
 #	  Name: dash.mk
 #		CSCRATCH make include file for DASH for La Casita
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
@@ -16,7 +17,10 @@ SC_URL		=	\
 
 #SC_FETCH	=	
 #SC_SOURCE	=	
+
 SC_CONFIG	=	./configure --prefix=/usr
+
+#SC_BUILD	=	
 SC_FIXUP	=	strip /usr/bin/dash
 #SC_INSTALL	=	
 

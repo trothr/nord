@@ -2,6 +2,7 @@
 #
 #	  Name: libtool.mk
 #		CSCRATCH make include file for GNU LibTool for NORD
+#         Date: 2023-04-24 (Monday) and prior
 #
 #
 
