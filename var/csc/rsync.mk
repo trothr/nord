@@ -28,4 +28,6 @@ SC_CONFIG	=	./configure --prefix=/usr
 #SC_INSTALL	=	
 SC_FIXUP	=	strip /usr/bin/rsync
 
+REQ             =       xxhash, zstd, lz4
+
 

@@ -23,13 +23,15 @@ SC_APN		=	util-linux
 #SC_APV		=	2.28
 #SC_APV		=	2.29
 #SC_APV		=	2.34
-SC_APV		=	2.38.1
+SC_APV		=	2.38
 
 SC_ARC		=	tar.xz
+
 #SC_VRM		=	$(SC_APN)-$(SC_APV)
-SC_VRM		=	util-linux-2.27.1
+#SC_VRM		=	util-linux-2.27.1
 #SC_VRM		=	util-linux-2.28.2
 #SC_VRM		=	util-linux-2.29.2
+SC_VRM          =       util-linux-2.38.1
 
 #SC_URL		=	\
 # http://www.kernel.org/pub/linux/utils/util-linux/$(SC_VRM).lsm \

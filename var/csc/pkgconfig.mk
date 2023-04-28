@@ -20,4 +20,6 @@ SC_CONFIG	=	./configure --prefix=/usr # --disable-nls \
 SC_FIXUP	=	strip /usr/bin/pkg-config 
 #SC_INSTALL	=	
 
+REQ             =       glib-2.0 >= 2.16
+
 

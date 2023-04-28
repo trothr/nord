@@ -27,4 +27,6 @@ SC_CONFIG	=	./configure --prefix=/usr \
 #SC_FIXUP	=	
 #SC_INSTALL	=	
 
+REQ             =       glib-2.0 >= 2.16
+
 
