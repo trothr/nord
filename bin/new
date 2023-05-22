@@ -1,0 +1,146 @@
+#!/bin/sh
+# the next line restarts using tclsh \
+exec tclsh "$0" "$@" 
+
+#!/usr/local/bin/tclsh 
+# 
+#	  Name: new (Tcl script) 
+#		to move "new" files into production locations 
+#	Author: Rick Troth, Houston, Texas, USA 
+#	  Date: 1995-Mar-10 
+# 
+# options presently supported: 
+#		-k	keep original 
+#		-d	delete original 
+#		-v	report version 
+# 
+# new options to be added: 
+#		-f	force it (override inhibitors) 
+#		-r	recursion (follow sub-directories) 
+#		-u	undo (rollback) 
+# 
+ 
+# 
+# set a VRM (version/release/mod) reference: 
+set VRM "1.2.8b" 
+ 
+# 
+# set some defaults: 
+# set KEEP 0 
+set KEEP 1 
+set FORCE 0 
+set ROLLBACK 0 
+set RECURSIVE 0 
+set DELIM ";" 
+# set DELIM ":" 
+ 
+# 
+# a getenv() function: 
+proc getenv {VAR} { 
+	global env 
+	if {[string first " $VAR " \
+		"* [array names env] " ] < 1} {return ""} 
+	return $env($VAR) 
+	} 
+ 
+# 
+# version delimiter can change: 
+set _DELIM [getenv VERSION_DELIMITER] 
+if {$_DELIM != ""} {set DELIM $_DELIM} 
+ 
+# 
+# eat-up the options (for now): 
+while {[string range $argv 0 0] == "-"} { 
+	set argq [lindex $argv 0] 
+	if {$argq == "-d"} then { set KEEP 0 } 
+	if {$argq == "-k"} then { set KEEP 1 } 
+	if {$argq == "-f"} then {set FORCE 1} 
+	if {$argq == "-u"} then {set ROLLBACK 1} 
+	if {$argq == "-r"} then {set RECURSIVE 1} 
+	if {$argq == "-v"} then { 
+		set TCL "Tcl-[info tclversion]" 
+		set SYS "[exec uname]" 
+		if {"$SYS" == "AIX"} then { 
+			set SYS "$SYS-[exec uname -v].[exec uname -r]" 
+			} else { 
+			set SYS "$SYS-[exec uname -r]" 
+			} 
+puts stderr "NEW-$VRM place new files with VMS-style versioning." 
+		puts stderr "$TCL $SYS DELIM='$DELIM'" 
+		} 
+	set argv [lrange $argv 1 end] 
+	set argc [expr $argc - 1] 
+	} 
+ 
+# ------------------------------------------------------------- NEWPLACE 
+# this is where most of the work will get done 
+proc newplace {s t} { 
+	global KEEP FORCE ROLLBACK RECURSIVE DELIM 
+#	if {[file islink $s]} then {return} 
+	if {[file isdir $s]} then { 
+		puts stdout "new $s $t ... source is a directory." 
+		return 
+		} 
+	if {[file isdir $t]} then {set t "$t/[file tail $s]"} 
+	if {! [file exist $s]} then { 
+		puts stderr "file $s not found." 
+		return } 
+	if {[file exist $t]} then { 
+	if {$FORCE == 0} then { 
+		if {[file size $s] == [file size $t]} then {
+		if {[exec sh -c "cmp $s $t 1>/dev/null 2>/dev/null; echo $?"] == 0} then {
+			puts stdout "new $s $t ... files appear to be identical." 
+			return 
+			} 
+			} 
+		if {[file mtime $s] < [file mtime $t]} then { 
+			puts stdout "new $s $t ... source is not newer." 
+			return 
+			} 
+		} 
+# puts stdout "new $s $t" 
+		set i 1 
+		set u "$t$DELIM$i" 
+		set u1 "$t;$i" 
+		set u2 "$t:$i" 
+		while { [file exist $u] || 
+			[file exist $u1] || 
+			[file exist $u2] } { 
+			set i [expr $i + 1] 
+			set u "$t$DELIM$i" 
+			set u1 "$t;$i" 
+			set u2 "$t:$i" 
+			} 
+		puts stdout "mv $t $u" 
+		exec mv "$t" "$u" 
+		} 
+	if {$KEEP} then { 
+		puts stdout "cp -p $s $t" 
+		exec cp -p "$s" "$t" 
+		} else { 
+		puts stdout "mv $s $t" 
+		exec mv "$s" "$t" 
+		} 
+	} 
+ 
+# ----------------------------------------------------------------------
+# main routine 
+ 
+# 
+# verify sufficient arguments: 
+if {$argc < 2} then { 
+	puts stderr "Usage: new <source> <target>" 
+	return 24 
+	} 
+ 
+# 
+# easy ... 
+set i 0 
+set n [expr $argc - 1] 
+set argn [lindex $argv $n] 
+while {$i < $n} { 
+	newplace [lindex $argv $i] $argn 
+	set i [expr $i + 1] 
+	} 
+ 
+
