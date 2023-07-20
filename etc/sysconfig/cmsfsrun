@@ -8,16 +8,16 @@
 #
 # the name of the file on the CMS 191 disk which we are after
 CMSFSRUN_FILE=profile.sh
+# 'cmsfscat' will use the dotted form and not "fn ft" style
 
 #
 # the block device of the 191 disk which we are after
 CMSFSRUN_DISK=191
+# this should be a three-digit hex address
 
 #
 # a temporary directory where we will do our work (gets deleted)
 CMSFSRUN_TEMP=/dev/shm/cmsfs
-
-
-
+# this presumes that /dev/shm is mounted and is writable
 
 
