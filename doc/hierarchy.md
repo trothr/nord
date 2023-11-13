@@ -11,7 +11,9 @@ NORD filesystem hierarchy begins with the standard FHS directories.
 https://www.pathname.com/fhs/pub/fhs-2.3.html
 
 NORD varies from the popular FHS standard in that it follows
-historical Unix layouts and supports sharable content.
+historical Unix layouts and supports run-time sharable content.
+(Sharable content here means, i.e., among multiple virtual machines
+or across multiple containers, or any combination of those two schemes.)
 
 | Directory    | Description                                          | Shareable |
 | ------------ | ---------------------------------------------------- | --------- |
@@ -43,10 +45,13 @@ Most often, however, some devices will come and go, so a host-specific
 
 NORD does not specifically use or supply `/srv` content or framework.
 
-NORD uses /var/run (sym-linked to /run for compatibility)
-and avoids contention by handling /var mount early.
+NORD uses `/var/run` (sym-linked to `/run` for compatibility)
+and avoids contention by handling `/var` mount early.
+NORD does *not* follow the (SystemD motivated?) practice of `/run` being
+the mount point and `/var/run` being the link. With NORD, it's the other
+way around, going with original practice.
 
-`/SYSTEM` is best illustrated by examples:
+`/SYSTEM` is best illustrated by examples: <br/>
 `/Linux-i386` or `/Linux-x86_64` would be for NORD on PC hardware
 when the operating system disk is shared (i.e., among virtual machines).
 
@@ -100,12 +105,12 @@ That is recommended to be a symbolic link to `/usr/local/etc`.
 and `/local` is unique per instance (per host) as a practice.
 (Could be part of the root. But not enforced in any case.)
 
-`/usr/opt` is usually a sym-link to `/var/opt` in NORD.
+`/usr/opt` is usually a sym-link to `/var/opt` in NORD. <br/>
 This facilitates shared OS content, in particular shared `/usr`.
 `/var/opt` has varying content and is usually unique per instance
 (not shared).
 
-`doc` and `docs` are sym-links to `/usr/share/doc`.
+`/usr/doc` and `/usr/docs` are sym-links to `/usr/share/doc`.
 
 ## NORD docs
 
@@ -113,5 +118,6 @@ This file is part of the collection found on GitHub at ...
 
     https://github.com/trothr/nord/tree/master/doc
 
-this page "NORD Filesystem Hierarchy" last updated 2023-03-03 (Friday) by RMT
+*this page "NORD Filesystem Hierarchy" last updated 2023-11-13 (Monday) by RMT*
+
 

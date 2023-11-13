@@ -61,6 +61,6 @@ This file is part of the collection found on GitHub at ...
     https://github.com/trothr/nord/tree/master/doc
 
 
-this page “NORD Releases" last updated 2017-Dec-28 (Thursday) by RMT
+*this page “NORD Releases" last updated 2017-Dec-28 (Thursday) by RMT*
 
 

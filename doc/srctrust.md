@@ -45,6 +45,6 @@ This file is part of the collection found on GitHub at ...
 
     https://github.com/trothr/nord/tree/master/doc
 
-this page "NORD Source Trust" last updated 2016-Dec-28 (Wedesday) by RMT
+*this page "NORD Source Trust" last updated 2016-Dec-28 (Wedesday) by RMT*
 
 
