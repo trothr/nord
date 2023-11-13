@@ -10,6 +10,7 @@ SC_APN		=	glibc
 #SC_APV		=	2.12.2
 SC_APV		=	2.14.1
 #SC_APV		=	2.18
+#SC_APV		=	2.32
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 SC_URL		=	$(SC_US1)/$(SC_APN)/$(SC_VRM).$(SC_ARC) \

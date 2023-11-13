@@ -8,7 +8,8 @@
 
 SC_APN		=	bash
 #SC_APV		=	5.0
-SC_APV		=	5.1.8
+#SC_APV		=	5.1.8
+SC_APV		=	5.2.15
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

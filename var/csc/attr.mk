@@ -8,7 +8,8 @@
 
 SC_APN          =       attr
 #SC_APV         =       2.4.0
-SC_APV          =       2.4.48
+#SC_APV         =       2.4.48
+SC_APV          =       2.5.1
 SC_VRM          =       $(SC_APN)-$(SC_APV)
 SC_SOURCE       =       $(SC_VRM)
 

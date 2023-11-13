@@ -19,7 +19,8 @@ SC_APN          =       tcsh
 #SC_APV         =       6.22.02
 # 2022-May-18 (Wed): 6.23.02 is the latest in the "old" sub-dir
 #SC_APV         =       6.24.01
-SC_APV          =       6.24.07
+#SC_APV         =       6.24.07
+SC_APV          =       6.24.10
 
 SC_ARC          =       tar.gz
 SC_VRM          =       $(SC_APN)-$(SC_APV)

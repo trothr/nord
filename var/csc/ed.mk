@@ -17,7 +17,8 @@ SC_APN		=	ed
 #SC_APV		=	1.9
 #SC_APV		=	1.13	# requires lzip
 #SC_APV		=	1.14.2
-SC_APV		=	1.15
+#SC_APV		=	1.15
+SC_APV		=	1.19
 
 #SC_ARC		=	tar.gz
 #SC_ARC		=	tar.bz2

@@ -18,11 +18,7 @@
 #SC_VRM		=	shadow-4.0.18
 #SC_VRM		=	shadow-4.0.18.1
 #SC_VRM		=	shadow-4.1.4.3
-
-SC_APN		=	shadow
-SC_APV		=	4.1.5.1
-SC_VRM		=	$(SC_APN)-$(SC_APV)
-SC_ARC		=	tar.bz2
+SC_VRM		=	shadow-4.13
 
 #
 #SC_URL		=	\
@@ -36,17 +32,23 @@ SC_ARC		=	tar.bz2
 #SC_URL=http://www.mirrorservice.org/sites/ftp.wiretapped.net/pub/security/host-security/shadow/old/$(SC_VRM).tar.gz
 #SC_URL=http://www.mirrorservice.org/sites/ftp.wiretapped.net/pub/security/host-security/shadow/$(SC_VRM).tar.gz
 #SC_URL=http://pkg-shadow.alioth.debian.org/releases/shadow-4.1.4.3.tar.bz2
-SC_URL		=	\
-     http://pkg-$(SC_APN).alioth.debian.org/releases/$(SC_VRM).$(SC_ARC)
+SC_URL=http://deb.debian.org/debian/pool/main/s/shadow/$(SC_VRM).tar.gz
 
-#SC_FETCH	=	
+#SC_ARC		=	tar.gz
+SC_ARC		=	tar.bz2
+
+#SC_FETCH	=	$(SC_FETCH_BZ)
+
+#SC_SOURCE	=	
 #SC_CONFIG	=	./configure --prefix=/usr --disable-nls
 #SC_CONFIG	=	./configure --disable-nls
 SC_CONFIG	=	./configure --disable-nls \
 				--without-selinux --enable-man \
 				--sysconfdir=/etc
-#SC_INSTALL	=	
+#SC_BUILD	=	
 #SC_FIXUP	=	
+#SC_INSTALL	=	
+
 
 #NANON#ftp://ftp.ists.pwr.wroc.pl/pub/linux/shadow/shadow-current.tar.gz
 #DNS#ftp://iguana.hut.fi/pub/linux/shadow/shadow-current.tar.gz

@@ -9,7 +9,8 @@
 SC_APN		=	nano
 #SC_APV		=	2.8.6
 #SC_APV		=	3.2
-SC_APV		=	5.5
+#SC_APV		=	5.5
+SC_APV		=	7.2
 SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

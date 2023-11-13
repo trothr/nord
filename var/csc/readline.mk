@@ -7,7 +7,8 @@
 #
 
 SC_APN		=	readline
-SC_APV		=	7.0
+#SC_APV		=	7.0
+SC_APV		=	8.2
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 

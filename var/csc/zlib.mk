@@ -8,7 +8,8 @@
 
 SC_APN		=	zlib
 #SC_APV		=	1.2.8
-SC_APV		=	1.2.11
+#SC_APV		=	1.2.11
+SC_APV		=	1.2.13
 SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
