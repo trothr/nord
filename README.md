@@ -11,7 +11,7 @@ https://docs.google.com/document/d/1QQyCdRe4oHvxFv_23u1DX1rO7EVzhreB6zC3OoCPycM
 
 ## Keeping Linux Simple
 
-NORD is a Linux system that tries hard to not be yet another distro.
+NORD is a Linux system that tries hard to not be yet another distro. <br/>
 It uses two different build schemes, both of which ride on top of
 the standard recipe. NORD uses source archives aquired directly from
 the individual package authors and maintainers. The result is a system
@@ -19,7 +19,7 @@ with no dependency on any central distributor.
 
 While NORD uses the Linux kernel, it is more about Unix than Linux.
 
-## standard recipe
+## Standard Recipe
 
 NORD follows the standard recipe for building internet sourced packages.
 
@@ -35,11 +35,11 @@ On top of that are two build schemes.
     builds the core of NORD into a bootable root filesystem
     using an existing host platform (not necessarily NORD)
 * Chicory (the `/usr/opt` scheme)
-    builds non-core packages (not necessarily for NORD) as relocatable,
+    builds non-core packages (not exclusively for NORD) as relocatable,
     possibly shareable components (similar to IBM `/usr/lpp`
     or Sun `/opt/SUNW`)
 
-Between these two is a solid core with a lot of flexibility.
+Between these two is a solid base with a lot of flexibility.
 
 Find out more about Chicory from its GitHub project:
 
@@ -52,22 +52,23 @@ The following work now:
 
 * s390
 * i386
-* ppc, excepting bootstrap
-* arm, excepting bootstrap, borrows host runtime
-* sparc, excepting bootstrap
+* ppc, except for the bootstrap
+* arm, except for the bootstrap, borrows host runtime
+* sparc, except for the bootstrap
 
-Platforms listed here as "excepting bootstrap" run in 'chroot'.
-Those which are "excepting runtime" borrow the runtime of the host.
+Platforms listed here as "except for the bootstrap" run in 'chroot'.
+Those which are "except for the runtime" borrow the runtime of
+a distributor-provided host.
 
 Above are the 32-bit variants of bi-modal architectures.
-The 64-bit counterpart to i386 (x86_64) is underway.
+The 64-bit counterparts have been underway (slowly) for some time.
 
 ## ZNETBOOT
 
 When hosted on z/VM, NORD is most easily installed via ZNETBOOT.
 
 ZNETBOOT itself is just a CMS-based web-oriented loader
-and can be used to bootstrap any Linux distribution.
+and can be used to bootstrap any Linux distribution. <br/>
 Try it!
 
 See the ZNETBOOT project on Github, or download from
