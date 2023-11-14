@@ -13,12 +13,16 @@
 #SC_VRM		=	e2fsprogs-1.44.5
 SC_VRM		=	e2fsprogs-1.45.6
 
+SC_ARC          =       tar.xz
+
 #SC_URL		=	\
 # http://umn.dl.sourceforge.net/sourceforge/e2fsprogs/e2fsprogs-1.33.tar.gz
 #SC_URL		=	\
 # http://easynews.dl.sourceforge.net/sourceforge/e2fsprogs/$(SC_VRM).tar.gz
+#SC_URL		=	\
+#   http://iweb.dl.sourceforge.net/sourceforge/e2fsprogs/$(SC_VRM).tar.gz
 SC_URL		=	\
-   http://iweb.dl.sourceforge.net/sourceforge/e2fsprogs/$(SC_VRM).tar.gz
+   http://iweb.dl.sourceforge.net/sourceforge/e2fsprogs/$(SC_VRM).$(SC_ARC)
 #http://prdownloads.sourceforge.net/e2fsprogs/$(SC_VRM).tar.gz
 
 #SC_FETCH	=	

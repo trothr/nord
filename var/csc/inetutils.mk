@@ -7,8 +7,14 @@
 
 APPLID		=	inetutils
 #SC_VRM		=	inetutils-1.4.2
-SC_VRM		=	inetutils-1.8
-SC_URL		=      http://ftp.gnu.org/gnu/$(APPLID)/$(SC_VRM).tar.gz
+#SC_VRM		=	inetutils-1.8
+SC_APN          =       inetutils
+SC_APV          =       2.4
+SC_VRM          =       $(SC_APN)-$(SC_APV)
+
+SC_ARC          =       tar.xz
+#SC_URL		=      http://ftp.gnu.org/gnu/$(APPLID)/$(SC_VRM).tar.gz
+SC_URL		=      http://ftp.gnu.org/gnu/$(APPLID)/$(SC_VRM).$(SC_ARC)
 
 SC_CONFIG	=	./configure --prefix=/usr
 

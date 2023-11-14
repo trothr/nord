@@ -9,7 +9,8 @@
 SC_APN		=	autoconf
 #SC_APV		=	2.69
 SC_APV		=	2.71
-SC_ARC		=	tar.gz
+#SC_ARC		=	tar.gz
+SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	\

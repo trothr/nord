@@ -11,7 +11,8 @@ SC_APN		=	bison
 #SC_APV		=	3.3.2
 #SC_APV		=	3.5.3
 SC_APV		=	3.8.2
-SC_ARC		=	tar.gz
+#SC_ARC		=	tar.gz
+SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	\

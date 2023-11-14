@@ -9,7 +9,8 @@
 SC_APN		=	m4
 #SC_APV		=	1.4.18
 SC_APV		=	1.4.19
-SC_ARC		=	tar.gz
+#SC_ARC		=	tar.gz
+SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	http://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).$(SC_ARC) \

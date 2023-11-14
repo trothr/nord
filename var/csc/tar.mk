@@ -14,8 +14,8 @@ SC_APN		=	tar
 #SC_APV		=	1.30
 #SC_APV		=	1.32
 SC_APV		=	1.34
-#SC_ARC		=	tar.xz
-SC_ARC		=	tar.bz2
+SC_ARC		=	tar.xz
+#SC_ARC		=	tar.bz2
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	http://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).$(SC_ARC) \

@@ -8,7 +8,8 @@
 
 SC_APN		=	libtool
 SC_APV		=	2.4.6
-SC_ARC		=	tar.xz
+#SC_ARC		=	tar.xz
+SC_ARC		=	tar.gz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	http://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).$(SC_ARC) \

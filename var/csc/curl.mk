@@ -13,7 +13,8 @@ SC_APN		=	curl
 #SC_APV		=	7.81.0
 #SC_APV		=	7.88.1
 SC_APV		=	8.2.0
-SC_ARC		=	tar.gz
+#SC_ARC		=	tar.gz
+SC_ARC		=	tar.bz2
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 #SC_URL		=	http://curl.haxx.se/download/$(SC_VRM).tar.gz

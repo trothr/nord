@@ -12,8 +12,8 @@ SC_APN		=	make
 #SC_APV		=	3.79.1	# no signature
 #SC_APV		=	4.2.1
 SC_APV		=	4.3
-#SC_ARC		=	tar.gz
-SC_ARC		=	tar.bz2
+SC_ARC		=	tar.gz
+#SC_ARC		=	tar.bz2
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	http://ftp.gnu.org/pub/gnu/$(SC_APN)/$(SC_VRM).$(SC_ARC) \

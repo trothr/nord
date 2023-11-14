@@ -9,7 +9,8 @@
 SC_APN		=	gettext
 #SC_APV		=	0.19.8
 SC_APV		=	0.20.1
-SC_ARC		=	tar.gz
+#SC_ARC		=	tar.gz
+SC_ARC		=	tar.xz
 SC_VRM		=	$(SC_APN)-$(SC_APV)
 
 SC_URL		=	\

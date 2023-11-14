@@ -8,13 +8,14 @@
 
 SC_APN          =       acl
 #SC_APV         =       2.2.6
-SC_APV          =       2.2.53
+#SC_APV         =       2.2.53
+SC_APV          =       2.3.1
 SC_VRM          =       $(SC_APN)-$(SC_APV)
 SC_SOURCE       =       $(SC_VRM)
 
-SC_ARC          =       tar.gz
+#SC_ARC         =       tar.gz
 #SC_ARC         =       tar.bz2
-#SC_ARC         =       tar.xz
+SC_ARC          =       tar.xz
 
 SC_URL          =       \
  http://download.savannah.nongnu.org/releases/$(SC_APN)/$(SC_SOURCE).$(SC_ARC) \
