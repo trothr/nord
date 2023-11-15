@@ -71,13 +71,13 @@ What is needed is per-package knowledge: where to find it, how to compile it.
 For each package to be built/installed with CSCRATCH, there is a 
 ".mk" stub file. The most recently used stubs are ...
 
- autoconf.mk automake.mk bash.mk bc.mk bison.mk bzip2.mk coreutils.mk curl.mk 
- dash.mk diffutils.mk e2fsprogs.mk ed.mk file.mk findutils.mk flex.mk gawk.mk 
- gettext.mk glibc.mk grep.mk gzip.mk less.mk libtool.mk m4.mk make.mk nano.mk 
- ncurses.mk netsnmp.mk patch.mk pdksh.mk pkgconfig.mk procps.mk pth.mk 
- readline.mk rsync.mk screen.mk sed.mk shadow.mk sharutils.mk sudo.mk 
- sysklogd.mk sysvinit.mk tar.mk tcsh.mk texinfo.mk utillinux.mk vim.mk 
- wget.mk which.mk xinetd.mk xz.mk zlib.mk zsh.mk
+ attr.mk acl.mk autoconf.mk automake.mk bash.mk bc.mk bison.mk bzip2.mk
+ coreutils.mk cpio.mk curl.mk dash.mk diffutils.mk e2fsprogs.mk ed.mk
+ file.mk findutils.mk flex.mk gawk.mk gettext.mk grep.mk gzip.mk less.mk
+ libtool.mk m4.mk make.mk nano.mk ncurses.mk patch.mk pdksh.mk pkgconfig.mk
+ procps.mk readline.mk rsync.mk screen.mk sed.mk shadow.mk sharutils.mk
+ sudo.mk sysklogd.mk sysvinit.mk tar.mk tcsh.mk texinfo.mk utillinux.mk
+ vim.mk wget.mk which.mk xz.mk zlib.mk zsh.mk
 
 The complete collection, including many untested and out-of-date stubs, 
 is at the aforementioned web site. 
@@ -189,6 +189,6 @@ Also see the Chicory project ...
 
 https://github.com/trothr/chicory/
 
-*this page "NORD CSCRATCH" last updated 2023-11-13 (Monday) by RMT*
+*this page "NORD CSCRATCH" last updated 2023-11-15 (Wednesday) by RMT*
 
 
