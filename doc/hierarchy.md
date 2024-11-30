@@ -46,7 +46,7 @@ Most often, however, some devices will come and go, so a host-specific
 NORD does not specifically use or supply `/srv` content or framework.
 
 NORD uses `/var/run` (sym-linked to `/run` for compatibility)
-and avoids contention by handling `/var` mount early.
+and avoids contention by handling the `/var` mount early.
 NORD does *not* follow the (SystemD motivated?) practice of `/run` being
 the mount point and `/var/run` being the link. With NORD, it's the other
 way around, going with original practice.
